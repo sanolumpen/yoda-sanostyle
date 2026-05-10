@@ -1,37 +1,146 @@
 # ═══════════════════════════════════════════════════════════════════
-# KURI-DOTS GITIGNORE
-# Archivos sensibles que NO deben subirse al repositorio
+# YODA-SANOSTYLE DOTFILES
+# .gitignore - Archivos que NO deben subirse al repositorio
+# Basado en mejores prácticas de GitHub y git-scm.com
 # ═══════════════════════════════════════════════════════════════════
 
-# ─── Credenciales y Tokens ──────────────────────────────────────
-**/credentials.json
-**/token.pickle
-**/client_secrets.json
-**/*.token
-**/secrets.env
-**/.env
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 1: CREDENCIALES Y DATOS SENSIBLES (NUNCA SUBIR)
+# ═══════════════════════════════════════════════════════════════════
+# Archivos con tokens, passwords, keys, API keys
+credentials.json
+token.pickle
+client_secrets.json
+*.token
+secrets.env
+.env
+.env.*
+api_key*
+*password*
+*secrets*
+*.pem
+*.key
 
-# ─── Scripts con datos sensibles ──────────────────────────────
-**/*.py.bak
-
-# ─── Cachés y temporales ───────────────────────────────────────
-**/*.log
-**/*.tmp
-**/*.swp
-**/*~
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 2: CACHÉS Y ARCHIVOS TEMPORALES
+# ═══════════════════════════════════════════════════════════════════
+# Logs, backups, archivos de edición
+*.log
+*.tmp
+*.swp
+*~
+.cache/
+.cache/*
 /tmp/
-/.cache/eww_*
+*.bak
+*.working
+*.broken
 
-# ─── Wallpapers personales (opcional) ─────────────────────────
-# hypr/wallpaper/*.jpg
-# hypr/wallpaper/*.png
+# Backups de edición
+*.bak*
+*.backup
+*.old
+*.save
+*.working*
+*~
 
-# ─── Binarios y objetos compilados ───────────────────────────
-**/*.o
-**/*.so
-**/.so.*
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 3: APLICACIONES CON DATOS PERSONALES
+# ═══════════════════════════════════════════════════════════════════
+# Estas carpetas contienen datos privados, historial, configs sensibles
+aichat/
+discord/
+google-chrome/
+BraveSoftware/
+GDevelop 5/
+libreoffice/
+mozilla/
+steam/
+antigravity/
+Antigravity/
+cinnamon/
+cinnamon-session/
+gtk-3.0/
+nautilus/
+Thunar/
+xfce4/
+systemd/
+procps/
+pulse/
 
-# ─── Keys SSH (por si las dudas) ──────────────────────────────
-**/id_rsa*
-**/id_ed25519*
-**/.ssh/
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 4: CLAVES SSH, GPG Y CONFIGURACIONES DE SESIÓN
+# ═══════════════════════════════════════════════════════════════════
+# Keys y configs privadas
+.ssh/
+.gnome2/
+.gnupg/
+
+# Session y display
+.xsession-errors*
+.Xauthority
+
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 5: ENTORNOS VIRTUALES Y DEPENDENCIAS
+# ═══════════════════════════════════════════════════════════════════
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+vendor/
+Gemfile.lock
+
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 6: IDEs, EDITORES Y TOOLS
+# ═══════════════════════════════════════════════════════════════════
+.idea/
+.vscode/
+*.code-workspace
+Session.vim
+*.sublime-*
+
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 7: SO ESPECÍFICOS
+# ═══════════════════════════════════════════════════════════════════
+# Linux
+.proc/
+.sys/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 8: BINARIOS Y COMPILADOS
+# ═══════════════════════════════════════════════════════════════════
+*.o
+*.so
+*.a
+*.exe
+*.dll
+*.dylib
+
+# ═══════════════════════════════════════════════════════════════════
+# SECCIÓN 9: WALLPAPERS (comentar si se quiere incluir)
+# ═══════════════════════════════════════════════════════════════════
+# hypr/wallpapers/
+# wallpapers/
+# *.jpg
+# *.png
+# *.webp
+
+# ═══════════════════════════════════════════════════════════════════
+# NOTAS DE USO:
+# - Los patrones sin / al inicio son recursivos (buscan en todo el repo)
+# - Los patrones con / al final solo ignoran directorios
+# - Los patrones con / al inicio son relativos a la raíz del repo
+# - ! al principio niega el patrón (ej: !importante.log)
+# - Para ignorar un archivo ya rastreado: git rm --cached ARCHIVO
+# ═══════════════════════════════════════════════════════════════════
