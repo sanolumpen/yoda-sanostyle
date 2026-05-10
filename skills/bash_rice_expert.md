@@ -43,7 +43,28 @@ export XDG_RUNTIME_DIR="/run/user/1000"
 # Tu código aquí...
 ```
 
+## Wrappers para NVIDIA (Evitar Flickering)
+
+### Discord
+```bash
+#!/bin/bash
+discord --use-gl=desktop "$@"
+```
+
+### Brave
+```bash
+#!/bin/bash
+brave --disable-gpu-memory-buffer-video-frames "$@"
+```
+
+### Steam
+```bash
+#!/bin/bash
+steam -no-cef-sandbox "$@"
+```
+
 ## Referencias
 - [Hyprland docs](https://wiki.hyprland.org/)
+- [Hyprland NVIDIA Wiki](https://wiki.hyprland.org/Nvidia/)
 - [Waybar configuration](https://github.com/Alexays/Waybar)
 - [EWW scripts](https://github.com/elkowar/eww)

@@ -211,6 +211,8 @@
 }
 
 .stat-center {
+  min-width: 70px;
+  min-height: 70px;
 }
 
 .stat-icon {
@@ -851,4 +853,404 @@
   border-color: #00ff99;
   color: #00ff99;
   font-weight: 700;
+}
+
+/* Settings Widget */
+.settings-widget {
+  background: rgba(18, 20, 18, 0.98);
+  border-radius: 20px;
+  padding: 28px;
+  border: 3px solid rgba(0, 255, 153, 0.4);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.9);
+}
+
+.settings-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00ff99;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(0, 255, 153, 0.3);
+}
+
+.toggle-item {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  margin-bottom: 8px;
+  border: 1px solid rgba(0, 180, 90, 0.2);
+}
+
+.toggle-label {
+  color: #b9f6ca;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toggle-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  background: rgba(0, 255, 153, 0.2);
+  color: #00ff99;
+  border: 1px solid rgba(0, 255, 153, 0.4);
+}
+
+.toggle-btn:hover {
+  background: rgba(0, 255, 153, 0.4);
+  box-shadow: 0 0 12px rgba(0, 255, 153, 0.3);
+}
+
+.settings-separator {
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 153, 0.5), transparent);
+  min-height: 2px;
+  margin: 16px 0;
+}
+
+.settings-actions {
+  margin-top: 12px;
+}
+
+.settings-action-btn {
+  padding: 14px 24px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 180, 90, 0.3), rgba(0, 255, 153, 0.2));
+  border: 2px solid rgba(0, 255, 153, 0.4);
+  color: #b9f6ca;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.settings-action-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 153, 0.4), rgba(0, 180, 90, 0.3));
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+}
+
+/* NOTES WIDGET - Sticky Notes Style */
+.notes-card {
+  min-width: 280px;
+}
+
+.notes-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ff99;
+}
+
+.notes-add-btn {
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(0, 180, 90, 0.2);
+  color: #00ff99;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.notes-add-btn:hover {
+  background: rgba(0, 255, 153, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
+}
+
+.note-item {
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid #ffff00;
+}
+
+.note-item.pinned {
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.3);
+}
+
+.note-pin-btn {
+  padding: 2px 6px;
+  font-size: 14px;
+  background: transparent;
+  color: #b9f6ca;
+}
+
+.note-pin-btn.pinned {
+  color: #ffff00;
+}
+
+.note-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b9f6ca;
+}
+
+.note-content {
+  font-size: 12px;
+  color: #b9f6ca;
+  margin-top: 4px;
+}
+
+.note-color-btn {
+  padding: 2px 4px;
+  font-size: 12px;
+  background: transparent;
+  color: #888;
+}
+
+.note-color-btn:hover {
+  color: #fff;
+}
+
+.note-del-btn {
+  padding: 2px 6px;
+  font-size: 12px;
+  background: transparent;
+  color: #ff6b6b;
+}
+
+.note-del-btn:hover {
+  color: #ff4444;
+}
+
+/* Notes Editor */
+.note-tabs {
+  padding: 4px;
+  margin: 2px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.note-tab {
+  padding: 4px 12px;
+  margin: 2px;
+  border-radius: 4px;
+  background: rgba(0, 180, 90, 0.1);
+  color: #b9f6ca;
+  font-size: 12px;
+}
+
+.note-tab.selected {
+  background: rgba(0, 255, 153, 0.3);
+  color: #00ff99;
+}
+
+.note-tab:hover {
+  background: rgba(0, 255, 153, 0.2);
+}
+
+.note-editor {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.note-label {
+  font-size: 12px;
+  color: #00ff99;
+  font-weight: 600;
+}
+
+.note-input-title {
+  padding: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: #b9f6ca;
+  font-size: 14px;
+}
+
+.note-input-content {
+  padding: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: #b9f6ca;
+  font-size: 13px;
+  min-height: 80px;
+}
+
+/* ===== FOOTBALL CARDS ===== */
+.football-cards-row {
+  padding-top: 2px;
+  min-height: 16px;
+}
+
+.football-card-icon {
+  font-size: 10px;
+}
+
+.football-card-icon.yellow {
+  color: #ffeb3b;
+}
+
+.football-card-icon.red {
+  color: #f44336;
+}
+
+/* ===== CALENDAR NAV BUTTONS ===== */
+.calendar-nav-btn {
+  background: rgba(0, 255, 153, 0.1);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 14px;
+  color: #b9f6ca;
+  font-weight: 600;
+}
+
+.calendar-nav-btn:hover {
+  background: rgba(0, 255, 153, 0.25);
+  border-color: #00ff99;
+}
+
+/* ===== UNAHUR CLASSES ===== */
+.gcal-clases-list .gcal-event-row {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+.gcal-clases-list .gcal-event-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4fc3f7;
+}
+
+.gcal-clases-list .gcal-event-time {
+  font-size: 11px;
+  color: #4fc3f7;
+}
+
+.gcal-clases-list .gcal-event-day {
+  font-size: 11px;
+  color: rgba(79, 195, 247, 0.6);
+}
+
+/* ===== NOTES BLOC ===== */
+.notes-header-row {
+  margin-bottom: 8px;
+}
+
+.notes-edit-btn {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 255, 153, 0.1);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: #00ff99;
+  font-size: 14px;
+}
+
+.notes-edit-btn:hover {
+  background: rgba(0, 255, 153, 0.25);
+}
+
+.notes-hint {
+  font-size: 10px;
+  color: rgba(185, 246, 202, 0.5);
+  margin-right: 8px;
+}
+
+.notes-edit-toggle {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 255, 153, 0.1);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: #00ff99;
+  font-size: 14px;
+}
+
+.notes-edit-toggle:hover {
+  background: rgba(0, 255, 153, 0.25);
+}
+
+.notes-input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+  color: #b9f6ca;
+  font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.notes-editor-window {
+  background: rgba(5, 7, 5, 0.95);
+  padding: 16px;
+}
+
+.notes-editor-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00ff99;
+  margin-bottom: 12px;
+}
+
+.notes-editor-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 153, 0.4);
+  border-radius: 6px;
+  padding: 12px;
+  color: #b9f6ca;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.notes-editor-close {
+  padding: 8px 24px;
+  border-radius: 6px;
+  background: rgba(0, 255, 153, 0.2);
+  border: 1px solid rgba(0, 255, 153, 0.4);
+  color: #00ff99;
+  font-size: 14px;
+}
+
+.notes-editor-close:hover {
+  background: rgba(0, 255, 153, 0.3);
+}
+
+.notes-save-hint {
+  font-size: 10px;
+  color: rgba(185, 246, 202, 0.5);
+  background: transparent;
+}
+
+.notes-edit-btn {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 255, 153, 0.1);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  color: #00ff99;
+  font-size: 12px;
+}
+
+.notes-edit-btn:hover {
+  background: rgba(0, 255, 153, 0.25);
+}
+
+.notes-clear-btn {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+.notes-content {
+  font-size: 13px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: #b9f6ca;
+  min-height: 120px;
+}
+
+.notes-paper {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(0, 255, 153, 0.15);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.notes-textarea {
+  background: transparent;
+  border: none;
+  color: #b9f6ca;
+  font-size: 13px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  min-height: 120px;
+  min-width: 240px;
 }

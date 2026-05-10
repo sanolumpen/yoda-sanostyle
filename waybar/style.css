@@ -1,6 +1,6 @@
 /* --- Global --- */
 * {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Iosevka Nerd Font Mono", "Orbitron", sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -19,11 +19,11 @@ window#waybar {
 #network,
 #battery,
 #custom-power {
-  padding: 0px 8px;
-  margin: 0;
+  padding: 0px 10px;
+  margin: 0 4px;
   color: #b9f6ca;
   border-radius: 6px;
-  background-color: transparent;
+  background-color: rgba(0, 180, 90, 0.08);
   font-weight: 600;
 }
 
@@ -31,7 +31,10 @@ window#waybar {
   font-size: 18px;
 }
 
-#pulseaudio,
+#pulseaudio {
+  font-size: 24px;
+}
+
 #network,
 #battery,
 #custom-power {
@@ -40,7 +43,84 @@ window#waybar {
 
 /* --- Custom Power module --- */
 #custom-power {
-  font-size: 22px; /* Larger icon */
+  font-size: 22px;
+}
+
+/* --- Settings --- */
+#custom-settings {
+  font-size: 22px;
+  padding: 4px 10px;
+}
+
+/* --- Network --- */
+#network {
+  font-size: 22px;
+}
+
+/* --- Custom Launchers (App icons) --- */
+#custom-brave,
+#custom-discord,
+#custom-steam,
+#custom-gdevelop {
+  padding: 4px 10px;
+  margin: 0 3px;
+  color: #b9f6ca;
+  font-size: 24px;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+/* --- Separadores entre secciones --- */
+#custom-gcal_next {
+  padding: 0 12px;
+  color: rgba(0, 255, 153, 0.4);
+}
+
+#custom-launchers {
+  padding: 4px 12px;
+  margin: 0 8px;
+  color: rgba(0, 255, 153, 0.5);
+  font-size: 18px;
+}
+
+/* --- Right section separator --- */
+#custom-settings,
+#custom-language,
+#custom-language_toggle,
+#pulseaudio,
+#network {
+  padding: 4px 10px;
+}
+
+#custom-brave:hover,
+#custom-discord:hover,
+#custom-steam:hover,
+#custom-gdevelop:hover {
+  color: #00ff99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.8);
+}
+
+#custom-launchers:hover {
+  background: rgba(0, 180, 90, 0.3);
+  color: #00ff99;
+}
+
+#custom-settings,
+#custom-language,
+#custom-language_toggle {
+  font-size: 20px;
+}
+
+#custom-settings:hover,
+#custom-language:hover,
+#custom-language_toggle:hover {
+  background: rgba(0, 255, 153, 0.15);
+  color: #00ff99;
+}
+
+#custom-gcal_next {
+  font-size: 16px;
+  padding: 4px 12px;
 }
 
 /* --- Workspaces (Dot Style) --- */

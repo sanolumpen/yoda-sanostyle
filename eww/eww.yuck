@@ -22,14 +22,9 @@
 (defpoll cpu_temp        :interval "3s"  "scripts/system.sh temp")
 (defpoll storage_percent :interval "30s" "scripts/storage.sh percent")
 
-;; ─── AUDIO / BRILLO / BATERÍA ────────────────────────
+;; ─── AUDIO ───────────────────────────────────────────
 (defpoll audio_volume       :interval "1s" "scripts/audio.sh volume")
 (defpoll audio_icon         :interval "1s" "scripts/audio.sh icon")
-(defpoll brightness_percent :interval "1s" "scripts/brightness.sh percent")
-(defpoll brightness_icon    :interval "1s" "scripts/brightness.sh icon")
-(defpoll battery_percent    :interval "5s" "scripts/battery.sh percent")
-(defpoll battery_icon       :interval "5s" "scripts/battery.sh icon")
-(defpoll battery_status     :interval "5s" "scripts/battery.sh status")
 
 ;; ─── FECHA ───────────────────────────────────────────
 (defpoll date_day     :interval "10s" "date '+%d'")
@@ -45,15 +40,15 @@
 (defvar cal_show_picker  false)
 
 ;; ─── CALENDARIO — polls ──────────────────────────────
-(defpoll calendar_month_num :interval "1s" "~/.config/eww/scripts/calendar.sh month-num $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_year      :interval "1s" "~/.config/eww/scripts/calendar.sh year   $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_month     :interval "1s" "~/.config/eww/scripts/calendar.sh month  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week0     :interval "1s" "~/.config/eww/scripts/calendar.sh week0  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week1     :interval "1s" "~/.config/eww/scripts/calendar.sh week1  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week2     :interval "1s" "~/.config/eww/scripts/calendar.sh week2  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week3     :interval "1s" "~/.config/eww/scripts/calendar.sh week3  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week4     :interval "1s" "~/.config/eww/scripts/calendar.sh week4  $(cat ~/.cache/eww_cal_offset)")
-(defpoll calendar_week5     :interval "1s" "~/.config/eww/scripts/calendar.sh week5  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_month_num :interval "1s" "~/.config/eww/scripts/calendar.sh month-num $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_year      :interval "1s" "~/.config/eww/scripts/calendar.sh year    $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_month     :interval "1s" "~/.config/eww/scripts/calendar.sh month   $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week0     :interval "1s" "~/.config/eww/scripts/calendar.sh week0  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week1     :interval "1s" "~/.config/eww/scripts/calendar.sh week1  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week2     :interval "1s" "~/.config/eww/scripts/calendar.sh week2  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week3     :interval "1s" "~/.config/eww/scripts/calendar.sh week3  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week4     :interval "1s" "~/.config/eww/scripts/calendar.sh week4  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
+(defpoll calendar_week5     :interval "1s" "~/.config/eww/scripts/calendar.sh week5  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
 
 ;; ─── GOOGLE CALENDAR ─────────────────────────────────
 (defpoll gcal_day_events :interval "1h"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py day $(cat ~/.cache/eww_selected_day 2>/dev/null || date +%Y-%m-%d)")
@@ -88,29 +83,19 @@
 
 (defwidget system_stats []
   (box :class "widget system-stats-card" :orientation "v" :space-evenly false :spacing 10
-    (box :class "stats-grid" :orientation "h" :space-evenly false :spacing 18 :halign "start"
+    (box :class "stats-grid" :orientation "h" :space-evenly true :spacing 18 :halign "center"
       (circular_stat :icon "󰻠" :value cpu_percent     :color "cpu-color")
       (circular_stat :icon "󰍛" :value memory_usage    :color "memory-color")
       (circular_stat :icon "󰋊" :value storage_percent :color "storage-color")
       (circular_stat :icon "󰔏" :value cpu_temp        :color "temp-color" :unit "°C"))))
 
 (defwidget controls []
-  (box :class "widget controls-card" :orientation "v" :space-evenly false :spacing 24
+  (box :class "widget controls-card" :orientation "v" :space-evenly false :spacing 16
     (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
       (label :class "control-icon audio-icon" :text audio_icon)
-      (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar" :value audio_volume))
-      (label :class "control-value" :text "${audio_volume}%"))
-    (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
-      (label :class "control-icon" :text brightness_icon)
-      (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar" :value brightness_percent))
-      (label :class "control-value" :text "${brightness_percent}%"))
-    (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
-      (label :class "control-icon" :text battery_icon)
-      (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar" :value battery_percent))
-      (label :class "control-value" :text "${battery_percent}%"))))
+      (box :class "control-bar-container" :orientation "v" :valign "center" :hexpand true
+        (eventbox :onclick "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- &"
+          (scale :class "control-bar" :value audio_volume :min 0 :max 100 :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ $0 &"))))))
 
 (defwidget quick_launcher []
   (box :class "widget launcher-card" :orientation "v" :space-evenly false :spacing 8
@@ -246,10 +231,11 @@
         (label :class "gcal-subtitle-clases" :text "CLASES" :xalign 0)
         (box :class "gcal-clases-list" :orientation "v" :space-evenly false :spacing 0
           (for event in unahur_classes
-            (box :class "gcal-event-row" :orientation "h" :space-evenly false :spacing 8
-              (label :class "gcal-event-day"   :text {event.day}   :xalign 0)
-              (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
-              (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 18 :wrap false))))
+            (box :class "gcal-event-row gcal-upcoming-row" :orientation "v" :space-evenly false :spacing 2
+              (label :class "gcal-upcoming-title" :text {event.title} :xalign 0 :limit-width 24 :wrap false)
+              (box :orientation "h" :space-evenly false :spacing 6
+                (label :class "gcal-indie-day"  :text {event.day}  :xalign 0)
+                (label :class "gcal-indie-time" :text {event.time} :xalign 0)))))
 
         (box :class "gcal-separator")
 
@@ -293,9 +279,49 @@
             (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
             (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 18 :wrap false)))))))
 
+;; ─── SETTINGS / TOGGLE WIDGETS ───────────────────────────
+(defwidget settings_panel []
+  (box :class "settings-widget" :orientation "v" :space-evenly false :spacing 16
+
+    (label :class "settings-title" :text "TOGGLE WIDGETS")
+
+    (box :class "toggle-item" :orientation "h" :space-evenly false :spacing 12
+      (label :class "toggle-label" :text "Dashboard" :xalign 0 :hexpand true)
+      (button :class "toggle-btn" :onclick "~/.config/eww/scripts/toggle-all-widgets.sh dashboard &"
+        (label :text "ON")))
+
+    (box :class "toggle-item" :orientation "h" :space-evenly false :spacing 12
+      (label :class "toggle-label" :text "Calendar" :xalign 0 :hexpand true)
+      (button :class "toggle-btn" :onclick "~/.config/eww/scripts/toggle-all-widgets.sh calendar &"
+        (label :text "ON")))
+
+    (box :class "toggle-item" :orientation "h" :space-evenly false :spacing 12
+      (label :class "toggle-label" :text "Football" :xalign 0 :hexpand true)
+      (button :class "toggle-btn" :onclick "~/.config/eww/scripts/toggle-all-widgets.sh football &"
+        (label :text "ON")))
+
+    (box :class "toggle-item" :orientation "h" :space-evenly false :spacing 12
+      (label :class "toggle-label" :text "Notes" :xalign 0 :hexpand true)
+      (button :class "toggle-btn" :onclick "~/.config/eww/scripts/toggle-all-widgets.sh notes &"
+        (label :text "ON")))
+
+    (box :class "settings-separator")
+
+    (label :class "settings-title" :text "ACCIONES")
+
+    (box :class "settings-actions" :orientation "h" :space-evenly true :spacing 8
+      (button :class "settings-action-btn" :onclick "pkill -f eww; sleep 1; eww daemon; eww open-many dashboard_window date_window football_window notes_window &"
+        (label :text "REINICIAR"))
+      (button :class "settings-action-btn" :onclick "hyprctl reload &"
+        (label :text "RELOAD")))))
+
 ;; ═══════════════════════════════════════════════════════
 ;;   VENTANAS
 ;; ═══════════════════════════════════════════════════════
+;; Posiciones basadas en docs de EWW:
+;; - x, y: position en px o % relativo al anchor
+;; - anchor: center o combinaciones top/center/bottom + left/center/right
+;; - stacking: fg (foreground), bg (background), overlay, bottom
 
 (defwindow dashboard_window
   :monitor 0
@@ -310,14 +336,25 @@
   (date_display))
 
 ;; ─── FOOTBALL WIDGET ───────────────────────────────────
+
+;; ─── FOOTBALL WIDGET ───────────────────────────────────
 (defwidget football_match [match]
-  (box :class "football-match-row" :orientation "h" :space-evenly false :spacing 4
-    (label :class "football-match-time" :text {match.time})
-    (image :class "football-team-img" :path {match.team1_logo} :image-width 16 :image-height 16)
-    (label :class "football-team1" :text {match.team1})
-    (label :class "football-score" :text {match.score != "" ? match.score : "-"})
-    (label :class "football-team2" :text {match.team2})
-    (image :class "football-team-img" :path {match.team2_logo} :image-width 16 :image-height 16)))
+  (box :class "football-match-row" :orientation "v" :space-evenly false :spacing 2
+    (box :orientation "h" :space-evenly false :spacing 4
+      (label :class "football-match-time" :text {match.time})
+      (image :class "football-team-img" :path {match.team1_logo} :image-width 16 :image-height 16)
+      (label :class "football-team1" :text {match.team1})
+      (label :class "football-score" :text {match.score != "" ? match.score : "-"})
+      (label :class "football-team2" :text {match.team2})
+      (image :class "football-team-img" :path {match.team2_logo} :image-width 16 :image-height 16))
+    ;; Cards row - show quantity
+    (box :class "football-cards-row" :orientation "h" :space-evenly true :spacing 8
+      (box :orientation "h" :space-evenly false :spacing 4
+        (label :class "football-card-icon yellow" :text {match.yellow1 != "" ? "${match.yellow1}" : "-"})
+        (label :class "football-card-icon red" :text {match.red1 != "" ? "${match.red1}" : "-"}))
+      (box :orientation "h" :space-evenly false :spacing 4 :halign "end"
+        (label :class "football-card-icon yellow" :text {match.yellow2 != "" ? "${match.yellow2}" : "-"})
+        (label :class "football-card-icon red" :text {match.red2 != "" ? "${match.red2}" : "-"})))))
 
 (defwidget football_league [league]
   (box :class "football-league-box" :orientation "v" :space-evenly false :spacing 4
@@ -336,34 +373,35 @@
           (football_league :league league))))))
 
 ;; ─── NOTES WIDGET ──────────────────────────────────────
-(defwidget note_item [note]
-  (box :class "note-item" :orientation "v" :space-evenly false :spacing 2
-    (box :orientation "h" :space-evenly false :spacing 4
-      (button :class "note-pin-btn" :onclick "~/.config/eww/scripts/notes.sh toggle-pin {note.id} > /dev/null 2>&1"
-        (label :text {note.pinned ? "P" : "p"}))
-      (label :class "note-title" :text {note.title})
-      (button :class "note-del-btn" :onclick "~/.config/eww/scripts/notes.sh delete {note.id} > /dev/null 2>&1"
-        (label :text "x")))
-    (label :class "note-content" :text {note.content} :wrap true)))
+(defpoll note_content :interval "500ms" "cat ~/.local/share/kuri-notes/nota.txt 2>/dev/null || echo ''")
 
 (defwidget notes_widget []
-  (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 8
-    (box :orientation "h" :space-evenly false
-      (label :class "notes-header" :text "NOTAS"))
-    (scroll :vscroll true :hscroll false :height 150
-      (box :orientation "v" :space-evenly false :spacing 4
-        (for note in notes_list
-          (note_item :note note))))))
+  (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 6
+    (box :class "notes-header-row" :orientation "h" :space-evenly false :spacing 8
+      (label :class "notes-header" :text "📓 NOTAS" :xalign 0)
+      (label :class "notes-hint" :text "Editar: nano ~/.local/share/kuri-notes/nota.txt" :xalign 1)
+      (button :class "notes-clear-btn" :onclick "echo -n '' > ~/.local/share/kuri-notes/nota.txt &" (label :text "🗑")))
+    (box :class "notes-paper" :orientation "v" :space-evenly false :spacing 0
+      (scroll :vscroll true :hscroll false :height 140
+        (label :class "notes-content" :text note_content :wrap true)))))
 
 ;; ─── VENTANAS ADICIONALES ─────────────────────────────
+;; Football: debajo del dashboard
 (defwindow football_window
   :monitor 0
   :geometry (geometry :x "20px" :y "440px" :width "320px" :anchor "top left")
-  :stacking "bg" :windowtype "dock" :wm-ignore false
+  :stacking "bg" :windowtype "dock" :wm-ignore true
   (football_widget))
 
+;; Notes: a la derecha del dashboard
 (defwindow notes_window
   :monitor 0
   :geometry (geometry :x "680px" :y "20px" :width "280px" :anchor "top left")
-  :stacking "bg" :windowtype "dock" :wm-ignore false
+  :stacking "bg" :windowtype "dock" :wm-ignore true
   (notes_widget))
+
+(defwindow settings_window
+  :monitor 0
+  :geometry (geometry :x "50%" :y "50%" :width "320px" :height "400px" :anchor "center")
+  :stacking "fg" :windowtype "normal" :wm-ignore false
+  (settings_panel))

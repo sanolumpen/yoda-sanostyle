@@ -1,11 +1,11 @@
 // -*- mode: jsonc -*-
 {
-  "height": 24,
-  "spacing": 8,
-  "margin-top": 10,
+  "height": 40,
+  "spacing": 4,
+  "margin-top": 8,
   "margin-left": 16,
   "margin-right": 20,
-  "modules-left": ["clock", "custom/gcal_next"],
+  "modules-left": ["clock", "custom/gcal_next", "custom/brave", "custom/discord", "custom/steam", "custom/gdevelop", "custom/launchers"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["custom/settings", "pulseaudio", "network", "battery", "custom/language_toggle", "custom/language", "custom/power"],
 
@@ -34,8 +34,8 @@
   },
 
   "network": {
-    "format-wifi": "󰤨",
-    "format-ethernet": "󰈁",
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀",
     "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}",
     "format-disconnected": "󰤭",
     "on-click": "nm-connection-editor"
@@ -43,9 +43,8 @@
 
   "pulseaudio": {
     "backend": "pipewire",
-    "format": "{icon}",
+    "format": "󰾭",
     "format-muted": "󰝟",
-    "format-icons": { "default": [" ", " ", " "] },
     "tooltip-format": "{volume}%",
     "tooltip": true,
     "on-click": "pavucontrol"
@@ -65,7 +64,7 @@
   },
 
   "custom/settings": {
-    "format": "",
+    "format": "󰒘",
     "tooltip-format": "Desktop Settings / Configuración",
     "on-click": "eww open --toggle settings_window"
   },
@@ -83,5 +82,35 @@
     "max-length": 30,
     "tooltip": false,
     "on-click": "eww open date_window"
+  },
+
+  "custom/launchers": {
+    "format": "{}",
+    "tooltip": false,
+    "on-click": "wofi --show drun"
+  },
+
+  "custom/brave": {
+    "format": "󰈟",
+    "tooltip": "Brave Browser",
+    "on-click": "~/.config/waybar/scripts/launch-app.sh brave"
+  },
+
+  "custom/discord": {
+    "format": "󰙯",
+    "tooltip": "Discord",
+    "on-click": "~/.config/waybar/scripts/launch-app.sh discord"
+  },
+
+  "custom/steam": {
+    "format": "󰓛",
+    "tooltip": "Steam",
+    "on-click": "~/.config/waybar/scripts/launch-app.sh steam"
+  },
+
+  "custom/gdevelop": {
+    "format": "󰈙",
+    "tooltip": "GDevelop 5",
+    "on-click": "~/.config/waybar/scripts/launch-app.sh gdevelop5"
   }
 }
