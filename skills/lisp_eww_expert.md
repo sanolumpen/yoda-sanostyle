@@ -9,7 +9,7 @@
 
 ## El Bug Recurrente (¡Cuidado!)
 **Balance de paréntesis y herencia de EWW.**
-- `(revealer ...)` SOLO PUEDE TENER **UN HIJO**. Si pasas más de un hijo, eww crasheará silenciosamente o lanzó el error: `revealer can only have one child`.
+- `(revealer ...)` SOLO PUEDE TENER **UN HIJO**. Si pasas más de un hijo, eww crasheará silenciosamente o lançou el error: `revealer can only have one child`.
 - Usa siempre un `(box ...)` contenedor dentro del revealer si necesitas más de un elemento interno.
 - Fuente: [elkowar/eww](https://github.com/elkowar/eww) - Known issues
 
@@ -54,4 +54,4 @@
 - [EWW GitHub](https://github.com/elkowar/eww)
 - [EWW Documentation](https://elkowar.github.io/eww/)
 - [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
-- [elkowar/eww widgets](https://github.com/elkowar/awesome-eww)
+- [elkowar/awesome-eww](https://github.com/elkowar/awesome-eww)
