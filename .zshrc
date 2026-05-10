@@ -1,3 +1,6 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -5,18 +8,18 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="yoda"
 
 # Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# truecolor
-export COLORTERM=truecolor
+# User configuration
 
 # aliases
-alias vi="nvim"
-alias vi-dots="nvim ~/.config"
-alias cd-me="cd ~/Projects/"
+alias conf="nano ~/.config/hypr/hyprland.conf"
+alias zconf="nano ~/.zshrc"
+alias v="nvim"
+alias ls="ls --color=auto"
+
+# opencode
+export PATH=/home/sanodesu/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"

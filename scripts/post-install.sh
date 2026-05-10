@@ -45,11 +45,18 @@ fi
 
 # Copy .zshrc configuration
 echo "Setting up .zshrc..."
-if [ -f "$HOME/.config/.zshrc" ]; then
-    cp "$HOME/.config/.zshrc" "$HOME/.zshrc"
-    echo "✓ .zshrc configured"
+if [ -f "$HOME/.zshrc" ]; then
+    echo "✓ .zshrc already exists, skipping..."
 else
-    echo "⚠ Warning: .zshrc template not found in ~/.config/"
+    if [ -f "$SCRIPT_DIR/../dotfiles/.zshrc" ]; then
+        cp "$SCRIPT_DIR/../dotfiles/.zshrc" "$HOME/.zshrc"
+        echo "✓ .zshrc configured from dotfiles"
+    elif [ -f "$HOME/.config/.zshrc" ]; then
+        cp "$HOME/.config/.zshrc" "$HOME/.zshrc"
+        echo "✓ .zshrc configured from ~/.config/"
+    else
+        echo "⚠ Warning: .zshrc template not found"
+    fi
 fi
 echo ""
 

@@ -10,6 +10,20 @@
 | Alacritty | 0.15.1 | Terminal |
 | Brave | Latest | Navegador |
 | Discord | 0.0.x | Chat |
+| Neovim | 0.10.x | Editor |
+| LazyVim | 11.x | Neovim distro |
+
+## Correcciones Aplicadas (2026-05-10)
+
+- [x] typo ELECTON → ELECTRON (hyprland.conf)
+- [x] Conflicto SUPER+H removido (fastfetch → movefocus L)
+- [x] eww.css copiado a ~/.config/eww/
+- [x] waybar/style.css copiado a ~/.config/waybar/
+- [x] music.sh sincronizado (restaurado fallback portada)
+- [x] mimeapps.list sincronizado (Brave como default)
+- [x] wallpaper.sh vacío → placeholder limpio
+- [x] post-install.sh corregida ruta .zshrc
+- [x] trailing space eliminado en línea 41
 
 ## Configuraciones NVIDIA
 
