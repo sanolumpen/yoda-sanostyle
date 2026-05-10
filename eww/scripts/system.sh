@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Force C numeric locale to ensure dot decimal separator
+export LC_NUMERIC=C
+
 # System monitoring script
 
 case $1 in

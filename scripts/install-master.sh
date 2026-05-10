@@ -5,18 +5,28 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKUP_SCRIPT="$SCRIPT_DIR/backup-kuri-dots.sh"
 
 echo "========================================"
 echo "Complete System Setup"
 echo "========================================"
 echo ""
 echo "This script will perform the following:"
-echo "  1. Install all official Arch packages (74 packages)"
-echo "  2. Install all AUR packages (yay, paru, google-chrome)"
-echo "  3. Configure system settings (zsh, oh-my-zsh, NetworkManager, firewall)"
+echo "  1. Backup current kuri-dots configuration"
+echo "  2. Install all official Arch packages (82 packages)"
+echo "  3. Install all AUR packages (yay, paru, google-chrome)"
+echo "  4. Configure system settings (zsh, oh-my-zsh, NetworkManager, firewall)"
 echo ""
 echo "Your configuration files should already be in ~/.config/"
 echo ""
+
+# Auto-backup before installing
+if [[ -x "$BACKUP_SCRIPT" ]]; then
+    echo "Running pre-install backup..."
+    bash "$BACKUP_SCRIPT" backup -q
+    echo ""
+fi
+
 read -p "Continue with complete installation? (y/N) " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -26,14 +36,22 @@ fi
 
 echo ""
 echo "========================================"
-echo "Step 1: Installing Official Packages"
+echo "Step 1: Backing up existing config"
+echo "========================================"
+if [[ -x "$BACKUP_SCRIPT" ]]; then
+    bash "$BACKUP_SCRIPT" backup -q
+fi
+
+echo ""
+echo "========================================"
+echo "Step 2: Installing Official Packages"
 echo "========================================"
 # Installs all packages from pkglist.txt using pacman
 bash "$SCRIPT_DIR/install-official-packages.sh"
 
 echo ""
 echo "========================================"
-echo "Step 2: Installing AUR Packages"
+echo "Step 3: Installing AUR Packages"
 echo "========================================"
 # Installs all packages from aurlist.txt using yay/paru
 # Will automatically install yay if no AUR helper is found
@@ -41,7 +59,7 @@ bash "$SCRIPT_DIR/install-aur-packages.sh"
 
 echo ""
 echo "========================================"
-echo "Step 3: Post-Installation Configuration"
+echo "Step 4: Post-Installation Configuration"
 echo "========================================"
 # Sets up zsh, oh-my-zsh, NetworkManager, and firewall
 # Offers to reboot the system

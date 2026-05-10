@@ -1,4 +1,9 @@
-/* Yoda Theme Color Palette */
+/* ═══════════════════════════════════════════════════════
+   EWW CSS — YODA THEME
+   Una sola definición por clase, sin redundancias
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── RESET GLOBAL ──────────────────────────────────── */
 * {
   all: unset;
   font-family: "Orbitron", sans-serif;
@@ -6,13 +11,10 @@
   color: #b9f6ca;
 }
 
-/* Dashboard Container */
-.dashboard {
-  background-color: transparent;
-  padding: 0;
-}
+/* ─── DASHBOARD ─────────────────────────────────────── */
+.dashboard { background-color: transparent; padding: 0; }
 
-/* Widget Base Styles */
+/* ─── WIDGET BASE ───────────────────────────────────── */
 .widget {
   background: rgba(5, 7, 5, 0.92);
   border-radius: 12px;
@@ -21,539 +23,189 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
-/* Widget Header */
-.widget-header {
-  margin-bottom: 3px;
-}
+/* ─── WEATHER ───────────────────────────────────────── */
+.weather-card      { border: none; background: transparent; padding: 12px; min-width: 200px; }
+.weather-icon      { font-size: 56px; color: #00ff99; text-shadow: 0 0 16px rgba(0,255,153,0.4); }
+.weather-location  { font-size: 18px; font-weight: 600; color: #00ff99; letter-spacing: 1px; margin-bottom: 2px; min-width: 120px; }
+.weather-temp      { font-size: 38px; font-weight: 700; color: #ffffff; }
+.weather-condition { font-size: 16px; color: rgba(255,255,255,0.75); font-weight: 500; }
 
-.widget-icon {
-  font-size: 22px;
-  color: #00ff99;
-  margin-right: 8px;
-}
+/* ─── SYSTEM STATS ──────────────────────────────────── */
+.system-stats-card { padding: 16px; border: none; background: transparent; }
+.stats-grid        { padding: 8px 0; }
+.stat-item         { min-width: 70px; }
+.stat-ring         { margin-bottom: 8px; padding: 0; min-width: 70px; min-height: 70px; }
+.stat-progress-bg  { min-width: 70px; min-height: 70px; color: rgba(255,255,255,0.25); }
+.stat-progress     { min-width: 70px; min-height: 70px; }
+.stat-progress.cpu-color     { color: #00ff99; }
+.stat-progress.memory-color  { color: #00ff99; }
+.stat-progress.storage-color { color: #00ff99; }
+.stat-progress.temp-color    { color: #00ff99; }
+.stat-icon         { font-size: 32px; color: #b9f6ca; text-shadow: 0 0 12px rgba(185,246,202,0.4); }
+.stat-percent      { font-size: 18px; font-weight: 700; color: #ffffff; }
 
-.tokyo-icon {
-  margin-right: 12px;
-  margin-left: 8px;
-}
-
-.widget-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #00ff99;
-}
-
-.tokyo-title {
-  margin-left: 0;
-}
-
-.system-title, .storage-title {
-  margin-left: 8px;
-}
-
-
-
-/* ===== TOKYO WEATHER WIDGET ===== */
-.weather-card {
-  border: none;
-  background: transparent;
-  padding: 12px;
-  min-width: 200px;
-}
-
-.weather-icon {
-  font-size: 56px;
-  color: #00ff99;
-  text-shadow: 0 0 16px rgba(0, 255, 153, 0.4);
-}
-
-.weather-location {
-  font-size: 18px;
-  font-weight: 600;
-  color: #00ff99;
-  letter-spacing: 1px;
-  margin-bottom: 2px;
-  min-width: 120px;
-}
-
-.weather-temp {
-  font-size: 38px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.weather-condition {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 500;
-}
-
-.weather-humidity-label {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 600;
-}
-
-.weather-humidity {
-  font-size: 18px;
-  font-weight: 700;
-  color: #00ff99;
-}
-
-/* ===== SYSTEM MONITOR WIDGET ===== */
-.system-card {
-  padding-bottom: 28px;
-}
-
-.metrics-grid {
-  padding: 4px 0 4px 0;
-}
-
-.metric-row {
-  padding: 6px 0;
-}
-
-.metric-icon-simple {
-  font-size: 24px;
-  color: #00ff99;
-  margin-right: 4px;
-}
-
-.metric-info {
-  min-width: 0;
-}
-
-.metric-label {
-  font-size: 18px;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.metric-bar {
-  min-height: 8px;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 153, 0.05);
-}
-
-.metric-bar trough {
-  min-height: 8px;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 153, 0.05);
-}
-
-.metric-bar progress {
-  min-height: 8px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #00ff99, #66ffb2);
-}
-
-.metric-value {
-  font-size: 15px;
-  font-weight: 700;
-  color: #b9f6ca;
-  min-width: 0;
-}
-
-.metric-value-large {
-  font-size: 18px;
-  font-weight: 700;
-  color: #00ff99;
-  margin-top: 4px;
-}
-
-/* ===== SYSTEM STATS WITH CIRCULAR GRAPHS ===== */
-.system-stats-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
-}
-
-.stats-grid {
-  padding: 8px 0;
-}
-
-.stat-item {
-  min-width: 70px;
-}
-
-.stat-ring {
-  margin-bottom: 8px;
-  padding: 0;
-  min-width: 70px;
-  min-height: 70px;
-}
-
-.stat-progress-bg {
-  min-width: 70px;
-  min-height: 70px;
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.stat-progress {
-  min-width: 70px;
-  min-height: 70px;
-}
-
-.stat-progress.cpu-color {
-  color: #00ff99;
-}
-
-.stat-progress.memory-color {
-  color: #00ff99;
-}
-
-.stat-progress.storage-color {
-  color: #00ff99;
-}
-
-.stat-progress.temp-color {
-  color: #00ff99;
-}
-
-.stat-center {
-}
-
-.stat-icon {
-  font-size: 32px;
-  color: #b9f6ca;
-  text-shadow: 0 0 12px rgba(185, 246, 202, 0.4);
-}
-
-.stat-percent {
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-/* ===== CONTROLS WIDGET (AUDIO & BRIGHTNESS) ===== */
-.controls-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
-}
-
-.control-item {
-  padding: 4px 0;
-}
-
-.control-icon {
-  font-size: 24px;
-  color: #b9f6ca;
-  min-width: 32px;
-}
-
-.control-icon.audio-icon {
-  font-size: 28px;
-}
-
-.control-bar-container {
-  min-width: 240px;
-}
-
+/* ─── CONTROLS ──────────────────────────────────────── */
+.controls-card         { padding: 16px; border: none; background: transparent; }
+.control-item          { padding: 4px 0; }
+.control-icon          { font-size: 24px; color: #b9f6ca; min-width: 32px; }
+.control-icon.audio-icon { font-size: 28px; }
+.control-bar-container { min-width: 240px; }
 .control-bar trough {
   all: unset;
-  min-height: 12px;
-  min-width: 240px;
+  min-height: 12px; min-width: 240px;
   border-radius: 12px;
-  background-color: rgba(0, 255, 153, 0.15);
+  background-color: rgba(0,255,153,0.15);
 }
-
 .control-bar trough progress {
   all: unset;
-  min-height: 12px;
-  border-radius: 12px;
+  min-height: 12px; border-radius: 12px;
   background: linear-gradient(90deg, #00ff99, #66ffb2);
 }
+.control-value { font-size: 15px; font-weight: 700; color: #ffffff; min-width: 45px; }
 
-.control-value {
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
-  min-width: 45px;
-}
+/* ─── LAUNCHER ──────────────────────────────────────── */
+.launcher-card { padding: 16px; border: none; background: transparent; }
+.launcher-grid { padding: 8px 0; }
+.launcher-btn  { all: unset; min-width: 80px; min-height: 80px; border-radius: 16px; background: transparent; }
+.launcher-btn:hover  { background: rgba(0,255,153,0.1); }
+.launcher-btn:active { background: rgba(0,255,153,0.15); }
+.launcher-icon { font-size: 36px; color: #00ff99; text-shadow: 0 0 12px rgba(0,255,153,0.4); }
 
-/* ===== QUICK LAUNCHER WIDGET ===== */
-.launcher-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
-}
+/* ─── MEDIA PLAYER ──────────────────────────────────── */
+.media-card        { border: none; background: transparent; padding: 12px; }
+.media-status-icon { font-size: 22px; color: #00ff99; text-shadow: 0 0 12px rgba(0,255,153,0.6); }
+.media-cover       { border-radius: 8px; border: 2px solid rgba(0,255,153,0.4); box-shadow: 0 0 16px rgba(0,255,153,0.3); min-width: 80px; min-height: 80px; }
+.media-title       { font-size: 20px; font-weight: 700; color: #b9f6ca; margin-bottom: 4px; }
+.media-artist      { font-size: 16px; color: rgba(255,255,255,0.75); font-weight: 500; }
 
-.launcher-grid {
-  padding: 8px 0;
-}
+/* ─── DATE WIDGET ───────────────────────────────────── */
+.date-widget  { background: transparent; border-radius: 20px; padding: 28px 40px; min-width: 240px; }
+.date-weekday { font-size: 24px; font-weight: 600; color: rgba(185,246,202,0.8); letter-spacing: 2px; margin-bottom: 16px; }
+.date-year    { font-size: 22px; font-weight: 600; color: rgba(185,246,202,0.7); letter-spacing: 1px; }
+.date-month   { font-size: 42px; font-weight: 700; color: #00ff99; }
+.date-day     { font-size: 64px; font-weight: 700; color: #ffffff; text-shadow: 0 0 24px rgba(0,255,153,0.4), 0 0 12px rgba(0,255,153,0.3); }
 
-.launcher-btn {
-  all: unset;
-  min-width: 80px;
-  min-height: 80px;
-  border-radius: 16px;
-  background: transparent;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.launcher-btn:hover {
-  background: rgba(0, 255, 153, 0.1);
-}
-
-.launcher-btn:active {
-  background: rgba(0, 255, 153, 0.15);
-}
-
-.launcher-icon {
-  font-size: 36px;
-  color: #00ff99;
-  text-shadow: 0 0 12px rgba(0, 255, 153, 0.4);
-}
-
-/* ===== STORAGE WIDGET ===== */
-.storage-card {
-}
-
-.storage-visual {
-  padding: 8px 0 8px 0;
-}
-
-.storage-ring {
-  margin-bottom: 10px;
-  padding: 0;
-  min-width: 110px;
-  min-height: 110px;
-}
-
-.storage-progress-bg {
-  min-width: 110px;
-  min-height: 110px;
-  color: rgba(255, 255, 255, 0.1);
-}
-
-.storage-progress {
-  min-width: 110px;
-  min-height: 110px;
-  color: #00ff99;
-}
-
-.storage-center {
-}
-
-.storage-percent-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: #b9f6ca;
-  margin-bottom: -4px;
-}
-
-.storage-label-small {
-  font-size: 13px;
-  color: #ffffff;
-  margin-top: -4px;
-  font-weight: 600;
-}
-
-.storage-stats {
-  padding-top: 8px;
-  border-top: 1px solid rgba(0, 255, 153, 0.15);
-}
-
-.storage-stat-label {
-  font-size: 15px;
-  color: #ffffff;
-  margin-bottom: 2px;
-  font-weight: 600;
-}
-
-.storage-stat-value {
-  font-size: 16px;
-  font-weight: 700;
-  color: #b9f6ca;
-}
-
-/* ===== MEDIA PLAYER WIDGET ===== */
-.media-card {
-  border: none;
-  background: transparent;
-  padding: 12px;
-}
-
-.media-icon {
-  font-size: 24px;
-  color: #00ff99;
-  text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
-}
-
-.media-status-icon {
-  font-size: 22px;
-  color: #00ff99;
-  text-shadow: 0 0 12px rgba(0, 255, 153, 0.6);
-}
-
-.media-cover {
-  border-radius: 8px;
-  border: 2px solid rgba(0, 255, 153, 0.4);
-  box-shadow: 0 0 16px rgba(0, 255, 153, 0.3);
-  min-width: 80px;
-  min-height: 80px;
-}
-
-.media-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #b9f6ca;
-  text-shadow: 0 0 8px rgba(185, 246, 202, 0.3);
-  margin-bottom: 4px;
-}
-
-.media-artist {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-/* ===== YODA QUOTE WIDGET ===== */
-.yoda-quote-widget {
-  background: transparent;
-  padding: 16px;
-}
-
-.yoda-quote-text {
-  font-family: "Noto Serif", serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 4px 0;
-}
-
-.yoda-quote-author {
-  font-family: "Noto Serif", serif;
-  font-size: 20px;
-  color: #ffffff;
-  margin-top: 8px;
-  font-style: italic;
-}
-
-/* ===== DATE WIDGET ===== */
-.date-widget {
-  background: transparent;
-  border-radius: 20px;
-  padding: 28px 40px;
-  min-width: 240px;
-}
-
-.date-weekday {
-  font-size: 24px;
-  font-weight: 600;
-  color: rgba(185, 246, 202, 0.8);
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
-.date-year {
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(185, 246, 202, 0.7);
-  letter-spacing: 1px;
-}
-
-.date-main {
-}
-
-.date-month {
-  font-size: 42px;
-  font-weight: 700;
-  color: #00ff99;
-}
-
-.date-day {
-  font-size: 64px;
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow:
-    0 0 24px rgba(0, 255, 153, 0.4),
-    0 0 12px rgba(0, 255, 153, 0.3);
-}
-
-
-.date-time {
-  font-size: 26px;
-  font-weight: 600;
-  color: #00ff99;
-  text-shadow: 0 0 16px rgba(0, 255, 153, 0.5);
-  margin-top: 12px;
-  letter-spacing: 1px;
-}
-
-/* ===== CALENDAR WIDGET ===== */
-.calendar-widget {
-  background: transparent;
-  border-radius: 16px;
-  padding: 20px 20px 0px 20px;
-  min-width: 280px;
-}
+/* ─── CALENDARIO ────────────────────────────────────── */
+.calendar-widget { background: transparent; border-radius: 16px; padding: 20px 20px 0 20px; min-width: 280px; }
 
 .calendar-header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid rgba(0,255,153,0.2);
   margin-bottom: 8px;
 }
 
-.calendar-month {
-  font-size: 22px;
+/* Botones prev / next — siempre visibles */
+.calendar-nav-btn {
+  background: rgba(0,255,153,0.1);
+  border: 1px solid rgba(0,255,153,0.35);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 14px;
+  color: #00ff99;
+  min-width: 28px;
+  min-height: 28px;
+}
+.calendar-nav-btn:hover { background: rgba(0,255,153,0.25); border-color: #00ff99; }
+
+/* Botón mes/año clickeable */
+.calendar-month-btn { background: transparent; border: none; border-radius: 8px; padding: 4px 12px; }
+.calendar-month-btn:hover { background: rgba(0,255,153,0.08); }
+.calendar-month-label { font-size: 20px; font-weight: 700; color: #00ff99; letter-spacing: 1px; }
+.calendar-year-label  { font-size: 20px; font-weight: 600; color: rgba(185,246,202,0.8); }
+
+/* Selector de mes/año */
+.cal-picker { background: rgba(0,255,153,0.05); border: 1px solid rgba(0,255,153,0.2); border-radius: 10px; padding: 10px; margin-bottom: 8px; }
+.cal-picker-row { margin-bottom: 4px; }
+.cal-picker-year { font-size: 16px; font-weight: 700; color: #00ff99; min-width: 60px; }
+.cal-month-btn { background: transparent; border: 1px solid rgba(0,255,153,0.15); border-radius: 6px; padding: 4px 6px; font-size: 11px; color: rgba(185,246,202,0.8); margin: 2px; }
+.cal-month-btn:hover { background: rgba(0,255,153,0.15); color: #00ff99; }
+
+/* Días */
+.calendar-days-header { padding: 8px 0 4px 0; }
+.calendar-day-name    { font-size: 16px; font-weight: 900; color: rgba(0,255,153,0.9); min-width: 36px; }
+.calendar-grid  { padding-top: 4px; }
+.calendar-week  { margin-bottom: 4px; }
+.calendar-day   { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.8); min-width: 36px; min-height: 36px; padding: 8px 0; border-radius: 8px; }
+.calendar-day.current-day { background: #00ff99; color: #050705; font-weight: 700; }
+.calendar-day.empty-day   { color: transparent; }
+
+/* Botón idioma ES/EN */
+.calendar-lang-btn {
+  background: rgba(0,255,153,0.08);
+  border: 1px solid rgba(0,255,153,0.3);
+  border-radius: 6px;
+  padding: 2px 7px;
+  margin-left: 6px;
+}
+.calendar-lang-btn:hover { background: rgba(0,255,153,0.2); }
+.calendar-lang-label { font-size: 11px; font-weight: 700; color: #00ff99; }
+
+/* Día clickeable */
+.calendar-day-btn       { background: transparent; border: none; border-radius: 8px; padding: 0; min-width: 36px; min-height: 36px; }
+.calendar-day-btn:hover { background: rgba(0,255,153,0.15); }
+
+/* Panel de eventos del día seleccionado */
+.day-events-panel { background: rgba(0,255,153,0.05); border: 1px solid rgba(0,255,153,0.25); border-radius: 10px; padding: 10px 12px; margin-top: 8px; }
+.day-events-title { font-size: 12px; font-weight: 700; color: #00ff99; margin-bottom: 4px; }
+.day-events-close { background: transparent; border: none; color: rgba(0,255,153,0.5); font-size: 11px; border-radius: 4px; padding: 2px 6px; }
+.day-events-close:hover { color: #ff4444; background: rgba(255,68,68,0.1); }
+
+/* ─── GOOGLE CALENDAR PANEL ─────────────────────────── */
+.gcal-panel {
+  background: rgba(5,7,5,0.92);
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid rgba(0,180,90,0.5);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  min-width: 220px;
+}
+
+/* Títulos genéricos de sección */
+.gcal-section-title { font-size: 11px; font-weight: 700; color: #00ff99; letter-spacing: 0.1em; margin-bottom: 4px; }
+
+/* Eventos */
+.gcal-event-row   { padding: 4px 0; border-bottom: 1px solid rgba(0,255,153,0.08); }
+.gcal-event-time  { font-size: 12px; color: #00ff99; min-width: 38px; }
+.gcal-event-day   { font-size: 11px; color: rgba(0,255,153,0.6); min-width: 48px; }
+.gcal-event-title { font-size: 12px; color: rgba(185,246,202,0.9); }
+.gcal-separator   { border-bottom: 1px solid rgba(0,255,153,0.2); margin: 6px 0; }
+
+/* ─── UNAHUR / CURSADA ──────────────────────────────── */
+.gcal-unahur { margin-top: 4px; }
+
+/* Título principal CURSADA */
+.gcal-title-cursada {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4fc3f7;
+  letter-spacing: 0.1em;
+}
+
+/* Sub-título CLASES (verde) */
+.gcal-subtitle-clases {
+  font-size: 11px;
   font-weight: 700;
   color: #00ff99;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  margin-bottom: 2px;
 }
 
-.calendar-year {
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(185, 246, 202, 0.8);
-}
-
-.calendar-days-header {
-  padding: 8px 0 4px 0;
-}
-
-.calendar-day-name {
-  font-size: 16px;
-  font-weight: 900;
-  color: rgba(0, 255, 153, 0.7);
-  min-width: 36px;
-}
-
-.calendar-year-subtle {
+/* Sub-título ENTREGAS (azul) */
+.gcal-subtitle-entregas {
   font-size: 11px;
-  font-weight: 500;
-  color: rgba(185, 246, 202, 0.4);
-  letter-spacing: 0.5px;
-  margin-top: 2px;
-}
-
-.calendar-grid {
-  padding-top: 4px;
-}
-
-.calendar-week {
-  margin-bottom: 4px;
-}
-
-.calendar-day {
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  min-width: 36px;
-  min-height: 36px;
-  padding: 8px 0;
-  border-radius: 8px;
-}
-
-.calendar-day.current-day {
-  background: #00ff99;
-  color: #050705;
   font-weight: 700;
+  color: #4fc3f7;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  margin-bottom: 2px;
 }
 
-.calendar-day.empty-day {
-  color: transparent;
-}
+.gcal-upcoming-row   { padding: 6px 0; border-bottom: 1px solid rgba(0,150,255,0.2); }
+.gcal-upcoming-title { font-size: 12px; font-weight: 700; color: #4fc3f7; }
+
+/* ─── INDEPENDIENTE ─────────────────────────────────── */
+.gcal-indie      { margin-top: 4px; }
+.gcal-indie-row  { padding: 6px 0; border-bottom: 1px solid rgba(204,0,0,0.2); }
+.gcal-indie-title { font-size: 12px; font-weight: 700; color: #ff4444; }
+.gcal-indie-day  { font-size: 11px; color: rgba(255,68,68,0.8); }

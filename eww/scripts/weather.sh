@@ -2,7 +2,7 @@
 
 # Weather script using wttr.in
 # Location can be passed as second argument
-LOCATION="${2:-Tokyo}"  # Default to Tokyo
+LOCATION="Castelar"  # Default to Tokyo
 
 # Cache file to avoid too many API calls
 CACHE_FILE="/tmp/eww_weather_cache_${LOCATION}"
@@ -21,7 +21,8 @@ get_weather_data() {
     fi
 
     # Fetch weather data and cache it
-    weather_json=$(curl -s "wttr.in/${LOCATION}?format=j1" 2>/dev/null)
+    CURRENT_LANG=$(cat ~/.cache/desktop_lang 2>/dev/null || echo "es")
+    weather_json=$(curl -s "wttr.in/${LOCATION}?format=j1&lang=${CURRENT_LANG}" 2>/dev/null)
 
     # Only cache if we got valid JSON data
     if echo "$weather_json" | jq -e . >/dev/null 2>&1; then

@@ -2,74 +2,86 @@
 {
   "height": 24,
   "spacing": 8,
-  "margin-top": 8,
+  "margin-top": 10,
   "margin-left": 16,
   "margin-right": 20,
-  "modules-left": ["clock"],
+  "modules-left": ["clock", "custom/gcal_next"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["pulseaudio", "network", "battery", "custom/power"],
+  "modules-right": ["custom/settings", "pulseaudio", "network", "battery", "custom/language_toggle", "custom/language", "custom/power"],
+
   "hyprland/workspaces": {
     "format": "",
     "on-click": "activate",
     "all-outputs": false,
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-    },
+      "1": [], "2": [], "3": [], "4": [], "5": [], "6": [], "7": [], "8": [], "9": []
+    }
   },
+
   "clock": {
     "format": "{:%B %d  %I:%M %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%I:%M %p}",
+    "format-alt": "{:%I:%M %p}"
   },
+
   "battery": {
     "states": { "good": 80, "warning": 30, "critical": 15 },
     "format": "{icon}",
     "format-full": "{icon}",
-    "format-charging": "",
-    "format-plugged": "",
+    "format-charging": "󱐋",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{capacity}% - {timeTo}",
+    "tooltip-format": "{capacity}% - {timeTo}"
   },
+
   "network": {
     "format-wifi": "󰤨",
     "format-ethernet": "󰈁",
     "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}",
-    "format-linked": " No IP",
     "format-disconnected": "󰤭",
-    "on-click": "nm-connection-editor",
+    "on-click": "nm-connection-editor"
   },
+
   "pulseaudio": {
     "backend": "pipewire",
     "format": "{icon}",
-    "format-muted": "",
+    "format-muted": "󰝟",
     "format-icons": { "default": [" ", " ", " "] },
     "tooltip-format": "{volume}%",
     "tooltip": true,
+    "on-click": "pavucontrol"
   },
-  "custom/power": {
-    "format": "⏻",
-    "tooltip": false,
-    "on-click": "~/.config/wlogout/wlogout.sh",
-  },
-  "custom/music": {
-    "exec": "~/.config/waybar/scripts/music.sh",
-    "interval": 2,
-    "format": "{}",
-    "max-length": 50,
-    "on-click": "playerctl play-pause",
-  },
+
   "custom/language": {
     "exec": "~/.config/waybar/scripts/fcitx5-status.sh",
     "interval": "once",
     "signal": 9,
-    "format": "{}",
+    "format": "{}"
   },
+
+  "custom/language_toggle": {
+    "format": "󰗊",
+    "tooltip-format": "Change Language / Cambiar Idioma",
+    "on-click": "~/.config/eww/scripts/toggle_lang.sh"
+  },
+
+  "custom/settings": {
+    "format": "",
+    "tooltip-format": "Desktop Settings / Configuración",
+    "on-click": "eww open --toggle settings_window"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.config/wlogout/wlogout.sh"
+  },
+
+  "custom/gcal_next": {
+    "exec": "~/.config/eww/scripts/gcal_wrapper.sh next",
+    "interval": 300,
+    "format": "{}",
+    "max-length": 30,
+    "tooltip": false,
+    "on-click": "eww open date_window"
+  }
 }

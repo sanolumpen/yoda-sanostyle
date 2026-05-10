@@ -1,28 +1,37 @@
-dconf/
-google-chrome/
-pulse/
-ibus/
-systemd/
-gtk-3.0/
-github-copilot/
-mpd/
-go/
-mozc/
-fcitx/
-fcitx5/
-yay/
-Thunar/
-xfce4/
-git/
-obs-studio/
-astro/
-.wrangler/
-Google/
-gcloud/
-eas-cli-nodejs/
-Android*/
-configstore/
-create-next-app-nodejs/
-google-chrome-for-testing
-nextjs-nodejs/
-gh/
+# ═══════════════════════════════════════════════════════════════════
+# KURI-DOTS GITIGNORE
+# Archivos sensibles que NO deben subirse al repositorio
+# ═══════════════════════════════════════════════════════════════════
+
+# ─── Credenciales y Tokens ──────────────────────────────────────
+**/credentials.json
+**/token.pickle
+**/client_secrets.json
+**/*.token
+**/secrets.env
+**/.env
+
+# ─── Scripts con datos sensibles ──────────────────────────────
+**/*.py.bak
+
+# ─── Cachés y temporales ───────────────────────────────────────
+**/*.log
+**/*.tmp
+**/*.swp
+**/*~
+/tmp/
+/.cache/eww_*
+
+# ─── Wallpapers personales (opcional) ─────────────────────────
+# hypr/wallpaper/*.jpg
+# hypr/wallpaper/*.png
+
+# ─── Binarios y objetos compilados ───────────────────────────
+**/*.o
+**/*.so
+**/.so.*
+
+# ─── Keys SSH (por si las dudas) ──────────────────────────────
+**/id_rsa*
+**/id_ed25519*
+**/.ssh/

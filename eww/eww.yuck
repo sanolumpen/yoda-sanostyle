@@ -1,186 +1,192 @@
-;; Tokyo Weather
-(defpoll tokyo_temp :interval "30m" "scripts/weather.sh temp tokyo")
-(defpoll tokyo_condition :interval "30m" "scripts/weather.sh condition tokyo")
-(defpoll tokyo_icon :interval "30m" "scripts/weather.sh icon tokyo")
-(defpoll tokyo_humidity :interval "30m" "scripts/weather.sh humidity tokyo")
+;; ═══════════════════════════════════════════════════════
+;;   EWW CONFIG — YODA THEME + GOOGLE CALENDAR
+;;   kuri-sun base · sanodesu customization
+;; ═══════════════════════════════════════════════════════
 
-;; Media Player
+;; ─── WEATHER ─────────────────────────────────────────
+(defpoll castelar_temp      :interval "30m" "scripts/weather.sh temp")
+(defpoll castelar_condition :interval "30m" "scripts/weather.sh condition")
+(defpoll castelar_icon      :interval "30m" "scripts/weather.sh icon")
+(defpoll castelar_humidity  :interval "30m" "scripts/weather.sh humidity")
+
+;; ─── MEDIA PLAYER ────────────────────────────────────
 (defpoll music_status :interval "1s" "scripts/music.sh status")
-(defpoll music_title :interval "1s" "scripts/music.sh title")
+(defpoll music_title  :interval "1s" "scripts/music.sh title")
 (defpoll music_artist :interval "1s" "scripts/music.sh artist")
-(defpoll music_cover :interval "1s" "scripts/music.sh cover")
+(defpoll music_cover  :interval "1s" "scripts/music.sh cover")
 
-;; System stats
-(defpoll cpu_usage :interval "2s" "scripts/system.sh cpu")
-(defpoll cpu_percent :interval "2s" "scripts/system.sh cpu_percent")
-(defpoll memory_usage :interval "2s" "scripts/system.sh memory")
-(defpoll cpu_temp :interval "3s" "scripts/system.sh temp")
-
-;; Storage
+;; ─── SYSTEM ──────────────────────────────────────────
+(defpoll cpu_usage       :interval "2s"  "scripts/system.sh cpu")
+(defpoll cpu_percent     :interval "2s"  "scripts/system.sh cpu_percent")
+(defpoll memory_usage    :interval "2s"  "scripts/system.sh memory")
+(defpoll cpu_temp        :interval "3s"  "scripts/system.sh temp")
 (defpoll storage_percent :interval "30s" "scripts/storage.sh percent")
 
-;; Audio & Brightness & Battery
-(defpoll audio_volume :interval "1s" "scripts/audio.sh volume")
-(defpoll audio_icon :interval "1s" "scripts/audio.sh icon")
+;; ─── AUDIO / BRILLO / BATERÍA ────────────────────────
+(defpoll audio_volume       :interval "1s" "scripts/audio.sh volume")
+(defpoll audio_icon         :interval "1s" "scripts/audio.sh icon")
 (defpoll brightness_percent :interval "1s" "scripts/brightness.sh percent")
-(defpoll brightness_icon :interval "1s" "scripts/brightness.sh icon")
-(defpoll battery_percent :interval "5s" "scripts/battery.sh percent")
-(defpoll battery_icon :interval "5s" "scripts/battery.sh icon")
-(defpoll battery_status :interval "5s" "scripts/battery.sh status")
+(defpoll brightness_icon    :interval "1s" "scripts/brightness.sh icon")
+(defpoll battery_percent    :interval "5s" "scripts/battery.sh percent")
+(defpoll battery_icon       :interval "5s" "scripts/battery.sh icon")
+(defpoll battery_status     :interval "5s" "scripts/battery.sh status")
 
-;; Date
-(defpoll date_day :interval "10s" "date '+%d'")
-(defpoll date_month :interval "10s" "date '+%b' | tr '[:lower:]' '[:upper:]'")
-(defpoll date_year :interval "10s" "date '+%Y'")
+;; ─── FECHA ───────────────────────────────────────────
+(defpoll date_day     :interval "10s" "date '+%d'")
+(defpoll date_month   :interval "10s" "date '+%b' | tr '[:lower:]' '[:upper:]'")
+(defpoll date_year    :interval "10s" "date '+%Y'")
 (defpoll date_weekday :interval "10s" "date '+%A' | tr '[:lower:]' '[:upper:]'")
-(defpoll date_time :interval "1s" "date '+%I:%M %p'")
+(defpoll date_time    :interval "1s"  "date '+%I:%M %p'")
 
-;; Calendar
-(defpoll calendar_year :interval "1h" "scripts/calendar.sh year")
-(defpoll calendar_month :interval "1h" "scripts/calendar.sh month")
-(defpoll calendar_week0 :interval "1h" "scripts/calendar.sh week0")
-(defpoll calendar_week1 :interval "1h" "scripts/calendar.sh week1")
-(defpoll calendar_week2 :interval "1h" "scripts/calendar.sh week2")
-(defpoll calendar_week3 :interval "1h" "scripts/calendar.sh week3")
-(defpoll calendar_week4 :interval "1h" "scripts/calendar.sh week4")
-(defpoll calendar_week5 :interval "1h" "scripts/calendar.sh week5")
+;; ─── CALENDARIO — variables de navegación ────────────
+(defvar cal_offset       0)
+(defvar cal_selected_day "")
+(defvar cal_show_day     false)
+(defvar cal_show_picker  false)
 
-;; Circular Stat Item (based on storage widget pattern)
+;; ─── CALENDARIO — polls ──────────────────────────────
+(defpoll calendar_month_num :interval "1s" "~/.config/eww/scripts/calendar.sh month-num $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_year      :interval "1s" "~/.config/eww/scripts/calendar.sh year   $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_month     :interval "1s" "~/.config/eww/scripts/calendar.sh month  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week0     :interval "1s" "~/.config/eww/scripts/calendar.sh week0  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week1     :interval "1s" "~/.config/eww/scripts/calendar.sh week1  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week2     :interval "1s" "~/.config/eww/scripts/calendar.sh week2  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week3     :interval "1s" "~/.config/eww/scripts/calendar.sh week3  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week4     :interval "1s" "~/.config/eww/scripts/calendar.sh week4  $(cat ~/.cache/eww_cal_offset)")
+(defpoll calendar_week5     :interval "1s" "~/.config/eww/scripts/calendar.sh week5  $(cat ~/.cache/eww_cal_offset)")
+
+;; ─── GOOGLE CALENDAR ─────────────────────────────────
+(defpoll gcal_day_events :interval "1h"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py day $(cat ~/.cache/eww_selected_day 2>/dev/null || date +%Y-%m-%d)")
+(defpoll gcal_today      :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py today")
+(defpoll gcal_week       :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py week")
+(defpoll gcal_next       :interval "1m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py next")
+(defpoll gcal_indie      :interval "30m" "python3 /home/sanodesu/.config/eww/scripts/gcal.py indie")
+
+;; ─── UNAHUR ──────────────────────────────────────────
+(defpoll unahur_classes  :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py unahur_classes")
+(defpoll unahur_upcoming :interval "30m" "python3 /home/sanodesu/.config/eww/scripts/gcal.py unahur_upcoming")
+
+;; ═══════════════════════════════════════════════════════
+;;   WIDGETS
+;; ═══════════════════════════════════════════════════════
+
 (defwidget circular_stat [icon value ?color ?unit]
   (box :class "stat-item" :orientation "v" :space-evenly false :spacing 6
     (box :class "stat-ring" :orientation "v" :valign "center" :halign "center"
       (overlay
-        (circular-progress :value 100
-                          :class "stat-progress-bg"
-                          :thickness 9
-                          :start-at 75
-                          :clockwise true)
-        (circular-progress :value value
-                          :class "stat-progress ${color}"
-                          :thickness 9
-                          :start-at 75
-                          :clockwise true)
+        (circular-progress :value 100   :class "stat-progress-bg" :thickness 9 :start-at 75 :clockwise true)
+        (circular-progress :value value :class "stat-progress ${color}" :thickness 9 :start-at 75 :clockwise true)
         (box :class "stat-center" :orientation "v" :valign "center" :halign "center"
           (label :class "stat-icon" :text icon))))
     (label :class "stat-percent" :text "${round(value, 0)}${unit ?: '%'}")))
 
-;; System Stats Widget with Circular Graphs
 (defwidget system_stats []
   (box :class "widget system-stats-card" :orientation "v" :space-evenly false :spacing 10
     (box :class "stats-grid" :orientation "h" :space-evenly false :spacing 18 :halign "start"
-      (circular_stat :icon "󰻠" :value cpu_percent :color "cpu-color")
-      (circular_stat :icon "󰍛" :value memory_usage :color "memory-color")
+      (circular_stat :icon "󰻠" :value cpu_percent     :color "cpu-color")
+      (circular_stat :icon "󰍛" :value memory_usage    :color "memory-color")
       (circular_stat :icon "󰋊" :value storage_percent :color "storage-color")
-      (circular_stat :icon "󰔏" :value cpu_temp :color "temp-color" :unit "°C"))))
+      (circular_stat :icon "󰔏" :value cpu_temp        :color "temp-color" :unit "°C"))))
 
-;; Controls Widget (Audio, Brightness & Battery)
 (defwidget controls []
   (box :class "widget controls-card" :orientation "v" :space-evenly false :spacing 24
-    ;; Audio
     (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
       (label :class "control-icon audio-icon" :text audio_icon)
       (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar"
-                  :value audio_volume))
+        (progress :class "control-bar" :value audio_volume))
       (label :class "control-value" :text "${audio_volume}%"))
-
-    ;; Brightness
     (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
       (label :class "control-icon" :text brightness_icon)
       (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar"
-                  :value brightness_percent))
+        (progress :class "control-bar" :value brightness_percent))
       (label :class "control-value" :text "${brightness_percent}%"))
-
-    ;; Battery
     (box :class "control-item" :orientation "h" :space-evenly false :spacing 12
       (label :class "control-icon" :text battery_icon)
       (box :class "control-bar-container" :orientation "v" :valign "center"
-        (progress :class "control-bar"
-                  :value battery_percent))
+        (progress :class "control-bar" :value battery_percent))
       (label :class "control-value" :text "${battery_percent}%"))))
 
-;; Quick Launcher Widget
 (defwidget quick_launcher []
   (box :class "widget launcher-card" :orientation "v" :space-evenly false :spacing 8
     (box :class "launcher-grid" :orientation "h" :halign "start" :space-evenly false :spacing 12
-      (button :class "launcher-btn" :onclick "blender &"
-        (label :class "launcher-icon" :text "󰂫"))
-      (button :class "launcher-btn" :onclick "google-chrome-stable &"
-        (label :class "launcher-icon" :text "󰊯"))
-      (button :class "launcher-btn" :onclick "thunar &"
-        (label :class "launcher-icon" :text "󰉋")))))
+      (button :class "launcher-btn" :onclick "blender &"              (label :class "launcher-icon" :text "󰂫"))
+      (button :class "launcher-btn" :onclick "google-chrome-stable &" (label :class "launcher-icon" :text "󰊯"))
+      (button :class "launcher-btn" :onclick "thunar &"               (label :class "launcher-icon" :text "󰉋")))))
 
-;; Tokyo Weather Widget
-(defwidget tokyo_weather []
+(defwidget castelar_weather []
   (box :class "widget weather-card" :orientation "h" :space-evenly false :spacing 16 :valign "center"
-    (label :class "weather-icon" :text tokyo_icon)
+    (label :class "weather-icon" :text castelar_icon)
     (box :orientation "v" :space-evenly false :spacing 4
-      (label :class "weather-location" :text "Tokyo" :xalign 0)
-      (label :class "weather-temp" :text "${tokyo_temp}°" :xalign 0)
-      (label :class "weather-condition" :text tokyo_condition :xalign 0))))
+      (label :class "weather-location"  :text "Castelar"        :xalign 0)
+      (label :class "weather-temp"      :text "${castelar_temp}°" :xalign 0)
+      (label :class "weather-condition" :text castelar_condition :xalign 0))))
 
-;; Media Player Widget
 (defwidget media_player []
-  (box :class "widget media-card"
-       :orientation "h"
-       :space-evenly false
-       :spacing 20
+  (box :class "widget media-card" :orientation "h" :space-evenly false :spacing 20
        :visible {music_status != "stopped"}
-    (image :class "media-cover"
-           :path music_cover
-           :image-width 80
-           :image-height 80)
+    (image :class "media-cover" :path music_cover :image-width 80 :image-height 80)
     (box :orientation "v" :space-evenly false :spacing 6 :valign "center"
       (box :orientation "h" :space-evenly false :spacing 8
-        (label :class "media-status-icon"
-               :text {music_status == "playing" ? "󰐊" : "󰏤"})
-        (label :class "media-title"
-               :text {music_title}
-               :xalign 0
-               :limit-width 28
-               :wrap false))
-      (label :class "media-artist"
-             :text {music_artist}
-             :xalign 0
-             :limit-width 30
-             :wrap false))))
+        (label :class "media-status-icon" :text {music_status == "playing" ? "󰐊" : "󰏤"})
+        (label :class "media-title"  :text {music_title}  :xalign 0 :limit-width 28 :wrap false))
+      (label   :class "media-artist" :text {music_artist} :xalign 0 :limit-width 30 :wrap false))))
 
-;; Main Dashboard
 (defwidget dashboard []
   (box :class "dashboard" :orientation "h" :space-evenly false :spacing 12
     (box :orientation "v" :space-evenly false :spacing 18 :style "min-width: 320px;"
-      (tokyo_weather)
+      (castelar_weather)
       (media_player)
       (system_stats)
       (controls))))
 
-;; Date Widget with Calendar
-(defwidget date_display []
-  (box :orientation "v" :space-evenly false :spacing 8
-    (box :class "date-widget" :orientation "v" :space-evenly false :spacing 0
-      (label :class "date-weekday" :text date_weekday :xalign 0.5)
-      (box :class "date-main" :orientation "h" :space-evenly false :spacing 8 :halign "center"
-        (label :class "date-month" :text date_month)
-        (label :class "date-day" :text date_day))
-      (label :class "date-year" :text date_year :xalign 0.5))
-    (month_calendar)))
+;; ─── CALENDARIO ──────────────────────────────────────
 
-;; Calendar day helper widget
 (defwidget calendar_day [day current]
-  (label :class "calendar-day ${current == 'true' ? 'current-day' : ''} ${day == '' ? 'empty-day' : ''}"
-         :text day))
+  (button :class "calendar-day-btn"
+          :onclick "~/.config/eww/scripts/cal_nav.sh day ${day}"
+    (label :class "calendar-day ${current == 'true' ? 'current-day' : ''} ${day == '' ? 'empty-day' : ''}"
+           :text "${day == '' ? ' ' : day}")))
 
-;; Calendar week row helper widget
 (defwidget calendar_week_row [week_data]
   (box :class "calendar-week" :orientation "h" :space-evenly true
     (for day in week_data
       (calendar_day :day {day.day} :current {day.current}))))
 
-;; Calendar Widget
 (defwidget month_calendar []
   (box :class "calendar-widget" :orientation "v" :space-evenly false :spacing 12
-    ;; Day Names Header
+
+    (box :class "calendar-header" :orientation "h" :space-evenly false :halign "fill"
+      (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh prev" (label :text "<"))
+      (button :class "calendar-month-btn" :hexpand true :onclick "~/.config/eww/scripts/cal_nav.sh toggle_picker"
+        (box :orientation "h" :halign "center" :space-evenly false :spacing 6
+          (label :class "calendar-month-label" :text calendar_month)
+          (label :class "calendar-year-label"  :text calendar_year)))
+      (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh next" (label :text ">")))
+
+    (revealer :reveal cal_show_picker :transition "slidedown" :duration "180ms"
+      (box :class "cal-picker-wrapper" :orientation "v" :space-evenly false
+        (box :class "cal-picker" :orientation "v" :space-evenly false :spacing 8
+        (box :class "cal-picker-row" :orientation "h" :space-evenly false :halign "center" :spacing 12
+            (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_prev" (label :text "<<"))
+            (label  :class "cal-picker-year" :text calendar_year)
+            (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_next" (label :text ">>")))
+        (box :class "cal-picker-months" :orientation "v" :space-evenly false :spacing 4
+          (box :orientation "h" :space-evenly true
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 1"  (label :text "Ene"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 2"  (label :text "Feb"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 3"  (label :text "Mar"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 4"  (label :text "Abr")))
+          (box :orientation "h" :space-evenly true
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 5"  (label :text "May"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 6"  (label :text "Jun"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 7"  (label :text "Jul"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 8"  (label :text "Ago")))
+          (box :orientation "h" :space-evenly true
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 9"  (label :text "Sep"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 10" (label :text "Oct"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 11" (label :text "Nov"))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 12" (label :text "Dic")))))))
+
     (box :class "calendar-days-header" :orientation "h" :space-evenly true
       (label :class "calendar-day-name" :text "S")
       (label :class "calendar-day-name" :text "M")
@@ -190,34 +196,109 @@
       (label :class "calendar-day-name" :text "F")
       (label :class "calendar-day-name" :text "S"))
 
-    ;; Calendar Grid
     (box :class "calendar-grid" :orientation "v" :space-evenly false
       (calendar_week_row :week_data calendar_week0)
       (calendar_week_row :week_data calendar_week1)
       (calendar_week_row :week_data calendar_week2)
       (calendar_week_row :week_data calendar_week3)
       (calendar_week_row :week_data calendar_week4)
-      (calendar_week_row :week_data calendar_week5))))
+      (calendar_week_row :week_data calendar_week5))
 
-;; Main Window
+    (revealer :reveal cal_show_day :transition "slidedown" :duration "200ms"
+      (box :class "day-events-panel" :orientation "v" :space-evenly false :spacing 6
+        (box :orientation "h" :space-evenly false :halign "fill"
+          (label :class "day-events-title" :text "  ${cal_selected_day}" :xalign 0 :hexpand true)
+          (button :class "day-events-close" :onclick "~/.config/eww/scripts/cal_nav.sh hide_day" (label :text "x")))
+        (for event in gcal_day_events
+          (box :class "gcal-event-row" :orientation "h" :space-evenly false :spacing 8
+            (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
+            (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 22 :wrap false)))))))
+
+;; ─── PANEL PRINCIPAL DE FECHA + GOOGLE CAL ───────────
+
+(defwidget date_display []
+  (box :orientation "h" :space-evenly false :spacing 16
+
+    (box :orientation "v" :space-evenly false :spacing 8
+      (box :class "date-widget" :orientation "v" :space-evenly false :spacing 0
+        (label :class "date-weekday" :text date_weekday :xalign 0.5)
+        (box :class "date-main" :orientation "h" :space-evenly false :spacing 8 :halign "center"
+          (label :class "date-month" :text date_month)
+          (label :class "date-day"   :text date_day))
+        (label :class "date-year" :text date_year :xalign 0.5))
+      (month_calendar))
+
+    (box :class "widget gcal-panel" :orientation "v" :space-evenly false :spacing 8
+
+      ;; ── UNAHUR / CURSADA ─────────────────────────────
+      (box :class "gcal-unahur" :orientation "v" :space-evenly false :spacing 4
+        (box :orientation "h" :space-evenly false :spacing 8 :valign "center"
+          (image :path "/home/sanodesu/.config/eww/assets/unahur.png"
+                 :image-width 20 :image-height 20)
+          (label :class "gcal-title-cursada" :text "CURSADA" :xalign 0))
+
+        (label :class "gcal-subtitle-clases" :text "CLASES" :xalign 0)
+        (box :class "gcal-clases-list" :orientation "v" :space-evenly false :spacing 0
+          (for event in unahur_classes
+            (box :class "gcal-event-row" :orientation "h" :space-evenly false :spacing 8
+              (label :class "gcal-event-day"   :text {event.day}   :xalign 0)
+              (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
+              (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 18 :wrap false))))
+
+        (box :class "gcal-separator")
+
+        (label :class "gcal-subtitle-entregas" :text "ENTREGAS" :xalign 0)
+        (box :class "gcal-entregas-list" :orientation "v" :space-evenly false :spacing 0
+          (for event in unahur_upcoming
+            (box :class "gcal-event-row gcal-upcoming-row" :orientation "v" :space-evenly false :spacing 2
+              (label :class "gcal-upcoming-title" :text {event.title} :xalign 0 :limit-width 24 :wrap false)
+              (box :orientation "h" :space-evenly false :spacing 6
+                (label :class "gcal-indie-day"  :text {event.day}  :xalign 0)
+                (label :class "gcal-indie-time" :text {event.time} :xalign 0))))))
+
+      (box :class "gcal-separator")
+
+      ;; ── INDEPENDIENTE ───────────────────────────────
+      (box :class "gcal-indie" :orientation "v" :space-evenly false :spacing 4
+        (box :orientation "h" :space-evenly false :spacing 8 :valign "center"
+          (image :path "/home/sanodesu/.config/eww/assets/independiente.png"
+                 :image-width 20 :image-height 20)
+          (label :class "gcal-section-title" :text "PRÓXIMOS" :xalign 0))
+        (for event in gcal_indie
+          (box :class "gcal-event-row gcal-indie-row" :orientation "v" :space-evenly false :spacing 2
+            (label :class "gcal-indie-title" :text {event.title} :xalign 0 :limit-width 24 :wrap false)
+            (box :orientation "h" :space-evenly false :spacing 6
+              (label :class "gcal-indie-day"  :text {event.day}  :xalign 0)
+              (label :class "gcal-indie-time" :text {event.time} :xalign 0)))))
+
+      (box :class "gcal-separator")
+
+      ;; ── PERSONAL (HOY / SEMANA) ──────────────────────
+      (box :class "gcal-personal" :orientation "v" :space-evenly false :spacing 4
+        (label :class "gcal-section-title" :text "HOY" :xalign 0)
+        (for event in gcal_today
+          (box :class "gcal-event-row" :orientation "h" :space-evenly false :spacing 8
+            (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
+            (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 22 :wrap false)))
+        (label :class "gcal-section-title" :text "SEMANA" :xalign 0)
+        (for event in gcal_week
+          (box :class "gcal-event-row" :orientation "h" :space-evenly false :spacing 8
+            (label :class "gcal-event-day"   :text {event.day}   :xalign 0)
+            (label :class "gcal-event-time"  :text {event.time}  :xalign 0)
+            (label :class "gcal-event-title" :text {event.title} :xalign 0 :limit-width 18 :wrap false)))))))
+
+;; ═══════════════════════════════════════════════════════
+;;   VENTANAS
+;; ═══════════════════════════════════════════════════════
+
 (defwindow dashboard_window
   :monitor 0
-  :geometry (geometry :x "20px"
-                      :y "20px"
-                      :width "660px"
-                      :anchor "top left")
-  :stacking "bg"
-  :windowtype "dock"
-  :wm-ignore false
+  :geometry (geometry :x "20px" :y "20px" :width "660px" :anchor "top left")
+  :stacking "bg" :windowtype "dock" :wm-ignore false
   (dashboard))
 
-;; Date Window
 (defwindow date_window
   :monitor 0
-  :geometry (geometry :x "20px"
-                      :y "20px"
-                      :anchor "bottom right")
-  :stacking "bg"
-  :windowtype "dock"
-  :wm-ignore false
+  :geometry (geometry :x "20px" :y "20px" :anchor "bottom right")
+  :stacking "bg" :windowtype "dock" :wm-ignore false
   (date_display))
