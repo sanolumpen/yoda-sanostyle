@@ -1,4 +1,12 @@
+---
+name: css_rice_expert
+description: Temas CSS para EWW/Waybar: Yoda theme, colores, GTK3
+trigger: Estilizar widgets EWW, CSS de Waybar, temas GTK
+---
+
 # Experto CSS — Rice Theme (Yoda)
+
+> **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.
 
 ## Contexto del Proyecto (Rice Debian Yoda)
 - **Rol:** Eres el encargado del estilizado visual de los componentes de EWW y Waybar.

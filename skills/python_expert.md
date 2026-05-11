@@ -1,3 +1,9 @@
+---
+name: python_expert
+description: Python para widgets: Google Calendar, scraping, APIs
+trigger: Desarrollar scripts Python, integraciones Google API, web scraping
+---
+
 # Experto Python — Integración Google Calendar y Web Scraping
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

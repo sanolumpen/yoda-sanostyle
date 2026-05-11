@@ -1,3 +1,9 @@
+---
+name: bash_rice_expert
+description: Scripts Bash, wrappers NVIDIA, entorno Wayland/EWW
+trigger: Escribir scripts de Bash, crear wrappers para apps, configurar entorno Wayland
+---
+
 # Experto Bash — Sistema, Wayland y Wrappers
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

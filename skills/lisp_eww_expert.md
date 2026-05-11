@@ -1,3 +1,9 @@
+---
+name: lisp_eww_expert
+description: Sintaxis Yuck, expresiones, estructura de widgets
+trigger: Escribir código Yuck, sintaxis de widgets, expresiones EWW
+---
+
 # Experto LISP / EWW (Yuck) — Interfaz de Usuario
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

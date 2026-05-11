@@ -1,3 +1,9 @@
+---
+name: waybar_expert
+description: Waybar status bar: módulos, JSON config, custom scripts
+trigger: Configurar o modificar Waybar, módulos, estilos CSS
+---
+
 # Experto Waybar — Barra de Estado para Wayland
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

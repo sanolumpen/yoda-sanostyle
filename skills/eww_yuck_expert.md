@@ -1,3 +1,9 @@
+---
+name: eww_yuck_expert
+description: Widgets EWW completos: dashboard, football, notes, calendar
+trigger: Crear o modificar widgets EWW, configurar windows, integrar con scripts
+---
+
 # Experto EWW (Elkowar's Wacky Widgets) — Widgets Completos
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

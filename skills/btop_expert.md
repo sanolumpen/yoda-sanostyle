@@ -1,3 +1,9 @@
+---
+name: btop_expert
+description: btop++ monitor de sistema: themes, configuración
+trigger: Configurar btop, monitor de recursos, temas
+---
+
 # Experto Btop — Monitor de Sistema
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

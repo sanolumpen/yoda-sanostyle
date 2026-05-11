@@ -1,3 +1,9 @@
+---
+name: eww_backend_expert
+description: Scripts backend para widgets: football.py, gcal.py, notes.sh
+trigger: Desarrollar scripts Python/Bash para widgets EWW, scraping, APIs
+---
+
 # Experto Backend EWW — Scripts y Datos
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

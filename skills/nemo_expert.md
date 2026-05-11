@@ -1,3 +1,9 @@
+---
+name: nemo_expert
+description: Nemo file manager: configuración, acciones personalizadas
+trigger: Configurar Nemo, explorador de archivos, acciones
+---
+
 # Experto Nemo — Explorador de Archivos
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.

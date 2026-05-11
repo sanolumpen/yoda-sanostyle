@@ -1,3 +1,9 @@
+---
+name: alacritty_expert
+description: Alacritty terminal: TOML config, fonts, themes
+trigger: Configurar Alacritty, terminal, fonts, colores
+---
+
 # Experto Alacritty — Terminal
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.
