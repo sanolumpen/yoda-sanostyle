@@ -144,3 +144,5 @@ Desktop.ini
 # - ! al principio niega el patrón (ej: !importante.log)
 # - Para ignorar un archivo ya rastreado: git rm --cached ARCHIVO
 # ═══════════════════════════════════════════════════════════════════
+
+btop/btop.log

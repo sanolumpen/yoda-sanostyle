@@ -1,0 +1,221 @@
+# Yoda Theme for btop
+# Based on Kuri-Dots Yoda Rice
+# Color palette: Lightsaber Green + Dark Base
+
+#######################################################################
+# Cores (0-7)
+#######################################################################
+
+# Primary color (green neon)
+main=90,180,100
+
+# Secondary color (mint laser)
+blue=74,250,202
+
+# Process memory bar color
+red=255,77,77
+
+# Process CPU bar color
+magenta=204,102,255
+
+# Used memory color
+yellow=255,238,88
+
+# Used swap color
+cyan=0,255,225
+
+# Available/S unused color
+white=229,229,229
+
+# Current selected process (bg)
+green=0,255,153
+
+#######################################################################
+# UI Colors
+#######################################################################
+
+# Background
+bg="#050705"
+
+# Main text color (mint laser)
+fg="#b9f6ca"
+
+# Title text color (accent green)
+title="#00ff99"
+
+# High CPU usage color
+cpu_up="#00ff99"
+
+# High MEM usage color
+mem_up="#ffee58"
+
+# Small graphs line color
+graph="90,180,100"
+
+# Graph text color
+graph_fg="185,246,202"
+
+# Process box background
+proc_bg="#0a0d0a"
+
+# Process text color
+proc_fg="#b9f6ca"
+
+# Processes highlighted border (active)
+proc_high="#00ff99"
+
+# Mini graphs background
+mini_bg="#0a0d0a"
+
+#######################################################################
+# Mini graphs
+#######################################################################
+
+# Mini cpu graph color
+mini_cpu="#00ff99"
+
+# Mini memory graph color
+mini_mem="#ffee58"
+
+# Mini network graph colors (up/down)
+mini_net_up="#00ff99"
+mini_net_down="#66ffb2"
+
+# Mini disk read graph color
+mini_disk="#00ffe1"
+
+# Mini disk write graph color
+mini_disk_l="#66ffb2"
+
+#######################################################################
+# Progress bars
+#######################################################################
+
+# Memory usage bar (background)
+mem_box_bg="#1b1b1b"
+
+# Memory usage bar (used)
+mem_box_used="#00ff99"
+
+# Memory usage bar (cached)
+mem_box_cached="#66ffb2"
+
+# Swap usage bar background
+swap_box_bg="#1b1b1b"
+
+# Swap usage bar (used)
+swap_box_used="#ff4d4d"
+
+# CPU graph background
+cpu_box_bg="#0a0d0a"
+
+# CPU graph gradient start
+cpu_graph_start="#00ff99"
+
+# CPU graph gradient end
+cpu_graph_end="#66ffb2"
+
+# Temperature graph background
+temp_box_bg="#0a0d0a"
+
+# Temperature low color (green)
+temp_low="#00ff99"
+
+# Temperature medium color (yellow)
+temp_med="#ffee58"
+
+# Temperature high color (red)
+temp_high="#ff4d4d"
+
+#######################################################################
+# Network graphs
+#######################################################################
+
+# Download graph background
+net_box_bg="#0a0d0a"
+
+# Download graph line
+net_download="#00ff99"
+
+# Upload graph line
+net_upload="#66ffb2"
+
+#######################################################################
+# Process list
+#######################################################################
+
+# Selected process background
+proc_bg_selected="#0d120d"
+
+# Selected process text
+proc_fg_selected="#b9f6ca"
+
+# Selected process name
+proc_selec_name="#00ff99"
+
+# CPU label color
+cpu_label="#00ff99"
+
+# MEM label color
+mem_label="#ffee58"
+
+# Time label color
+time_label="#b9f6ca"
+
+# Name of process column color
+proc_name="#b9f6ca"
+
+# Thread count color
+threads="#66ffb2"
+
+#######################################################################
+# Process tree
+#######################################################################
+
+# Tree lines color
+tree_br="#00ff99"
+
+# Tree connector color
+tree_conn="#00ff99"
+
+#######################################################################
+# Status indicators
+#######################################################################
+
+# Process running color
+run="#00ff99"
+
+# Process sleeping color
+sleeping="#66ffb2"
+
+# Process stopped color
+stopped="#ff4d4d"
+
+# Process zombie color
+zombie="#ff4d4d"
+
+#######################################################################
+# Battery (if applicable)
+#######################################################################
+
+bat_high="#00ff99"
+bat_med="#ffee58"
+bat_low="#ff4d4d"
+bat_charging="#00ffe1"
+
+#######################################################################
+# Border colors
+#######################################################################
+
+border="#00ff99"
+border_bg="#050705"
+
+#######################################################################
+# Entry selected
+#######################################################################
+
+selected_bg="#0a120a"
+selected_fg="#b9f6ca"
+
+# Entry hover
+entry_hover="#0d150d"

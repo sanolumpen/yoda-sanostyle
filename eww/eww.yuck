@@ -154,13 +154,12 @@
           (label :class "calendar-year-label"  :text calendar_year)))
       (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh next" (label :text ">")))
 
-    (revealer :reveal cal_show_picker :transition "slidedown" :duration "180ms"
-      (box :class "cal-picker-wrapper" :orientation "v" :space-evenly false
-        (box :class "cal-picker" :orientation "v" :space-evenly false :spacing 8
+    (box :visible cal_show_picker :class "cal-picker-wrapper" :orientation "v" :space-evenly false
+      (box :class "cal-picker" :orientation "v" :space-evenly false :spacing 8
         (box :class "cal-picker-row" :orientation "h" :space-evenly false :halign "center" :spacing 12
-            (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_prev" (label :text "<<"))
-            (label  :class "cal-picker-year" :text calendar_year)
-            (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_next" (label :text ">>")))
+          (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_prev" (label :text "<<"))
+          (label  :class "cal-picker-year" :text calendar_year)
+          (button :class "calendar-nav-btn" :onclick "~/.config/eww/scripts/cal_nav.sh year_next" (label :text ">>")))
         (box :class "cal-picker-months" :orientation "v" :space-evenly false :spacing 4
           (box :orientation "h" :space-evenly true
             (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 1"  (label :text "Ene"))
@@ -176,7 +175,7 @@
             (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 9"  (label :text "Sep"))
             (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 10" (label :text "Oct"))
             (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 11" (label :text "Nov"))
-            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 12" (label :text "Dic")))))))
+            (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 12" (label :text "Dic"))))))
 
     (box :class "calendar-days-header" :orientation "h" :space-evenly true
       (label :class "calendar-day-name" :text "S")
