@@ -6,44 +6,11 @@
 # ── ZSH_CUSTOM DEBE ir ANTES de oh-my-zsh ────────────
 export ZSH_CUSTOM="$HOME/.zsh-plugins"
 
-# ── Oh My Zsh ──────────────────────────────────────
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="yoda"
-
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# ── Variables de entorno ────────────────────────────
-export LANG=en_US.UTF-8
-export EDITOR=nvim
-export VISUAL=nvim
-export TERM=xterm-256color
-
-# ── PATH (deduplicado, sin duplicar .zprofile) ───────
-_add_to_path() {
-  case "$PATH" in
-    *"$1"*) ;;
-    *) export PATH="$1:$PATH" ;;
-  esac
-}
-
-_add_to_path "/home/sanodesu/.local/bin"
-_add_to_path "/home/sanodesu/.opencode/bin"
-_add_to_path "$HOME/.lmstudio/bin"
-_add_to_path "/usr/local/bin"
-
-unset -f _add_to_path
-
-# ── Predictivo: zsh-autosuggestions (visible sobre fondo negro) ──
-# Color cyan mint + bold para todo el texto del predictivo
+# ── Colores ANTES de cargar oh-my-zsh ────────────────
+# Predictivo: cyan mint bold (visible sobre fondo negro)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='%F{#4af5d4}%b'
 
-# ── zsh-syntax-highlighting: colores sobre fondo negro ──
+# Syntax highlighting: todos los tokens con colores claros
 ZSH_HIGHLIGHT_STYLES=(
   default                     fg=white
   unknown-token               fg=#ff79c6
@@ -70,37 +37,66 @@ ZSH_HIGHLIGHT_STYLES=(
   brace-expansion             fg=#87dfff
 )
 
-# ── Completado zsh: colores del menú dropdown ───────
-# Inicializar sistema de completado
-autoload -Uz compinit
-compinit
+# ── LS_COLORS: colores de ls y menú de completado ────
+# Asegurar colores visibles sobre fondo negro
+export LS_COLORS="di=#4af5d4:fi=#e0e0e0:ln=#87dfff:pi=#ffd700:ex=#66ff66:*.jpg=#ffd700:*.png=#ffd700:*.mp4=#ff79c6:*.zip=#ff4d4d:*.tar=#ffd700:*.gz=#ffd700"
 
-# Menú de selección visible (colores claros sobre fondo oscuro)
+# ── Oh My Zsh ──────────────────────────────────────
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="yoda"
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# ── Variables de entorno ────────────────────────────
+export LANG=en_US.UTF-8
+export EDITOR=nvim
+export VISUAL=nvim
+export TERM=xterm-256color
+
+# ── PATH (deduplicado) ──────────────────────────────
+_add_to_path() {
+  case "$PATH" in
+    *"$1"*) ;;
+    *) export PATH="$1:$PATH" ;;
+  esac
+}
+
+_add_to_path "/home/sanodesu/.local/bin"
+_add_to_path "/home/sanodesu/.opencode/bin"
+_add_to_path "$HOME/.lmstudio/bin"
+_add_to_path "/usr/local/bin"
+
+unset -f _add_to_path
+
+# ── Completado zsh: colores del menú dropdown ───────
+autoload -Uz compinit
+# Borrar caché de completado si existe (evita colores corruptos)
+rm -f ~/.zcompdump* 2>/dev/null
+compinit -u
+
+# Menú de selección visible
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' special-dirs false
-
-# Colores del dropdown de completado
-# formato: foreground/background para items normales y seleccionados
 zstyle ':completion:*' list-colors \
   'di=#4af5d4' \
   'fi=#e0e0e0' \
   'ln=#87dfff' \
   'pi=#ffd700' \
-  'ex=#66ff66' \
-  '*.jpg=#ffd700' \
-  '*.png=#ffd700' \
-  '*.mp4=#ff79c6' \
-  '*.zip=#ff4d4d'
+  'ex=#66ff66'
 
-# Formato de las descripciones en el menú
-zstyle ':completion:*:default' menu 'select=2'
 zstyle ':completion:*' format '%B%F{#87dfff}%d%f%b%F{#e0e0e0}'
 zstyle ':completion:*:corrections' format '%B%F{#66ff66}→ %d (%e)%f%b'
 zstyle ':completion:*:descriptions' format '%B%F{#87dfff} %d%f%b'
 zstyle ':completion:*:messages' format '%B%F{#ffd700}%d%f%b'
 zstyle ':completion:*:warnings' format '%B%F{#ff4d4d}No matches%f%b'
 
-# ── Prompt Yoda (override post-oh-my-zsh) ──────────
+# ── Prompt Yoda ─────────────────────────────────────
 PROMPT='%{$fg_bold[green]%}%n%{$fg_no_bold[cyan]%}@%{$fg_bold[cyan]%}%m %{$fg[yellow]%}>%{$reset_color%} %{$fg_bold[white]%}%~%{$reset_color%}
 %{$fg[green]%}$(git_prompt_info)%{$reset_color%}%(?.%{$fg_bold[green]%}.%{$fg_bold[red]%})▷%{$reset_color%} '
 
