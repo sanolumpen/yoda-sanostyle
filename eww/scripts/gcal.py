@@ -107,7 +107,7 @@ def get_next_event():
     ).execute()
     events = result.get('items', [])
     if not events:
-        print('')
+        print(json.dumps([]))
         return
     e         = events[0]
     start_raw = e['start'].get('dateTime', e['start'].get('date', ''))
@@ -320,17 +320,20 @@ def get_day_events(date_str):
     print(json.dumps(output, ensure_ascii=False))
 
 if __name__ == '__main__':
-    cmd = sys.argv[1] if len(sys.argv) > 1 else 'today'
-    if   cmd == 'today': get_today_events()
-    elif cmd == 'week':  get_week_events()
-    elif cmd == 'days':  get_days_with_events(sys.argv[2], sys.argv[3])
-    elif cmd == "next":  get_next_event()
-    elif cmd == "indie":    get_independiente_fixtures()
-    elif cmd == "unahur_today":  get_unahur_today()
-    elif cmd == "unahur_week":   get_unahur_week()
-    elif cmd == "unahur_upcoming": get_unahur_upcoming()
-    elif cmd == "unahur_classes":  get_unahur_classes()
-    elif cmd == "day":     get_day_events(sys.argv[2] if len(sys.argv) > 2 else "")
+    try:
+        cmd = sys.argv[1] if len(sys.argv) > 1 else 'today'
+        if   cmd == 'today': get_today_events()
+        elif cmd == 'week':  get_week_events()
+        elif cmd == 'days':  get_days_with_events(sys.argv[2], sys.argv[3])
+        elif cmd == "next":  get_next_event()
+        elif cmd == "indie":    get_independiente_fixtures()
+        elif cmd == "unahur_today":  get_unahur_today()
+        elif cmd == "unahur_week":   get_unahur_week()
+        elif cmd == "unahur_upcoming": get_unahur_upcoming()
+        elif cmd == "unahur_classes":  get_unahur_classes()
+        elif cmd == "day":     get_day_events(sys.argv[2] if len(sys.argv) > 2 else "")
+    except Exception:
+        print(json.dumps([]))
 
 def list_calendars():
     service = get_service()

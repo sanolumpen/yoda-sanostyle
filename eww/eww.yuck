@@ -51,18 +51,18 @@
 (defpoll calendar_week5     :interval "1s" "~/.config/eww/scripts/calendar.sh week5  $(cat ~/.cache/eww_cal_offset 2>/dev/null || echo 0)")
 
 ;; ─── GOOGLE CALENDAR ─────────────────────────────────
-(defpoll gcal_day_events :interval "1h"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py day $(cat ~/.cache/eww_selected_day 2>/dev/null || date +%Y-%m-%d)")
-(defpoll gcal_today      :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py today")
-(defpoll gcal_week       :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py week")
-(defpoll gcal_next       :interval "1m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py next")
-(defpoll gcal_indie      :interval "30m" "python3 /home/sanodesu/.config/eww/scripts/gcal.py indie")
+(defpoll gcal_day_events :interval "1h"  "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh day $(cat /home/sanodesu/.cache/eww_selected_day 2>/dev/null || date +%Y-%m-%d)")
+(defpoll gcal_today      :interval "5m"  "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh today")
+(defpoll gcal_week       :interval "5m"  "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh week")
+(defpoll gcal_next       :interval "1m"  "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh next")
+(defpoll gcal_indie      :interval "30m" "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh indie")
 
 ;; ─── UNAHUR ──────────────────────────────────────────
-(defpoll unahur_classes  :interval "5m"  "python3 /home/sanodesu/.config/eww/scripts/gcal.py unahur_classes")
-(defpoll unahur_upcoming :interval "30m" "python3 /home/sanodesu/.config/eww/scripts/gcal.py unahur_upcoming")
+(defpoll unahur_classes  :interval "5m"  "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh unahur_classes")
+(defpoll unahur_upcoming :interval "30m" "/home/sanodesu/.config/eww/scripts/gcal_wrapper.sh unahur_upcoming")
 
 ;; ─── FOOTBALL (PROMIEDOS) ─────────────────────────────
-(defpoll football_data :interval "1m" "python3 /home/sanodesu/.config/eww/scripts/football.py")
+(defpoll football_data :interval "1m" "/home/sanodesu/.config/eww/scripts/football_wrapper.sh")
 
 ;; ─── NOTES (STICKY NOTES) ─────────────────────────────
 (defpoll notes_list :interval "2s" "~/.config/eww/scripts/notes.sh list")
