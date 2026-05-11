@@ -6,9 +6,9 @@
 ## 🔴 Pendiente (por hacer)
 
 ### Archivos sin commitear
-- [ ] Commitear skills modificados (10 archivos)
-- [ ] Commitear archivos de análisis EWW
-- [ ] Commitear TESTING_PLAN.md y TEST_RESULTS_2026-05-11.md
+- [x] Commitear skills modificados (10 archivos) - hecho
+- [x] Commitear archivos de análisis EWW - hecho
+- [x] Commitear TESTING_PLAN.md y TEST_RESULTS_2026-05-11.md - hecho
 
 ### Repositorio y sincronización
 - [x] kitty → ya en repo (tema Yoda: #00ff99)
@@ -27,12 +27,12 @@
 ## 🟡 En Progreso
 
 ### EWW Mejoras Visuales (EWW_MEJORAS_VISUALES_2026-05-11.md)
-- [ ] Fondo de widgets muy oscuro → backdrop-blur
-- [ ] Animaciones de entrada
-- [ ] Gradientes en algunos elementos
-- [ ] Feedback visual en estados
-- [ ] Estilo sticky notes mejorado (parcial)
-- [ ] Efectos de hover mejorados
+- [x] Fondo de widgets muy oscuro → backdrop-blur
+- [x] Gradientes en algunos elementos (headers, backgrounds)
+- [x] Feedback visual en estados (hover, active)
+- [x] Estilo sticky notes mejorado
+- [x] Efectos de hover mejorados
+- [ ] Animaciones de entrada (no soportado por GTK3)
 
 ---
 
