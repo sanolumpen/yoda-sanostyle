@@ -14,12 +14,12 @@
 - [x] kitty → agregado (tema Yoda: #00ff99)
 - [x] nemo → ya en repo (tema GTK global)
 - [x] cava → ya en repo (tema Yoda: #00ff99)
-- [ ] Crear scripts de instalación/agentización (install.sh)
-- [ ] Limpiar ~/descargas/kuri-dots (vacío)
+- [x] Crear scripts de instalación/agentización (install.sh)
+- [x] Limpiar ~/descargas/kuri-dots (ya estaba vacío)
 
 ### Documentación
-- [ ] Crear CONTRIBUTING.md
-- [ ] Actualizar CHANGELOG
+- [x] Crear CONTRIBUTING.md
+- [x] Actualizar CHANGELOG
 
 ---
 
