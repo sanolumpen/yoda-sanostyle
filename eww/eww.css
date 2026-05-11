@@ -551,9 +551,12 @@
 }
 
 .calendar-day.current-day {
-  background: #00ff99;
-  color: #050705;
-  font-weight: 700;
+  background: linear-gradient(135deg, #00ff99, #00cc7a);
+  color: #000;
+  font-weight: 800;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+  border: 2px solid #66ffb2;
 }
 
 .calendar-day.empty-day {
@@ -731,11 +734,26 @@
   padding: 0;
   min-width: 36px;
   min-height: 36px;
-  transition: background 150ms ease;
+  transition: all 200ms ease;
 }
 
 .calendar-day-btn:hover {
   background: rgba(0, 255, 153, 0.15);
+}
+
+/* ── Día actual destacado ── */
+.calendar-day.current-day {
+  background: linear-gradient(135deg, #00ff99, #00cc7a);
+  color: #000;
+  font-weight: 800;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+  border: 2px solid #66ffb2;
+}
+
+/* ── Días vacíos ── */
+.calendar-day.empty-day {
+  color: transparent;
 }
 
 .calendar-cell {

@@ -46,7 +46,7 @@ bash ~/.config/scripts/update-package-lists.sh
 
 ### Comandos de Backup
 ```bash
-cd ~/descargas/kuri-dots
+cd ~/Documentos/dotfiles
 ./scripts/backup-kuri-dots.sh backup    # Crear backup
 ./scripts/backup-kuri-dots.sh list       # Ver backups
 ./scripts/backup-kuri-dots.sh restore    # Restaurar latest

@@ -1,14 +1,14 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════
 # KURI-DOTS SYNC SCRIPT
-# Sincroniza entre ~/.config/ (local) y ~/descargas/kuri-dots (repo)
+# Sincroniza entre ~/.config/ (local) y ~/Documentos/dotfiles (repo)
 # Prioriza cambios locales, pero puede restaurar desde repo
 # ═══════════════════════════════════════════════════════════════════
 
 set -e
 
 LOCAL_DIR="$HOME/.config"
-REPO_DIR="$HOME/descargas/kuri-dots"
+REPO_DIR="$HOME/Documentos/dotfiles"
 BACKUP_DIR="$HOME/.kuri-dots-backups"
 
 GREEN='\033[0;32m'

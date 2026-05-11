@@ -100,9 +100,12 @@
 (defwidget quick_launcher []
   (box :class "widget launcher-card" :orientation "v" :space-evenly false :spacing 8
     (box :class "launcher-grid" :orientation "h" :halign "start" :space-evenly false :spacing 12
-      (button :class "launcher-btn" :onclick "blender &"              (label :class "launcher-icon" :text "󰂫"))
+      (button :class "launcher-btn" :onclick "brave-browser &"         (label :class "launcher-icon" :text "󰂫"))
       (button :class "launcher-btn" :onclick "google-chrome-stable &" (label :class "launcher-icon" :text "󰊯"))
-      (button :class "launcher-btn" :onclick "thunar &"               (label :class "launcher-icon" :text "󰉋")))))
+      (button :class "launcher-btn" :onclick "thunar &"               (label :class "launcher-icon" :text "󰉋"))
+      (button :class "launcher-btn" :onclick "alacritty &"             (label :class "launcher-icon" :text "󰌧"))
+      (button :class "launcher-btn" :onclick "discord &"              (label :class "launcher-icon" :text "󰙯"))
+      (button :class "launcher-btn" :onclick "steam &"                (label :class "launcher-icon" :text "󰓛")))))
 
 (defwidget castelar_weather []
   (box :class "widget weather-card" :orientation "h" :space-evenly false :spacing 16 :valign "center"
@@ -178,13 +181,13 @@
             (button :class "cal-month-btn" :onclick "~/.config/eww/scripts/cal_nav.sh goto_month 12" (label :text "Dic"))))))
 
     (box :class "calendar-days-header" :orientation "h" :space-evenly true
-      (label :class "calendar-day-name" :text "S")
+      (label :class "calendar-day-name" :text "L")
       (label :class "calendar-day-name" :text "M")
-      (label :class "calendar-day-name" :text "T")
-      (label :class "calendar-day-name" :text "W")
-      (label :class "calendar-day-name" :text "T")
-      (label :class "calendar-day-name" :text "F")
-      (label :class "calendar-day-name" :text "S"))
+      (label :class "calendar-day-name" :text "M")
+      (label :class "calendar-day-name" :text "J")
+      (label :class "calendar-day-name" :text "V")
+      (label :class "calendar-day-name" :text "S")
+      (label :class "calendar-day-name" :text "D"))
 
     (box :class "calendar-grid" :orientation "v" :space-evenly false
       (calendar_week_row :week_data calendar_week0)

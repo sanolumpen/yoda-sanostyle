@@ -25,10 +25,9 @@ case "$1" in
         current_month=$(date -d "${OFFSET} months" '+%m')
         current_day=$(date '+%d' | sed 's/^0//')
 
+        # %u = 1 (Mon) to 7 (Sun) - convert to 0-6 starting Monday
         first_day=$(date -d "${current_year}-${current_month}-01" '+%u')
-        if [ "$first_day" -eq 7 ]; then
-            first_day=0
-        fi
+        first_day=$((first_day - 1))
 
         days_in_month=$(date -d "${current_year}-${current_month}-01 +1 month -1 day" '+%d')
 

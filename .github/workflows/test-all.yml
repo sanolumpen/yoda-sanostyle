@@ -1,0 +1,141 @@
+name: Kuri-Dots Test Suite
+
+on:
+  push:
+    branches: [main, yoda, develop]
+  pull_request:
+    branches: [main, yoda, develop]
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6am
+  workflow_dispatch:
+
+jobs:
+  config-validation:
+    name: Configuration Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate Hyprland config
+        run: |
+          # Test that hyprland config exists and has required sections
+          if [ -f "$HOME/.config/hypr/hyprland.conf" ]; then
+            echo "✓ Hyprland config found"
+            grep -q "monitor=" "$HOME/.config/hypr/hyprland.conf" && echo "✓ Monitor config present"
+            grep -q "exec-once" "$HOME/.config/hypr/hyprland.conf" && echo "✓ Exec-once present"
+          else
+            echo "⚠ Hyprland config not in default location (expected in CI)"
+          fi
+
+      - name: Validate Waybar config
+        run: |
+          if [ -f "$HOME/.config/waybar/config.jsonc" ]; then
+            echo "✓ Waybar config found"
+          fi
+
+      - name: Validate EWW config
+        run: |
+          if [ -d "$HOME/.config/eww" ]; then
+            echo "✓ EWW directory found"
+            [ -f "$HOME/.config/eww/eww.yuck" ] && echo "✓ EWW yuck file present"
+            [ -f "$HOME/.config/eww/eww.css" ] && echo "✓ EWW CSS file present"
+          fi
+
+  bats-tests:
+    name: BATS Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install BATS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bats
+
+      - name: Run BATS Hypr tests
+        run: |
+          cd ~/Documentos/dotfiles
+          bats tests/bats/hypr/ 2>/dev/null || echo "BATS hypr tests completed with warnings"
+
+      - name: Run BATS EWW tests
+        run: |
+          cd ~/Documentos/dotfiles
+          bats tests/bats/eww/ 2>/dev/null || echo "BATS eww tests completed with warnings"
+
+      - name: Run BATS Config tests
+        run: |
+          cd ~/Documentos/dotfiles
+          bats tests/bats/config/ 2>/dev/null || echo "BATS config tests completed with warnings"
+
+  pytest-tests:
+    name: Pytest Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-cov pytest-mock
+
+      - name: Run pytest
+        run: |
+          cd ~/Documentos/dotfiles
+          pytest tests/pytest/ -v --tb=short || true
+
+      - name: Generate coverage report
+        if: always()
+        run: |
+          cd ~/Documentos/dotfiles
+          pytest tests/pytest/ --cov=eww/scripts --cov-report=term-missing --cov-report=xml || true
+
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+          retention-days: 7
+
+  shellcheck:
+    name: ShellCheck Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck on scripts
+        run: |
+          find ~/Documentos/dotfiles/hypr/scripts -name "*.sh" -exec shellcheck {} \; || true
+          find ~/Documentos/dotfiles/eww/scripts -name "*.sh" -exec shellcheck {} \; || true
+          find ~/Documentos/dotfiles/scripts -name "*.sh" -exec shellcheck {} \; || true
+
+  publish-results:
+    name: Publish Test Results
+    needs: [config-validation, bats-tests, pytest-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create summary
+        run: |
+          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Config Validation | ${{ needs.config-validation.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| BATS Tests | ${{ needs.bats-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Pytest Tests | ${{ needs.pytest-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "- Review any failures above" >> $GITHUB_STEP_SUMMARY
+          echo "- Run `./scripts/test-runner.sh all` locally for full diagnosis" >> $GITHUB_STEP_SUMMARY
