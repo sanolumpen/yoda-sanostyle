@@ -20,8 +20,11 @@ sudo apt -t trixie-backports install hyprland
 ### Paquetes relacionados también en backports
 
 ```bash
-sudo apt -t trixie-backports install hyprland hyprlock hyprpaper hypridle xdg-desktop-portal-hyprland
+sudo apt -t trixie-backports install hyprland hyprlock hypridle xdg-desktop-portal-hyprland
 ```
+
+> **Nota:** El gestor de fondos activo es **swww** (instalado por separado, vía cargo o GitHub).
+> `hyprpaper` está disponible en backports como alternativa pero no se usa activamente.
 
 ### Requisito previo: habilitar backports
 

@@ -17,14 +17,14 @@ sudo apt -t trixie-backports install hyprland
 |---|---|
 | `hyprland` | Compositor principal |
 | `hyprlock` | Bloqueo de pantalla |
-| `hyprpaper` | Fondo de pantalla |
+| `swww` | Fondo de pantalla con transiciones (activo) |
 | `hypridle` | Demonio de idle/inactividad |
 | `xdg-desktop-portal-hyprland` | Portal XDG para captura de pantalla/compartición |
 
 ### Instalación completa
 
 ```bash
-sudo apt -t trixie-backports install hyprland hyprlock hyprpaper hypridle xdg-desktop-portal-hyprland
+sudo apt -t trixie-backports install hyprland hyprlock hypridle swww xdg-desktop-portal-hyprland
 ```
 
 ## Ubicación de configuración
@@ -209,7 +209,8 @@ journalctl --user -xe | grep hypr
 |---|---|
 | `hyprctl` | Consulta y control del compositor |
 | `hyprlock` | Bloqueo de pantalla |
-| `hyprpaper` | Gestor de fondos |
+| `swww` | Gestor de fondos con transiciones (activo) |
+| `hyprpaper` | Gestor de fondos alternativo (no usado) |
 | `hypridle` | Gestión de idle/inactividad |
 | `grim` | Capturas de pantalla |
 | `slurp` | Selección de región para grim |
