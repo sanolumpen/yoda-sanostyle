@@ -67,6 +67,12 @@ fi
 # ── Fcitx5 watcher ──
 ~/.config/waybar/scripts/fcitx5-watcher.sh >> "$LOG" 2>&1 &
 
+# ── Clipboard (wl-copy) ─────────────────────────────
+if command -v wl-copy > /dev/null 2>&1; then
+    log "📋 Iniciando wl-copy (clipboard)..."
+    wl-copy --watch &
+fi
+
 # ── Idle & Lock ──
 log "🔒 Configurando swayidle..."
 pkill swayidle 2>/dev/null || true
