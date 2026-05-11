@@ -30,12 +30,12 @@
 - [x] Window swallowing (terminales)
 - [x] Border size 3 con gradiente #00ff99→#66ffb2
 - [x] Documentación actualizada (HYPRLAND_GUIDE, DEBIAN_SETUP, header)
-- [ ] Dwindle smart split + smart resizing
-- [ ] Window rules por workspace (Brave→2, Discord→3, Steam→4, Blender→5)
-- [ ] Gestos touchpad (3 dedos swipe)
-- [ ] Unificar scripts wrapper (brave.sh, discord.sh, steam.sh, gdevelop.sh → launch-app.sh)
-- [ ] Fix inconsistencia wallpaper (hyprpaper vs swww)
-- [ ] Optimizar startup.sh (sacar sleeps innecesarios)
+- [x] Dwindle smart split + smart resizing
+- [x] Window rules por workspace (Brave→2, Discord→3, Steam→4, Blender→5)
+- [x] Gestos touchpad (3 dedos swipe)
+- [x] Unificar scripts wrapper (brave.sh, discord.sh, steam.sh, gdevelop.sh → launch-app.sh)
+- [x] Fix inconsistencia wallpaper (hyprpaper vs swww)
+- [x] Optimizar startup.sh (sacar sleeps innecesarios)
 - [x] Tests de validación de sintaxis hyprland
 
 ---
