@@ -46,6 +46,10 @@ PROMPT='%{$fg_bold[green]%}%n%{$fg_no_bold[cyan]%}@%{$fg_bold[cyan]%}%m %{$fg[ye
 
 RPROMPT='%{$fg_bold[yellow]%}%D{%H:%M:%S}%{$reset_color%}'
 
+# ── Zsh-autosuggestions ──────────────────────────────
+# Color de sugerencias (visible sobre fondo negro)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#4af5d4,bold'
+
 # ── Opciones de Oh My Zsh ──────────────────────────
 zstyle ':omz:update' mode disabled
 
