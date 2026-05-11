@@ -11,9 +11,10 @@
 - [ ] Commitear TESTING_PLAN.md y TEST_RESULTS_2026-05-11.md
 
 ### Repositorio y sincronización
-- [x] kitty → agregado (tema Yoda: #00ff99)
+- [x] kitty → ya en repo (tema Yoda: #00ff99)
 - [x] nemo → ya en repo (tema GTK global)
 - [x] cava → ya en repo (tema Yoda: #00ff99)
+- [x] waybar → ya en repo (tema Yoda: #00ff99, #b9f6ca)
 - [x] Crear scripts de instalación/agentización (install.sh)
 - [x] Limpiar ~/descargas/kuri-dots (ya estaba vacío)
 
