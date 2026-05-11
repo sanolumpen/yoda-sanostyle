@@ -97,8 +97,48 @@ install_swww() {
     fi
 }
 
+# ═══════════════════════════════════════════════════════════
+# ZSH PLUGINS — install missing zsh plugins for Yoda theme
+# ═══════════════════════════════════════════════════════════
+install_zsh_plugins() {
+    ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.zsh-plugins}"
+    mkdir -p "$ZSH_CUSTOM/plugins"
+    mkdir -p "$ZSH_CUSTOM/themes"
+
+    # zsh-autosuggestions
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+        log "  Instalando zsh-autosuggestions..."
+        git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git \
+            "$ZSH_CUSTOM/plugins/zsh-autosuggestions" 2>&1 | tee -a "$LOG"
+    else
+        log "  zsh-autosuggestions ya instalado"
+    fi
+
+    # zsh-syntax-highlighting
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+        log "  Instalando zsh-syntax-highlighting..."
+        git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" 2>&1 | tee -a "$LOG"
+    else
+        log "  zsh-syntax-highlighting ya instalado"
+    fi
+
+    # Yoda theme
+    if [ -f "$DOTFILES/.oh-my-zsh/custom/themes/yoda.zsh-theme" ]; then
+        cp "$DOTFILES/.oh-my-zsh/custom/themes/yoda.zsh-theme" \
+           "$ZSH_CUSTOM/themes/yoda.zsh-theme"
+        log "  ✅ Tema Yoda instalado"
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
 # Vincular/sincronizar configs
+# ═══════════════════════════════════════════════════════════
 link_configs() {
+
+    # Instalar plugins zsh antes de linkear
+    install_zsh_plugins
+
     log "Sincronizando configs..."
     
     # Lista de directorios a sincronizar
