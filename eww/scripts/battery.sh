@@ -44,8 +44,10 @@ case $1 in
             echo "󰁻"
         elif [ $percent -ge 15 ]; then
             echo "󰁺"
-        else
+        elif [ $percent -gt 0 ]; then
             echo "󰂎"
+        else
+            echo "󰛨"
         fi
         ;;
     *)

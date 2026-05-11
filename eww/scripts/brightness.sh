@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# Brightness monitoring script
-# Works with brightnessctl
-
 case $1 in
     percent)
-        # Get brightness percentage
-        brightnessctl -m | awk -F, '{print $4}' | tr -d '%'
+        brightness=$(brightnessctl -m 2>/dev/null | awk -F, '{print $4}' | tr -d '%')
+        [ -z "$brightness" ] && brightness=100
+        echo "$brightness"
         ;;
     icon)
-        brightness=$(brightnessctl -m | awk -F, '{print $4}' | tr -d '%')
+        brightness=$(brightnessctl -m 2>/dev/null | awk -F, '{print $4}' | tr -d '%')
+        [ -z "$brightness" ] && brightness=100
 
         if [ $brightness -ge 75 ]; then
             echo "󰃠"
@@ -22,6 +21,6 @@ case $1 in
         fi
         ;;
     *)
-        echo "Usage: $0 {percent|icon}"
+        echo "100"
         ;;
 esac
