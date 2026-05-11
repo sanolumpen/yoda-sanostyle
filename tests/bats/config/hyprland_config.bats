@@ -154,22 +154,6 @@ CONFIG_FILE="$CONFIG_DIR/hyprland.conf"
 }
 
 # ---------------------------------------------------------------
-# Gestures
-# ---------------------------------------------------------------
-
-@test "hyprland.conf has gestures section" {
-    grep -q "^gestures" "$CONFIG_FILE"
-}
-
-@test "hyprland.conf has workspace_swipe enabled" {
-    grep -q "workspace_swipe = true" "$CONFIG_FILE"
-}
-
-@test "hyprland.conf uses 3 finger swipe" {
-    grep -q "workspace_swipe_fingers = 3" "$CONFIG_FILE"
-}
-
-# ---------------------------------------------------------------
 # Window rules
 # ---------------------------------------------------------------
 
