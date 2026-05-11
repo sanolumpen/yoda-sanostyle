@@ -11,9 +11,9 @@
 - [ ] Commitear TESTING_PLAN.md y TEST_RESULTS_2026-05-11.md
 
 ### Repositorio y sincronización
-- [ ] Agregar kitty al repo (~/.config/kitty → dotfiles/kitty)
-- [ ] Agregar nemo al repo (~/.config/nemo → dotfiles/nemo)
-- [ ] Agregar cava al repo (~/.config/cava → dotfiles/cava)
+- [x] kitty → agregado (tema Yoda: #00ff99)
+- [x] nemo → ya en repo (tema GTK global)
+- [x] cava → ya en repo (tema Yoda: #00ff99)
 - [ ] Crear scripts de instalación/agentización (install.sh)
 - [ ] Limpiar ~/descargas/kuri-dots (vacío)
 
