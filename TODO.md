@@ -36,7 +36,7 @@
 - [ ] Unificar scripts wrapper (brave.sh, discord.sh, steam.sh, gdevelop.sh → launch-app.sh)
 - [ ] Fix inconsistencia wallpaper (hyprpaper vs swww)
 - [ ] Optimizar startup.sh (sacar sleeps innecesarios)
-- [ ] Tests de validación de sintaxis hyprland
+- [x] Tests de validación de sintaxis hyprland
 
 ---
 
