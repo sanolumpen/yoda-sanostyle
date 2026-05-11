@@ -19,10 +19,6 @@ for i in {1..30}; do
     sleep 0.3
 done
 
-# ── Wait for display server ──
-log "⏳ Esperando servidor de display..."
-sleep 1
-
 # ── Wallpaper ──
 log "🖼️ Estableciendo wallpaper..."
 ~/.config/hypr/scripts/wallpaper_v2.sh >> "$LOG" 2>&1
@@ -42,15 +38,20 @@ fi
 # ── Waybar ──
 log "📊 Iniciando waybar..."
 pkill waybar 2>/dev/null || true
-sleep 1
 waybar >> "$LOG" 2>&1 &
 
 # ── EWW ──
 log "🧩 Iniciando EWW..."
 pkill -f eww 2>/dev/null || true
-sleep 1
 eww daemon >> "$LOG" 2>&1 &
-sleep 2
+
+for i in {1..10}; do
+    if pgrep -fx "eww daemon" > /dev/null 2>&1; then
+        break
+    fi
+    sleep 0.3
+done
+
 eww open-many dashboard_window date_window football_window notes_window >> "$LOG" 2>&1
 if [ $? -eq 0 ]; then
     log "✅ EWW widgets activos"
