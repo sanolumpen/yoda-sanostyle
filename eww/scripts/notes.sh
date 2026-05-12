@@ -9,7 +9,7 @@ case "$1" in
     read)
         content=$(cat "$NOTE_FILE")
         if [ -z "$content" ] || [ -z "$(echo "$content" | tr -d '[:space:]')" ]; then
-            echo "✏️ Escribí algo... (abrí el editor con el botón)"
+            echo "(sin contenido - abre el editor)"
         else
             echo "$content"
         fi

@@ -376,21 +376,18 @@
         (for league in football_data
           (football_league :league league))))))
 
+
 ;; ─── NOTES WIDGET ──────────────────────────────────────
-;; Simple notepad: escribí y se guarda
-(defpoll notes_content :interval "1s" "~/.config/eww/scripts/notes.sh read")
+(defpoll notes_content :interval "1s" "cat /home/sanodesu/.local/share/kuri-notes/notepad.txt")
 
 (defwidget notes_widget []
   (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 8
     (box :class "notes-header-row" :orientation "h" :space-evenly false :spacing 8
-      (label :class "notes-header" :text "📓 NOTAS" :xalign 0)
+      (label :class "notes-header" :text "NOTAS" :xalign 0)
       (button :class "notes-edit-btn"
-        :onclick "alacritty -e nano ~/.local/share/kuri-notes/notepad.txt &"
-        (label :text "✏️")))
-    (scroll :vscroll true :hscroll false
-      (box :class "notes-scroll-content"
-        (label :class "notes-content" :text notes_content :wrap true :xalign 0 :valign "start")))))
-
+        :onclick "alacritty -e nano /home/sanodesu/.local/share/kuri-notes/notepad.txt &"
+        (label :text "EDIT")))
+    (label :class "notes-content" :text notes_content :wrap true :xalign 0)))
 ;; ─── VENTANAS ADICIONALES ─────────────────────────────
 ;; Football: debajo del dashboard (evita solaparse con barra de volumen)
 (defwindow football_window
