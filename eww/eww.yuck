@@ -342,35 +342,37 @@
 ;; ─── FOOTBALL WIDGET ───────────────────────────────────
 (defwidget football_match [match]
   (box :class "football-match-row" :orientation "v" :space-evenly false :spacing 2
-    (box :orientation "h" :space-evenly false :spacing 4
-      (label :class "football-match-time" :text {match.time})
-      (image :class "football-team-img" :path {match.team1_logo} :image-width 16 :image-height 16)
-      (label :class "football-team1" :text {match.team1})
-      (label :class "football-score" :text {match.score != "" ? match.score : "-"})
-      (label :class "football-team2" :text {match.team2})
-      (image :class "football-team-img" :path {match.team2_logo} :image-width 16 :image-height 16))
-    ;; Cards row - show quantity
-    (box :class "football-cards-row" :orientation "h" :space-evenly true :spacing 8
-      (box :orientation "h" :space-evenly false :spacing 4
-        (label :class "football-card-icon yellow" :text {match.yellow1 != "" ? "${match.yellow1}" : "-"})
-        (label :class "football-card-icon red" :text {match.red1 != "" ? "${match.red1}" : "-"}))
-      (box :orientation "h" :space-evenly false :spacing 4 :halign "end"
-        (label :class "football-card-icon yellow" :text {match.yellow2 != "" ? "${match.yellow2}" : "-"})
-        (label :class "football-card-icon red" :text {match.red2 != "" ? "${match.red2}" : "-"})))))
+    (box :orientation "h" :space-evenly false :spacing 6
+      (label :class "football-match-time" :text {match.time != "" ? match.time : "—"} :xalign 0)
+      (image :class "football-team-img" :path {match.team1_logo} :image-width 14 :image-height 14)
+      (label :class "football-team1" :text {match.team1} :xalign 1 :hexpand true :limit-width 12 :wrap false)
+      (label :class "football-score" :text {match.score != "" ? match.score : "vs"} :xalign 0.5)
+      (label :class "football-team2" :text {match.team2} :xalign 0 :hexpand true :limit-width 12 :wrap false)
+      (image :class "football-team-img" :path {match.team2_logo} :image-width 14 :image-height 14))
+    (box :class "football-cards-row" :orientation "h" :space-evenly false :spacing 6
+         :visible {match.yellow1 != "" || match.red1 != "" || match.yellow2 != "" || match.red2 != ""}
+      (box :orientation "h" :space-evenly false :spacing 2
+        (label :class "football-card-icon yellow" :text {match.yellow1 != "" ? "${match.yellow1} " : ""})
+        (label :class "football-card-icon red"    :text {match.red1 != "" ? "${match.red1} " : ""}))
+      (box :orientation "h" :space-evenly false :spacing 2 :halign "end"
+        (label :class "football-card-icon yellow" :text {match.yellow2 != "" ? " ${match.yellow2}" : ""})
+        (label :class "football-card-icon red"    :text {match.red2 != "" ? " ${match.red2}" : ""})))))
 
 (defwidget football_league [league]
   (box :class "football-league-box" :orientation "v" :space-evenly false :spacing 4
-    (box :orientation "h" :space-evenly false :spacing 4
+    (box :orientation "h" :space-evenly false :spacing 6
       (image :class "football-league-img" :path {league.league_logo} :image-width 16 :image-height 16)
-      (label :class "football-league-title" :text {league.league}))
-    (for match in {league.matches}
-      (football_match :match match))))
+      (label :class "football-league-title" :text {league.league} :xalign 0))
+    (box :orientation "v" :space-evenly false :spacing 3
+      (for match in {league.matches}
+        (football_match :match match)))))
 
 (defwidget football_widget []
-  (box :class "widget football-card" :orientation "v" :space-evenly false :spacing 8
-    (label :class "football-header" :text "FUTBOL")
-    (scroll :vscroll true :hscroll false :height 180
-      (box :orientation "v" :space-evenly false :spacing 8
+  (box :class "widget football-card" :orientation "v" :space-evenly false :spacing 6
+    (box :class "football-header-row" :orientation "h" :space-evenly false :spacing 6
+      (label :class "football-header" :text "⚽ FUTBOL" :xalign 0))
+    (scroll :vscroll true :hscroll false :height 200
+      (box :orientation "v" :space-evenly false :spacing 6
         (for league in football_data
           (football_league :league league))))))
 
@@ -388,10 +390,10 @@
         (label :class "notes-content" :text note_content :wrap true)))))
 
 ;; ─── VENTANAS ADICIONALES ─────────────────────────────
-;; Football: debajo del dashboard
+;; Football: debajo del dashboard (evita solaparse con barra de volumen)
 (defwindow football_window
   :monitor 0
-  :geometry (geometry :x "20px" :y "440px" :width "320px" :anchor "top left")
+  :geometry (geometry :x "20px" :y "520px" :width "320px" :anchor "top left")
   :stacking "bg" :windowtype "dock" :wm-ignore true
   (football_widget))
 

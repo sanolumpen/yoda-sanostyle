@@ -1,209 +1,213 @@
-/* Yoda Theme Color Palette */
+/* ═══════════════════════════════════════════════════════════════
+   EWW CSS — YODA THEME (v3 — Complete Rewrite)
+   Fuentes:
+   - [css_rice_expert](./skills/css_rice_expert.md)
+   - [eww_yuck_expert](./skills/eww_yuck_expert.md)
+   - end-4/dots-hyprland (m3ww branch)
+   - husseinhareb/hyprland-eww
+   - randomboi404/eww
+   - koeqaife/hyprland-material-you
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Global Reset & Base ──────────────────────────────────── */
 * {
   all: unset;
-  font-family: "Orbitron", sans-serif;
-  font-size: 15px;
-  color: #b9f6ca;
+  font-family: "Orbitron", "JetBrains Mono", "Nerd Font", monospace;
+  font-size: 14px;
+  color: #ffffff;
 }
 
-/* Dashboard Container */
+/* ─── Root Dashboard ───────────────────────────────────────── */
 .dashboard {
-  background-color: transparent;
+  background: transparent;
   padding: 0;
+  margin: 0;
 }
 
-/* Widget Base Styles */
+/* ─── Widget Base ──────────────────────────────────────────── */
 .widget {
-  background: linear-gradient(135deg, rgba(5, 7, 5, 0.95) 0%, rgba(0, 40, 20, 0.92) 100%);
-  border-radius: 12px;
+  background: rgba(5, 10, 5, 0.88);
+  border-radius: 16px;
   padding: 16px;
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(0, 255, 153, 0.1);
-  transition: background 200ms ease, border-color 200ms ease;
+  border: 1px solid rgba(0, 255, 153, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .widget:hover {
-  border-color: rgba(0, 255, 153, 0.5);
-  background: linear-gradient(135deg, rgba(5, 10, 7, 0.98) 0%, rgba(0, 50, 25, 0.95) 100%);
+  border-color: rgba(0, 255, 153, 0.35);
+  background: linear-gradient(145deg, rgba(5, 15, 8, 0.95) 0%, rgba(0, 30, 15, 0.9) 100%);
+  box-shadow: 0 8px 40px rgba(0, 255, 153, 0.08);
 }
 
-/* Widget Header */
+/* ─── Widget Header ────────────────────────────────────────── */
 .widget-header {
-  margin-bottom: 3px;
+  margin-bottom: 12px;
   padding: 8px 12px;
-  margin: -16px -16px 12px -16px;
-  background: linear-gradient(90deg, rgba(0, 255, 153, 0.08) 0%, transparent 100%);
-  border-radius: 12px 12px 0 0;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.15);
+  margin: -16px -16px 16px -16px;
+  background: linear-gradient(90deg, rgba(0, 255, 153, 0.1) 0%, transparent 100%);
+  border-radius: 16px 16px 0 0;
+  border-bottom: 1px solid rgba(0, 255, 153, 0.12);
 }
 
 .widget-icon {
-  font-size: 22px;
+  font-size: 20px;
   color: #00ff99;
   margin-right: 8px;
-  text-shadow: 0 0 8px rgba(0, 255, 153, 0.3);
-  transition: text-shadow 200ms ease;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
 }
 
 .widget-icon:hover {
-  text-shadow: 0 0 16px rgba(0, 255, 153, 0.6);
-}
-
-.tokyo-icon {
-  margin-right: 12px;
-  margin-left: 8px;
+  text-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
 }
 
 .widget-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #00ff99;
+  letter-spacing: 0.5px;
 }
 
-.tokyo-title {
-  margin-left: 0;
+.widget-title-alt {
+  font-size: 16px;
+  font-weight: 600;
+  color: #b9f6ca;
 }
 
-.system-title, .storage-title {
-  margin-left: 8px;
+/* ─── Utility Classes ──────────────────────────────────────── */
+.separator {
+  min-height: 1px;
+  background-color: rgba(0, 255, 153, 0.1);
+  margin: 8px 0;
 }
 
+.separator-vertical {
+  min-width: 1px;
+  min-height: 0px;
+  background-color: rgba(0, 255, 153, 0.1);
+  margin: 0 8px;
+}
 
-
-/* ===== TOKYO WEATHER WIDGET ===== */
+/* ═══════════════════════════════════════════════════════════
+   WEATHER WIDGET
+   ═══════════════════════════════════════════════════════════ */
 .weather-card {
-  border: none;
-  background: transparent;
-  padding: 12px;
-  min-width: 200px;
+  background: rgba(0, 20, 10, 0.6);
+  border: 1px solid rgba(0, 255, 153, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 220px;
 }
 
 .weather-icon {
-  font-size: 56px;
+  font-size: 52px;
   color: #00ff99;
   text-shadow: 0 0 16px rgba(0, 255, 153, 0.4);
 }
 
 .weather-location {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #00ff99;
-  letter-spacing: 1px;
-  margin-bottom: 2px;
-  min-width: 120px;
+letter-spacing: 0.5px;
+  margin-bottom: 4px;
 }
 
 .weather-temp {
-  font-size: 38px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 800;
   color: #ffffff;
+  text-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
 }
 
 .weather-condition {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
 .weather-humidity-label {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 600;
 }
 
 .weather-humidity {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #00ff99;
 }
 
-/* ===== SYSTEM MONITOR WIDGET ===== */
-.system-card {
-  padding-bottom: 28px;
+/* ═══════════════════════════════════════════════════════════
+   MEDIA PLAYER WIDGET
+   ═══════════════════════════════════════════════════════════ */
+.media-card {
+  background: rgba(5, 7, 5, 0.5);
+  border: 1px solid rgba(0, 255, 153, 0.1);
+  border-radius: 12px;
+  padding: 14px;
 }
 
-.metrics-grid {
-  padding: 4px 0 4px 0;
-}
-
-.metric-row {
-  padding: 6px 0;
-}
-
-.metric-icon-simple {
-  font-size: 24px;
+.media-icon {
+  font-size: 22px;
   color: #00ff99;
-  margin-right: 4px;
+  text-shadow: 0 0 12px rgba(0, 255, 153, 0.4);
 }
 
-.metric-info {
-  min-width: 0;
+.media-status-icon {
+  font-size: 20px;
+  color: #00ff99;
 }
 
-.metric-label {
-  font-size: 18px;
-  color: #ffffff;
-  font-weight: 600;
+.media-cover {
+  border-radius: 10px;
+  border: 2px solid rgba(0, 255, 153, 0.3);
+  box-shadow: 0 0 12px rgba(0, 255, 153, 0.2);
+  min-width: 64px;
+  min-height: 64px;
 }
 
-.metric-bar {
-  min-height: 8px;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 153, 0.05);
-}
-
-.metric-bar trough {
-  min-height: 8px;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 153, 0.05);
-}
-
-.metric-bar progress {
-  min-height: 8px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #00ff99, #66ffb2);
-}
-
-.metric-value {
-  font-size: 15px;
+.media-title {
+  font-size: 16px;
   font-weight: 700;
   color: #b9f6ca;
-  min-width: 0;
+  margin-bottom: 2px;
 }
 
-.metric-value-large {
-  font-size: 18px;
-  font-weight: 700;
-  color: #00ff99;
-  margin-top: 4px;
+.media-artist {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
 }
 
-/* ===== SYSTEM STATS WITH CIRCULAR GRAPHS ===== */
+/* ═══════════════════════════════════════════════════════════
+   SYSTEM STATS WIDGET (CIRCULAR PROGRESS)
+   ═══════════════════════════════════════════════════════════ */
 .system-stats-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
+  padding: 18px;
+  border: 1px solid rgba(0, 255, 153, 0.12);
+  background: rgba(0, 20, 10, 0.6);
+  border-radius: 12px;
 }
 
 .stats-grid {
-  padding: 8px 0;
+  padding: 4px 0;
 }
 
 .stat-item {
-  min-width: 70px;
+  min-width: 75px;
 }
 
 .stat-ring {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   padding: 0;
   min-width: 70px;
   min-height: 70px;
 }
 
 .stat-progress-bg {
+  color: rgba(255, 255, 255, 0.15);
   min-width: 70px;
   min-height: 70px;
-  color: rgba(255, 255, 255, 0.25);
 }
 
 .stat-progress {
@@ -211,21 +215,10 @@
   min-height: 70px;
 }
 
-.stat-progress.cpu-color {
-  color: #00ff99;
-}
-
-.stat-progress.memory-color {
-  color: #00ff99;
-}
-
-.stat-progress.storage-color {
-  color: #00ff99;
-}
-
-.stat-progress.temp-color {
-  color: #00ff99;
-}
+.stat-progress.cpu-color { color: #00ff99; }
+.stat-progress.memory-color { color: #64b5f6; }
+.stat-progress.storage-color { color: #ffb74d; }
+.stat-progress.temp-color { color: #ef5350; }
 
 .stat-center {
   min-width: 70px;
@@ -233,22 +226,25 @@
 }
 
 .stat-icon {
-  font-size: 32px;
+  font-size: 30px;
   color: #b9f6ca;
-  text-shadow: 0 0 12px rgba(185, 246, 202, 0.4);
+  text-shadow: 0 0 10px rgba(185, 246, 202, 0.3);
 }
 
 .stat-percent {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #ffffff;
 }
 
-/* ===== CONTROLS WIDGET (AUDIO & BRIGHTNESS) ===== */
+/* ═══════════════════════════════════════════════════════════
+   CONTROLS WIDGET (AUDIO / BRIGHTNESS SLIDERS)
+   ═══════════════════════════════════════════════════════════ */
 .controls-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
+  background: rgba(5, 7, 5, 0.5);
+  border: 1px solid rgba(0, 255, 153, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
 }
 
 .control-item {
@@ -256,306 +252,235 @@
 }
 
 .control-icon {
-  font-size: 24px;
+  font-size: 22px;
   color: #b9f6ca;
-  min-width: 32px;
-  transition: text-shadow 200ms ease, color 200ms ease;
+  min-width: 28px;
 }
 
 .control-icon:hover {
   color: #00ff99;
-  text-shadow: 0 0 12px rgba(0, 255, 153, 0.5);
+  text-shadow: 0 0 14px rgba(0, 255, 153, 0.5);
 }
 
 .control-icon.audio-icon {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .control-bar-container {
-  min-width: 240px;
+  min-width: 220px;
 }
 
+/* Scales / Sliders — Gtk native, uses trough + highlight + slider */
 .control-bar trough {
   all: unset;
-  min-height: 12px;
-  min-width: 240px;
-  border-radius: 12px;
-  background-color: rgba(0, 255, 153, 0.15);
+  min-height: 10px;
+  min-width: 200px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.control-bar trough progress {
+.control-bar trough highlight {
   all: unset;
-  min-height: 12px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #00ff99, #66ffb2);
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00cc7a, #00ff99);
+}
+
+.control-bar slider {
+  all: unset;
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 100%;
+  background: #ffffff;
+  border: 2px solid #00ff99;
+  box-shadow: 0 0 8px rgba(0, 255, 153, 0.4);
 }
 
 .control-value {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #ffffff;
-  min-width: 45px;
+  min-width: 40px;
+  margin-left: 8px;
 }
 
-/* ===== QUICK LAUNCHER WIDGET ===== */
+/* ═══════════════════════════════════════════════════════════
+   QUICK LAUNCHER WIDGET
+   ═══════════════════════════════════════════════════════════ */
 .launcher-card {
-  padding: 16px;
-  border: none;
-  background: transparent;
+  background: rgba(5, 7, 5, 0.45);
+  border: 1px solid rgba(0, 255, 153, 0.08);
+  border-radius: 12px;
+  padding: 14px;
 }
 
 .launcher-grid {
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .launcher-btn {
   all: unset;
-  min-width: 80px;
-  min-height: 80px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(0, 255, 153, 0.05) 0%, transparent 100%);
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(0, 255, 153, 0.06) 0%, rgba(0, 255, 153, 0.02) 100%);
   border: 1px solid rgba(0, 255, 153, 0.1);
-  transition: all 0.2s ease;
+  
 }
 
 .launcher-btn:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 153, 0.15) 0%, rgba(0, 255, 153, 0.05) 100%);
+  background: linear-gradient(145deg, rgba(0, 255, 153, 0.15) 0%, rgba(0, 255, 153, 0.05) 100%);
   border-color: rgba(0, 255, 153, 0.4);
-  box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.15);
 }
 
 .launcher-btn:active {
   background: rgba(0, 255, 153, 0.2);
-  transform: scale(0.95);
 }
 
 .launcher-icon {
-  font-size: 36px;
+  font-size: 32px;
   color: #00ff99;
-  text-shadow: 0 0 12px rgba(0, 255, 153, 0.4);
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
 }
 
-/* ===== STORAGE WIDGET ===== */
-.storage-card {
-}
-
-.storage-visual {
-  padding: 8px 0 8px 0;
-}
-
-.storage-ring {
-  margin-bottom: 10px;
+/* ═══════════════════════════════════════════════════════════
+   DATE / CALENDAR WINDOW
+   ═══════════════════════════════════════════════════════════ */
+.date-display {
   padding: 0;
-  min-width: 110px;
-  min-height: 110px;
 }
 
-.storage-progress-bg {
-  min-width: 110px;
-  min-height: 110px;
-  color: rgba(255, 255, 255, 0.1);
-}
-
-.storage-progress {
-  min-width: 110px;
-  min-height: 110px;
-  color: #00ff99;
-}
-
-.storage-center {
-}
-
-.storage-percent-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: #b9f6ca;
-  margin-bottom: -4px;
-}
-
-.storage-label-small {
-  font-size: 13px;
-  color: #ffffff;
-  margin-top: -4px;
-  font-weight: 600;
-}
-
-.storage-stats {
-  padding-top: 8px;
-  border-top: 1px solid rgba(0, 255, 153, 0.15);
-}
-
-.storage-stat-label {
-  font-size: 15px;
-  color: #ffffff;
-  margin-bottom: 2px;
-  font-weight: 600;
-}
-
-.storage-stat-value {
-  font-size: 16px;
-  font-weight: 700;
-  color: #b9f6ca;
-}
-
-/* ===== MEDIA PLAYER WIDGET ===== */
-.media-card {
-  border: none;
-  background: transparent;
-  padding: 12px;
-}
-
-.media-icon {
-  font-size: 24px;
-  color: #00ff99;
-  text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
-}
-
-.media-status-icon {
-  font-size: 22px;
-  color: #00ff99;
-  text-shadow: 0 0 12px rgba(0, 255, 153, 0.6);
-}
-
-.media-cover {
-  border-radius: 8px;
-  border: 2px solid rgba(0, 255, 153, 0.4);
-  box-shadow: 0 0 16px rgba(0, 255, 153, 0.3);
-  min-width: 80px;
-  min-height: 80px;
-}
-
-.media-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #b9f6ca;
-  text-shadow: 0 0 8px rgba(185, 246, 202, 0.3);
-  margin-bottom: 4px;
-}
-
-.media-artist {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-/* ===== YODA QUOTE WIDGET ===== */
-.yoda-quote-widget {
-  background: transparent;
-  padding: 16px;
-}
-
-.yoda-quote-text {
-  font-family: "Noto Serif", serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 4px 0;
-}
-
-.yoda-quote-author {
-  font-family: "Noto Serif", serif;
-  font-size: 20px;
-  color: #ffffff;
-  margin-top: 8px;
-  font-style: italic;
-}
-
-/* ===== DATE WIDGET ===== */
 .date-widget {
   background: transparent;
-  border-radius: 20px;
-  padding: 28px 40px;
-  min-width: 240px;
+  border-radius: 16px;
+  padding: 24px 32px;
+  min-width: 220px;
 }
 
 .date-weekday {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: rgba(185, 246, 202, 0.8);
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
-.date-year {
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(185, 246, 202, 0.7);
-  letter-spacing: 1px;
+letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
 
 .date-main {
+  /* container for month + day side by side */
 }
 
 .date-month {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 38px;
+  font-weight: 800;
   color: #00ff99;
+letter-spacing: 0.5px;
 }
 
 .date-day {
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 56px;
+  font-weight: 800;
   color: #ffffff;
-  text-shadow:
-    0 0 24px rgba(0, 255, 153, 0.4),
-    0 0 12px rgba(0, 255, 153, 0.3);
+  text-shadow: 0 0 24px rgba(0, 255, 153, 0.35), 0 0 12px rgba(0, 255, 153, 0.2);
+  margin-left: 8px;
 }
 
+.date-year {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(185, 246, 202, 0.65);
+  letter-spacing: 0.3px;
+}
 
 .date-time {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
   color: #00ff99;
-  text-shadow: 0 0 16px rgba(0, 255, 153, 0.5);
-  margin-top: 12px;
-  letter-spacing: 1px;
+  text-shadow: 0 0 14px rgba(0, 255, 153, 0.4);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
 }
 
-/* ===== CALENDAR WIDGET ===== */
+/* ═══════════════════════════════════════════════════════════
+   CALENDAR WIDGET
+   ═══════════════════════════════════════════════════════════ */
 .calendar-widget {
   background: transparent;
-  border-radius: 16px;
-  padding: 20px 20px 0px 20px;
-  min-width: 280px;
+  border-radius: 14px;
+  padding: 16px 16px 0 16px;
+  min-width: 260px;
 }
 
 .calendar-header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid rgba(0, 255, 153, 0.15);
   margin-bottom: 8px;
+  
+  
+  
 }
 
 .calendar-month {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #00ff99;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .calendar-year {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
-  color: rgba(185, 246, 202, 0.8);
+  color: rgba(185, 246, 202, 0.75);
+}
+
+.calendar-nav-btn {
+  all: unset;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 153, 0.15);
+  border-radius: 8px;
+  padding: 4px 10px;
+  color: #00ff99;
+  font-size: 16px;
+  font-weight: 700;
+  
+  min-width: 32px;
+  min-height: 32px;
+  
+  
+  
+}
+
+.calendar-nav-btn:hover {
+  background: rgba(0, 255, 153, 0.12);
+  border-color: rgba(0, 255, 153, 0.35);
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.15);
+}
+
+.calendar-month-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #00ff99;
+}
+
+.calendar-year-label {
+  font-size: 15px;
+  color: rgba(185, 246, 202, 0.7);
+}
+
+.calendar-picker-arrow {
+  font-size: 11px;
+  color: rgba(0, 255, 153, 0.5);
 }
 
 .calendar-days-header {
-  padding: 8px 0 4px 0;
+  padding: 6px 0 4px 0;
 }
 
 .calendar-day-name {
-  font-size: 16px;
-  font-weight: 900;
-  color: rgba(0, 255, 153, 0.9);
-  min-width: 36px;
-}
-
-.calendar-year-subtle {
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(185, 246, 202, 0.4);
-  letter-spacing: 0.5px;
-  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(0, 255, 153, 0.7);
+  min-width: 34px;
+  
 }
 
 .calendar-grid {
@@ -563,164 +488,149 @@
 }
 
 .calendar-week {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .calendar-day {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  min-width: 36px;
-  min-height: 36px;
-  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.7);
+  min-width: 34px;
+  min-height: 34px;
+  padding: 6px 0;
   border-radius: 8px;
+  
 }
 
 .calendar-day.current-day {
   background: linear-gradient(135deg, #00ff99, #00cc7a);
   color: #000;
   font-weight: 800;
-  font-size: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+  font-size: 15px;
+  box-shadow: 0 0 16px rgba(0, 255, 153, 0.5);
   border: 2px solid #66ffb2;
 }
 
 .calendar-day.empty-day {
   color: transparent;
 }
-/* ── Navegación del calendario ── */
-.calendar-header {
-  padding: 0 4px;
-}
 
-.calendar-month-label {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.calendar-year-label {
-  font-size: 13px;
-  color: alpha(currentColor, 0.6);
-}
-
-.calendar-nav-btn {
+.calendar-day-btn {
+  all: unset;
   background: transparent;
-  border: none;
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 13px;
-  transition: background 200ms ease;
+  border-radius: 8px;
+  
+  min-width: 34px;
+  min-height: 34px;
+  
+  
+  
 }
 
-.calendar-nav-btn:hover {
-  background: alpha(currentColor, 0.1);
+.calendar-day-btn:hover {
+  background: rgba(0, 255, 153, 0.12);
 }
 
-.calendar-today-btn {
-  color: #D32F2F;  /* rojo Luffy para el botón de hoy */
+/* ═══════════════════════════════════════════════════════════
+   CALENDAR PICKER
+   ═══════════════════════════════════════════════════════════ */
+.cal-picker-wrapper {
+  /* container for month/year picker */
 }
 
-/* ── Navegación del calendario ── */
-.calendar-header {
-  padding: 0 0 12px 0;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+.cal-picker {
+  background: rgba(0, 255, 153, 0.05);
+  border: 1px solid rgba(0, 255, 153, 0.15);
+  border-radius: 10px;
+  padding: 10px;
   margin-bottom: 8px;
 }
 
-.calendar-month-label {
-  font-size: 22px;
+.cal-picker-row {
+  margin-bottom: 6px;
+}
+
+.cal-picker-year {
+  font-size: 16px;
   font-weight: 700;
   color: #00ff99;
-  letter-spacing: 1px;
+  min-width: 50px;
 }
 
-.calendar-year-label {
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(185, 246, 202, 0.8);
-}
-
-.calendar-nav-btn {
+.cal-month-btn {
+  all: unset;
   background: transparent;
-  border: none;
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 16px;
-  color: rgba(0, 255, 153, 0.9);
-  transition: all 150ms ease;
-  min-width: 24px;
+  border: 1px solid rgba(0, 255, 153, 0.12);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: rgba(185, 246, 202, 0.75);
+  margin: 2px;
+  
 }
 
-.calendar-nav-btn:hover {
-  color: #00ff99;
+.cal-month-btn:hover {
   background: rgba(0, 255, 153, 0.12);
-  box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
-}
-
-.calendar-today-btn {
-  color: rgba(0, 255, 153, 0.7);
-  font-size: 13px;
-  transition: all 150ms ease;
-}
-
-.calendar-today-btn:hover {
-  color: #00ff99;
-  text-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
-}
-}
-
-.calendar-today-btn:hover {
   color: #00ff99;
 }
 
-/* ── Google Calendar Panel ── */
+.cal-month-active {
+  background: rgba(0, 255, 153, 0.2);
+  border-color: #00ff99;
+  color: #00ff99;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GOOGLE CALENDAR PANEL
+   ═══════════════════════════════════════════════════════════ */
 .gcal-panel {
-  background: rgba(5, 7, 5, 0.92);
-  border-radius: 12px;
+  background: rgba(5, 7, 5, 0.9);
+  border-radius: 14px;
   padding: 16px;
-  border: 2px solid rgba(0, 180, 90, 0.5);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  min-width: 220px;
+  border: 1px solid rgba(0, 180, 90, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  min-width: 240px;
 }
 
 .gcal-section-title {
   font-size: 11px;
   font-weight: 700;
   color: #00ff99;
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
+letter-spacing: 0.1em;
+  margin-bottom: 6px;
 }
 
 .gcal-event-row {
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.08);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0, 255, 153, 0.06);
 }
 
 .gcal-event-time {
   font-size: 12px;
   color: #00ff99;
-  min-width: 38px;
+  min-width: 40px;
 }
 
 .gcal-event-day {
   font-size: 11px;
-  color: rgba(0, 255, 153, 0.6);
+  color: rgba(0, 255, 153, 0.55);
   min-width: 48px;
 }
 
 .gcal-event-title {
   font-size: 12px;
-  color: rgba(185, 246, 202, 0.9);
+  color: rgba(185, 246, 202, 0.85);
 }
 
 .gcal-separator {
-  border-bottom: 1px solid rgba(0, 255, 153, 0.2);
-  margin: 4px 0;
+  border-bottom: 1px solid rgba(0, 255, 153, 0.15);
+  margin: 6px 0;
 }
 
-/* ── Independiente ── */
+/* Independiente section */
 .gcal-indie {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .gcal-indie-row {
@@ -731,12 +641,12 @@
 .gcal-indie-title {
   font-size: 12px;
   font-weight: 700;
-  color: #ff4444;
+  color: #ff6b6b;
 }
 
 .gcal-indie-day {
   font-size: 11px;
-  color: rgba(255, 68, 68, 0.8);
+  color: rgba(255, 107, 107, 0.7);
 }
 
 .gcal-indie-time {
@@ -744,13 +654,13 @@
   color: #00ff99;
 }
 
-/* ── UNAHUR ── */
+/* Unahur section */
 .gcal-unahur {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .gcal-upcoming-row {
-  padding: 6px 0;
+  padding: 5px 0;
   border-bottom: 1px solid rgba(0, 150, 255, 0.2);
 }
 
@@ -760,411 +670,13 @@
   color: #4fc3f7;
 }
 
-/* ── Día clickeable ── */
-.calendar-day-btn {
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 0;
-  min-width: 36px;
-  min-height: 36px;
-  transition: all 200ms ease;
+.gcal-clases-list {
+  /* list container for UNAHUR classes */
 }
 
-.calendar-day-btn:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 153, 0.2) 0%, rgba(0, 255, 153, 0.05) 100%);
-  box-shadow: 0 0 12px rgba(0, 255, 153, 0.15);
-}
-
-/* ── Día actual destacado ── */
-.calendar-day.current-day {
-  background: linear-gradient(135deg, #00ff99, #00cc7a);
-  color: #000;
-  font-weight: 800;
-  font-size: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
-  border: 2px solid #66ffb2;
-}
-
-/* ── Días vacíos ── */
-.calendar-day.empty-day {
-  color: transparent;
-}
-
-.calendar-cell {
-  min-width: 36px;
-  min-height: 36px;
-}
-
-/* ── Panel de eventos del día ── */
-.day-events-panel {
-  background: rgba(0, 255, 153, 0.05);
-  border: 1px solid rgba(0, 255, 153, 0.25);
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin-top: 8px;
-}
-
-.day-events-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: #00ff99;
-  margin-bottom: 4px;
-}
-
-.day-events-close {
-  background: transparent;
-  border: none;
-  color: rgba(0, 255, 153, 0.5);
-  font-size: 11px;
-  border-radius: 4px;
-  padding: 2px 6px;
-}
-
-.day-events-close:hover {
-  color: #ff4444;
-  background: rgba(255, 68, 68, 0.1);
-}
-
-/* ── UNAHUR title color ── */
-.gcal-unahur-title {
-  color: #4fc3f7;
-}
-
-/* ── Selector mes/año ── */
-.calendar-header {
-  padding: 0 0 8px 0;
-  border-bottom: 1px solid rgba(0, 255, 153, 0.2);
-  margin-bottom: 4px;
-}
-
-.calendar-month-btn {
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 4px 8px;
-  transition: background 150ms ease;
-}
-
-.calendar-month-btn:hover {
-  background: rgba(0, 255, 153, 0.1);
-}
-
-.calendar-month-label {
-  font-size: 16px;
-  font-weight: 700;
-  color: #00ff99;
-}
-
-.calendar-year-label {
-  font-size: 16px;
-  color: rgba(185, 246, 202, 0.8);
-}
-
-.calendar-picker-arrow {
-  font-size: 11px;
-  color: rgba(0, 255, 153, 0.6);
-}
-
-.cal-picker {
-  background: rgba(0, 255, 153, 0.05);
-  border: 1px solid rgba(0, 255, 153, 0.2);
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 8px;
-}
-
-.cal-picker-row {
-  margin-bottom: 4px;
-}
-
-.cal-picker-year {
-  font-size: 16px;
-  font-weight: 700;
-  color: #00ff99;
-  min-width: 60px;
-}
-
-.cal-month-btn {
-  background: transparent;
-  border: 1px solid rgba(0, 255, 153, 0.15);
-  border-radius: 6px;
-  padding: 4px 6px;
-  font-size: 11px;
-  color: rgba(185, 246, 202, 0.8);
-  margin: 2px;
-  transition: all 150ms ease;
-}
-
-.cal-month-btn:hover {
-  background: rgba(0, 255, 153, 0.15);
-  color: #00ff99;
-}
-
-.cal-month-active {
-  background: rgba(0, 255, 153, 0.25);
-  border-color: #00ff99;
-  color: #00ff99;
-  font-weight: 700;
-}
-
-/* Settings Widget */
-.settings-widget {
-  background: rgba(18, 20, 18, 0.98);
-  border-radius: 20px;
-  padding: 28px;
-  border: 3px solid rgba(0, 255, 153, 0.4);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.9);
-}
-
-.settings-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #00ff99;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(0, 255, 153, 0.3);
-}
-
-.toggle-item {
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.4);
-  margin-bottom: 8px;
-  border: 1px solid rgba(0, 180, 90, 0.2);
-}
-
-.toggle-label {
-  color: #b9f6ca;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.toggle-btn {
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  background: rgba(0, 255, 153, 0.2);
-  color: #00ff99;
-  border: 1px solid rgba(0, 255, 153, 0.4);
-}
-
-.toggle-btn:hover {
-  background: rgba(0, 255, 153, 0.4);
-  box-shadow: 0 0 12px rgba(0, 255, 153, 0.3);
-}
-
-.settings-separator {
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 153, 0.5), transparent);
-  min-height: 2px;
-  margin: 16px 0;
-}
-
-.settings-actions {
-  margin-top: 12px;
-}
-
-.settings-action-btn {
-  padding: 14px 24px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(0, 180, 90, 0.3), rgba(0, 255, 153, 0.2));
-  border: 2px solid rgba(0, 255, 153, 0.4);
-  color: #b9f6ca;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.settings-action-btn:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 153, 0.4), rgba(0, 180, 90, 0.3));
-  box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
-}
-
-/* NOTES WIDGET - Sticky Notes Style */
-.notes-card {
-  min-width: 280px;
-}
-
-.notes-header {
-  font-size: 16px;
-  font-weight: 700;
-  color: #00ff99;
-}
-
-.notes-add-btn {
-  padding: 4px 12px;
-  border-radius: 8px;
-  background: rgba(0, 180, 90, 0.2);
-  color: #00ff99;
-  font-size: 18px;
-  font-weight: 700;
-  transition: all 200ms ease;
-}
-
-.notes-add-btn:hover {
-  background: rgba(0, 255, 153, 0.3);
-  box-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
-  border-color: rgba(0, 255, 153, 0.5);
-}
-
-.note-item {
-  padding: 10px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 40, 20, 0.2) 100%);
-  border-left: 3px solid #00ff99;
-  transition: background 200ms ease, box-shadow 200ms ease;
-}
-
-.note-item:hover {
-  background: rgba(0, 255, 153, 0.08);
-  box-shadow: 0 0 12px rgba(0, 255, 153, 0.1);
-}
-
-.note-item.pinned {
-  box-shadow: 0 0 8px rgba(0, 255, 153, 0.3);
-  border-left-color: #ffd700;
-}
-
-.note-pin-btn {
-  padding: 2px 6px;
-  font-size: 14px;
-  background: transparent;
-  color: #b9f6ca;
-}
-
-.note-pin-btn.pinned {
-  color: #ffff00;
-}
-
-.note-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #b9f6ca;
-}
-
-.note-content {
-  font-size: 12px;
-  color: #b9f6ca;
-  margin-top: 4px;
-}
-
-.note-color-btn {
-  padding: 2px 4px;
-  font-size: 12px;
-  background: transparent;
-  color: #888;
-}
-
-.note-color-btn:hover {
-  color: #fff;
-}
-
-.note-del-btn {
-  padding: 2px 6px;
-  font-size: 12px;
-  background: transparent;
-  color: #ff6b6b;
-}
-
-.note-del-btn:hover {
-  color: #ff4444;
-}
-
-/* Notes Editor */
-.note-tabs {
-  padding: 4px;
-  margin: 2px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.note-tab {
-  padding: 4px 12px;
-  margin: 2px;
-  border-radius: 4px;
-  background: rgba(0, 180, 90, 0.1);
-  color: #b9f6ca;
-  font-size: 12px;
-}
-
-.note-tab.selected {
-  background: rgba(0, 255, 153, 0.3);
-  color: #00ff99;
-}
-
-.note-tab:hover {
-  background: rgba(0, 255, 153, 0.2);
-}
-
-.note-editor {
-  padding: 12px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.note-label {
-  font-size: 12px;
-  color: #00ff99;
-  font-weight: 600;
-}
-
-.note-input-title {
-  padding: 8px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  color: #b9f6ca;
-  font-size: 14px;
-}
-
-.note-input-content {
-  padding: 8px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  color: #b9f6ca;
-  font-size: 13px;
-  min-height: 80px;
-}
-
-/* ===== FOOTBALL CARDS ===== */
-.football-cards-row {
-  padding-top: 2px;
-  min-height: 16px;
-}
-
-.football-card-icon {
-  font-size: 10px;
-}
-
-.football-card-icon.yellow {
-  color: #ffeb3b;
-}
-
-.football-card-icon.red {
-  color: #f44336;
-}
-
-/* ===== CALENDAR NAV BUTTONS ===== */
-.calendar-nav-btn {
-  background: rgba(0, 255, 153, 0.1);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 14px;
-  color: #b9f6ca;
-  font-weight: 600;
-}
-
-.calendar-nav-btn:hover {
-  background: rgba(0, 255, 153, 0.25);
-  border-color: #00ff99;
-}
-
-/* ===== UNAHUR CLASSES ===== */
 .gcal-clases-list .gcal-event-row {
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0, 150, 255, 0.15);
 }
 
 .gcal-clases-list .gcal-event-title {
@@ -1180,142 +692,386 @@
 
 .gcal-clases-list .gcal-event-day {
   font-size: 11px;
-  color: rgba(79, 195, 247, 0.6);
+  color: rgba(79, 195, 247, 0.55);
 }
 
-/* ===== NOTES BLOC ===== */
+/* Day Events Panel */
+.day-events-panel {
+  background: rgba(0, 255, 153, 0.04);
+  border: 1px solid rgba(0, 255, 153, 0.2);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+.day-events-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #00ff99;
+  margin-bottom: 6px;
+}
+
+.day-events-close {
+  all: unset;
+  background: transparent;
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  color: rgba(0, 255, 153, 0.5);
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  
+}
+
+.day-events-close:hover {
+  color: #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  border-color: rgba(255, 68, 68, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTBALL WIDGET
+   ═══════════════════════════════════════════════════════════ */
+.football-card {
+  background: rgba(5, 7, 5, 0.45);
+  border: 1px solid rgba(0, 255, 153, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+  min-width: 280px;
+}
+
+.football-header-row {
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 255, 153, 0.12);
+  margin-bottom: 4px;
+}
+
+.football-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #00ff99;
+  letter-spacing: 0.3px;
+}
+
+.football-league-box {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(0, 255, 153, 0.03);
+  border: 1px solid rgba(0, 255, 153, 0.06);
+  margin-bottom: 3px;
+}
+
+.football-league-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(185, 246, 202, 0.85);
+  letter-spacing: 0.3px;
+}
+
+.football-league-img {
+  margin-right: 6px;
+}
+
+.football-match-row {
+  padding: 4px 2px;
+  border-radius: 6px;
+}
+
+.football-match-row:hover {
+  background: rgba(0, 255, 153, 0.05);
+}
+
+.football-match-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(185, 246, 202, 0.55);
+  min-width: 30px;
+}
+
+.football-team-img {
+  margin: 0 3px;
+}
+
+.football-team1 {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  
+}
+
+.football-team2 {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  
+}
+
+.football-score {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  min-width: 28px;
+  padding: 0 3px;
+  
+}
+
+.football-cards-row {
+  padding: 1px 4px;
+  min-height: 12px;
+}
+
+.football-card-icon {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.football-card-icon.yellow {
+  color: #ffeb3b;
+}
+
+.football-card-icon.red {
+  color: #f44336;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STORAGE WIDGET
+   ═══════════════════════════════════════════════════════════ */
+.storage-card {
+  border: 1px solid rgba(0, 255, 153, 0.08);
+  background: rgba(5, 7, 5, 0.45);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.storage-visual {
+  padding: 10px 0;
+}
+
+.storage-ring {
+  margin-bottom: 8px;
+  padding: 0;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.storage-progress-bg {
+  min-width: 100px;
+  min-height: 100px;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.storage-progress {
+  min-width: 100px;
+  min-height: 100px;
+  color: #00ff99;
+}
+
+.storage-center {
+  /* centro del anillo circular */
+}
+
+.storage-percent-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #b9f6ca;
+}
+
+.storage-label-small {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+.storage-stats {
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 255, 153, 0.12);
+}
+
+.storage-stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.storage-stat-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #b9f6ca;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SETTINGS / TOGGLE WIDGETS
+   ═══════════════════════════════════════════════════════════ */
+.settings-widget {
+  background: rgba(10, 12, 10, 0.95);
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid rgba(0, 255, 153, 0.3);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+  min-width: 300px;
+}
+
+.settings-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00ff99;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 255, 153, 0.25);
+}
+
+.toggle-item {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 6px;
+  border: 1px solid rgba(0, 180, 90, 0.15);
+}
+
+.toggle-label {
+  color: #b9f6ca;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.toggle-btn {
+  all: unset;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(0, 255, 153, 0.15);
+  color: #00ff99;
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  
+}
+
+.toggle-btn:hover {
+  background: rgba(0, 255, 153, 0.35);
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+}
+
+.settings-separator {
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 153, 0.4), transparent);
+  min-height: 2px;
+  margin: 14px 0;
+}
+
+.settings-actions {
+  margin-top: 10px;
+}
+
+.settings-action-btn {
+  all: unset;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 180, 90, 0.25), rgba(0, 255, 153, 0.15));
+  border: 2px solid rgba(0, 255, 153, 0.35);
+  color: #b9f6ca;
+  font-weight: 700;
+  font-size: 14px;
+  
+}
+
+.settings-action-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 153, 0.35), rgba(0, 180, 90, 0.2));
+  box-shadow: 0 0 18px rgba(0, 255, 153, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NOTES WIDGET
+   ═══════════════════════════════════════════════════════════ */
+.notes-card {
+  background: rgba(5, 7, 5, 0.5);
+  border: 1px solid rgba(0, 255, 153, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  min-width: 260px;
+}
+
+.notes-header {
+  font-size: 15px;
+  font-weight: 700;
+  color: #00ff99;
+  margin-bottom: 8px;
+}
+
 .notes-header-row {
   margin-bottom: 8px;
 }
 
-.notes-edit-btn {
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: rgba(0, 255, 153, 0.1);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  color: #00ff99;
-  font-size: 14px;
-}
-
-.notes-edit-btn:hover {
-  background: rgba(0, 255, 153, 0.25);
-}
-
 .notes-hint {
   font-size: 10px;
-  color: rgba(185, 246, 202, 0.5);
-  margin-right: 8px;
-}
-
-.notes-edit-toggle {
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: rgba(0, 255, 153, 0.1);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  color: #00ff99;
-  font-size: 14px;
-}
-
-.notes-edit-toggle:hover {
-  background: rgba(0, 255, 153, 0.25);
-}
-
-.notes-input {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  border-radius: 4px;
-  padding: 8px;
-  color: #b9f6ca;
-  font-size: 13px;
-  font-family: "JetBrains Mono", monospace;
-}
-
-.notes-editor-window {
-  background: linear-gradient(135deg, rgba(5, 7, 5, 0.98) 0%, rgba(0, 30, 15, 0.95) 100%);
-  padding: 16px;
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-}
-
-.notes-editor-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #00ff99;
-  margin-bottom: 12px;
-}
-
-.notes-editor-input {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 255, 153, 0.4);
-  border-radius: 6px;
-  padding: 12px;
-  color: #b9f6ca;
-  font-size: 14px;
-  font-family: "JetBrains Mono", monospace;
-}
-
-.notes-editor-close {
-  padding: 8px 24px;
-  border-radius: 6px;
-  background: rgba(0, 255, 153, 0.2);
-  border: 1px solid rgba(0, 255, 153, 0.4);
-  color: #00ff99;
-  font-size: 14px;
-}
-
-.notes-editor-close:hover {
-  background: rgba(0, 255, 153, 0.3);
-}
-
-.notes-save-hint {
-  font-size: 10px;
-  color: rgba(185, 246, 202, 0.5);
-  background: transparent;
-}
-
-.notes-edit-btn {
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: rgba(0, 255, 153, 0.1);
-  border: 1px solid rgba(0, 255, 153, 0.3);
-  color: #00ff99;
-  font-size: 12px;
-}
-
-.notes-edit-btn:hover {
-  background: rgba(0, 255, 153, 0.25);
+  color: rgba(185, 246, 202, 0.45);
+  margin-right: 6px;
 }
 
 .notes-clear-btn {
-  padding: 2px 8px;
+  all: unset;
+  padding: 4px 8px;
   border-radius: 6px;
-  background: rgba(255, 107, 107, 0.2);
-  border: 1px solid rgba(255, 107, 107, 0.3);
+  background: rgba(255, 107, 107, 0.15);
   color: #ff6b6b;
-  font-size: 12px;
+  font-size: 11px;
+  
 }
 
-.notes-content {
-  font-size: 13px;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  color: #b9f6ca;
-  min-height: 120px;
+.notes-clear-btn:hover {
+  background: rgba(255, 107, 107, 0.3);
 }
 
 .notes-paper {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-  border: 1px solid rgba(0, 255, 153, 0.15);
-  border-radius: 4px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%);
+  border: 1px solid rgba(0, 255, 153, 0.1);
+  border-radius: 8px;
   padding: 8px;
 }
 
-.notes-textarea {
-  background: transparent;
-  border: none;
+.notes-content {
+  font-size: 12px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: #b9f6ca;
+  min-height: 100px;
+}
+
+.notes-input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 255, 153, 0.25);
+  border-radius: 6px;
+  padding: 8px;
   color: #b9f6ca;
   font-size: 13px;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  min-height: 120px;
-  min-width: 240px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GENERIC BUTTONS & LABELS
+   ═══════════════════════════════════════════════════════════ */
+button {
+  all: unset;
+  
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+label {
+  color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOOLTIP
+   ═══════════════════════════════════════════════════════════ */
+tooltip {
+  background: rgba(10, 12, 10, 0.95);
+  color: #b9f6ca;
+  border: 1px solid rgba(0, 255, 153, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
 }

@@ -77,8 +77,14 @@ def main():
                 
                 status = m.get('status', {}).get('short_name', '')
                 time_disp = m.get('game_time_status_to_display', '')
-                if not time_disp:
-                    time_disp = m.get('start_time', '').split(' ')[-1] if ' ' in m.get('start_time', '') else ''
+                if not time_disp or status == 'Prog.':
+                    start = m.get('start_time', '')
+                    if start:
+                        time_disp = start.split(' ')[-1] if ' ' in start else start
+                        if len(time_disp) > 5:
+                            time_disp = time_disp[:5]
+                    else:
+                        time_disp = ''
                     
                 # Extraemos los goles si el partido esta en juego o finalizado
                 score1 = ""
