@@ -979,7 +979,7 @@ letter-spacing: 0.1em;
 }
 
 /* ═══════════════════════════════════════════════════════════
-    NOTES WIDGET
+    NOTES WIDGET — Simple notepad
     ═══════════════════════════════════════════════════════════ */
 .notes-card {
   background: rgba(5, 7, 5, 0.5);
@@ -1000,101 +1000,28 @@ letter-spacing: 0.1em;
   margin-bottom: 8px;
 }
 
-.notes-clear-btn {
+.notes-edit-btn {
   all: unset;
   padding: 4px 8px;
   border-radius: 6px;
-  background: rgba(255, 107, 107, 0.15);
-  color: #ff6b6b;
-  font-size: 11px;
-}
-
-.notes-clear-btn:hover {
-  background: rgba(255, 107, 107, 0.3);
-}
-
-/* New note button */
-.new-note-box {
   background: rgba(0, 255, 153, 0.08);
-  border: 1px dashed rgba(0, 255, 153, 0.25);
-  border-radius: 8px;
-  padding: 6px 10px;
+  border: 1px solid rgba(0, 255, 153, 0.2);
+  color: #00ff99;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.new-note-box:hover {
-  background: rgba(0, 255, 153, 0.15);
+.notes-edit-btn:hover {
+  background: rgba(0, 255, 153, 0.18);
   border-color: rgba(0, 255, 153, 0.4);
 }
 
-.new-note-icon {
-  font-size: 16px;
-  color: #00ff99;
-}
-
-.new-note-label {
-  font-size: 12px;
-  color: rgba(185, 246, 202, 0.7);
-  font-weight: 600;
-}
-
-/* Notes list */
-.notes-list {
-  padding: 4px 0;
-}
-
-/* Individual note item */
-.note-item {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: 8px 10px;
-  border-left: 3px solid;
-}
-
-.note-color-dot {
-  border-radius: 50%;
-  min-width: 8px;
-  min-height: 8px;
-}
-
-.note-title {
+.notes-content {
   font-size: 13px;
-  font-weight: 600;
-}
-
-.note-content {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
   font-family: "JetBrains Mono", monospace;
-  margin-top: 2px;
-}
-
-.note-meta {
-  font-size: 10px;
-  color: rgba(185, 246, 202, 0.4);
-  margin-top: 4px;
-}
-
-.note-pin-btn {
-  all: unset;
-  font-size: 13px;
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-.note-pin-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.note-del-btn {
-  all: unset;
-  font-size: 13px;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #ff6b6b;
-}
-
-.note-del-btn:hover {
-  background: rgba(255, 107, 107, 0.15);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  white-space: pre-wrap;
 }
 
 .notes-scroll-content {
