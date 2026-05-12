@@ -378,7 +378,7 @@
 
 ;; ─── NOTES WIDGET ──────────────────────────────────────
 ;; Simple notepad: escribí y se guarda
-(defpoll notes_content :interval "1s" "cat ~/.local/share/kuri-notes/notepad.txt 2>/dev/null || echo ''")
+(defpoll notes_content :interval "1s" "~/.config/eww/scripts/notes.sh read")
 
 (defwidget notes_widget []
   (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 8
