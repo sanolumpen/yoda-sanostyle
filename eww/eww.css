@@ -979,8 +979,8 @@ letter-spacing: 0.1em;
 }
 
 /* ═══════════════════════════════════════════════════════════
-   NOTES WIDGET
-   ═══════════════════════════════════════════════════════════ */
+    NOTES WIDGET
+    ═══════════════════════════════════════════════════════════ */
 .notes-card {
   background: rgba(5, 7, 5, 0.5);
   border: 1px solid rgba(0, 255, 153, 0.1);
@@ -1000,12 +1000,6 @@ letter-spacing: 0.1em;
   margin-bottom: 8px;
 }
 
-.notes-hint {
-  font-size: 10px;
-  color: rgba(185, 246, 202, 0.45);
-  margin-right: 6px;
-}
-
 .notes-clear-btn {
   all: unset;
   padding: 4px 8px;
@@ -1013,35 +1007,98 @@ letter-spacing: 0.1em;
   background: rgba(255, 107, 107, 0.15);
   color: #ff6b6b;
   font-size: 11px;
-  
 }
 
 .notes-clear-btn:hover {
   background: rgba(255, 107, 107, 0.3);
 }
 
-.notes-paper {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%);
-  border: 1px solid rgba(0, 255, 153, 0.1);
+/* New note button */
+.new-note-box {
+  background: rgba(0, 255, 153, 0.08);
+  border: 1px dashed rgba(0, 255, 153, 0.25);
   border-radius: 8px;
-  padding: 8px;
+  padding: 6px 10px;
 }
 
-.notes-content {
+.new-note-box:hover {
+  background: rgba(0, 255, 153, 0.15);
+  border-color: rgba(0, 255, 153, 0.4);
+}
+
+.new-note-icon {
+  font-size: 16px;
+  color: #00ff99;
+}
+
+.new-note-label {
   font-size: 12px;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  color: #b9f6ca;
-  min-height: 100px;
+  color: rgba(185, 246, 202, 0.7);
+  font-weight: 600;
 }
 
-.notes-input {
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(0, 255, 153, 0.25);
-  border-radius: 6px;
-  padding: 8px;
-  color: #b9f6ca;
+/* Notes list */
+.notes-list {
+  padding: 4px 0;
+}
+
+/* Individual note item */
+.note-item {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 10px;
+  border-left: 3px solid;
+}
+
+.note-color-dot {
+  border-radius: 50%;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+.note-title {
   font-size: 13px;
+  font-weight: 600;
+}
+
+.note-content {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
   font-family: "JetBrains Mono", monospace;
+  margin-top: 2px;
+}
+
+.note-meta {
+  font-size: 10px;
+  color: rgba(185, 246, 202, 0.4);
+  margin-top: 4px;
+}
+
+.note-pin-btn {
+  all: unset;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.note-pin-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.note-del-btn {
+  all: unset;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #ff6b6b;
+}
+
+.note-del-btn:hover {
+  background: rgba(255, 107, 107, 0.15);
+}
+
+.notes-scroll-content {
+  padding: 2px 0;
 }
 
 /* ═══════════════════════════════════════════════════════════

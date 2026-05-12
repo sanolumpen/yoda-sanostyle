@@ -377,17 +377,45 @@
           (football_league :league league))))))
 
 ;; ─── NOTES WIDGET ──────────────────────────────────────
-(defpoll note_content :interval "500ms" "cat ~/.local/share/kuri-notes/nota.txt 2>/dev/null || echo ''")
+(defpoll notes_data :interval "2s" "python3 ~/.config/eww/scripts/notes.py list")
+
+(defwidget note_item [note]
+  (box :class "note-item" :orientation "v"
+    (box :class "note-color-top" :orientation "h" :space-evenly false :spacing 6 :valign "center"
+      (box :class "note-color-dot")
+      (label :class "note-title" :text {note.title} :xalign 0 :hexpand true)
+      (box :orientation "h" :space-evenly false :spacing 4 :halign "end"
+        (button :class "note-pin-btn"
+          :onclick (format "python3 ~/.config/eww/scripts/notes.py toggle-pin {} &" {note.id})
+          (label :text "📌"))
+        (button :class "note-del-btn"
+          :onclick (format "python3 ~/.config/eww/scripts/notes.py delete {} &" {note.id})
+          (label :text "✕"))))
+    (label :class "note-content" :text {note.content} :xalign 0 :wrap true)
+    (label :class "note-meta" :text {note.modified} :xalign 1)))
+
+(defwidget notes_list [notes]
+  (box :class "notes-list" :orientation "v" :space-evenly false :spacing 4
+    (for note in notes
+      (note_item :note note))))
+
+(defwidget new_note_input []
+  (eventbox :onclick "alacritty -e bash -c 'read -p \"Titulo: \" t && read -p \"Color (yellow/green/cyan/pink/orange/purple/white): \" c && python3 ~/.config/eww/scripts/notes.py create \"\$t\" \"\" \"\$c\"' &"
+    (box :class "new-note-box" :orientation "h" :space-evenly false :spacing 8
+      (label :class "new-note-icon" :text "＋")
+      (label :class "new-note-label" :text "Nueva nota"))))
 
 (defwidget notes_widget []
-  (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 6
+  (box :class "widget notes-card" :orientation "v" :space-evenly false :spacing 8
     (box :class "notes-header-row" :orientation "h" :space-evenly false :spacing 8
       (label :class "notes-header" :text "📓 NOTAS" :xalign 0)
-      (label :class "notes-hint" :text "Editar: nano ~/.local/share/kuri-notes/nota.txt" :xalign 1)
-      (button :class "notes-clear-btn" :onclick "echo -n '' > ~/.local/share/kuri-notes/nota.txt &" (label :text "🗑")))
-    (box :class "notes-paper" :orientation "v" :space-evenly false :spacing 0
-      (scroll :vscroll true :hscroll false :height 140
-        (label :class "notes-content" :text note_content :wrap true)))))
+      (new_note_input)
+      (button :class "notes-clear-btn"
+        :onclick "python3 ~/.config/eww/scripts/notes.py clear &"
+        (label :text "🗑")))
+    (scroll :vscroll true :hscroll false
+      (box :class "notes-scroll-content" :orientation "v" :space-evenly false :spacing 2
+        (notes_list :notes notes_data)))))
 
 ;; ─── VENTANAS ADICIONALES ─────────────────────────────
 ;; Football: debajo del dashboard (evita solaparse con barra de volumen)
