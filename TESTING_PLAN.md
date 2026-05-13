@@ -1,4 +1,4 @@
-# Kuri-Dots Testing Plan
+# Sano Dots Testing Plan
 
 **Fecha:** 2026-05-11
 **Proyecto:** Yoda Sanostyle (Hyprland Rice)
@@ -19,7 +19,7 @@
 
 ## Resumen Ejecutivo
 
-Este documento define la estrategia de testing para el proyecto Kuri-Dots (configuración de Hyprland/Eww/Waybar) y el proyecto Engram (sistema de memoria para agentes IA). El objetivo es crear un sistema de pruebas agentizado que permita validación automática y continua de todas las configuraciones, scripts y funcionalidades.
+Este documento define la estrategia de testing para el proyecto Sano Dots (configuración de Hyprland/Eww/Waybar) y el proyecto Engram (sistema de memoria para agentes IA). El objetivo es crear un sistema de pruebas agentizado que permita validación automática y continua de todas las configuraciones, scripts y funcionalidades.
 
 **Stack de Testing:**
 | Componente | Herramienta | Tipo |
@@ -342,7 +342,7 @@ eww --help | grep validate || eww daemon && eww reload
 set -euo pipefail
 
 REPO="${REPO:-$HOME/Documentos/dotfiles}"
-LOG_DIR="/tmp/kuri-dots-test-logs"
+LOG_DIR="/tmp/sano-dots-test-logs"
 mkdir -p "$LOG_DIR"
 
 RED='\033[0;31m'
@@ -583,7 +583,7 @@ Para proyectos Engram, crear memoria de los resultados:
 # Después de ejecutar tests
 engram save "Test run $(date +%Y-%m-%d)" \
   "BATS: $bats_pass/$bats_total passed\npytest: $pytest_pass/$pytest_total passed" \
-  --type "learning" --project "kuri-dots"
+  --type "learning" --project "sano-dots"
 ```
 
 ---

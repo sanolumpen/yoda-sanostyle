@@ -7,7 +7,7 @@ set -euo pipefail
 
 REPO="${REPO:-$HOME/Documentos/dotfiles}"
 TEST_DIR="$REPO/tests"
-LOG_DIR="/tmp/kuri-dots-test-logs"
+LOG_DIR="/tmp/sano-dots-test-logs"
 RESULTS_FILE="$LOG_DIR/results-$(date +%Y%m%d_%H%M%S).json"
 TIMESTAMP=$(date +%Y-%m-%d_%H:%M:%S)
 
@@ -190,7 +190,7 @@ run_agentic_analysis() {
     if command -v engram &> /dev/null; then
         engram save "Test run $TIMESTAMP - $test_name" \
           "Output: $(echo "$test_output" | head -50)" \
-          --type "learning" --project "kuri-dots" 2>/dev/null || true
+          --type "learning" --project "sano-dots" 2>/dev/null || true
     fi
 }
 

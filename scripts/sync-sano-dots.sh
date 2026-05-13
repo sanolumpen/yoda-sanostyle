@@ -9,7 +9,7 @@ set -e
 
 LOCAL_DIR="$HOME/.config"
 REPO_DIR="$HOME/Documentos/dotfiles"
-BACKUP_DIR="$HOME/.kuri-dots-backups"
+BACKUP_DIR="$HOME/.sano-dots-backups"
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -34,7 +34,7 @@ COMANDOS:
   pull-local      Sincronizar cambios del repo → ~/.config/
                   (usa archivos del repo)
   push-repo       Sincronizar cambios de ~/.config/ → repo
-                  (actualiza kuri-dots con cambios locales)
+                  (actualiza sano-dots con cambios locales)
   status          Ver diferencias entre local y repo
   backup-local    Backup completo de ~/.config/
   diff [dir]      Comparar directorio específico
@@ -267,7 +267,7 @@ push_to_repo() {
     local FORCE=$1
     local DRY_RUN=$2
 
-    log_warn "Esto actualizará el repositorio kuri-dots con tus cambios locales"
+    log_warn "Esto actualizará el repositorio sano-dots con tus cambios locales"
     log_warn "Los scripts personalizados (football.sh, notes.sh, etc) serán agregados"
     echo ""
 

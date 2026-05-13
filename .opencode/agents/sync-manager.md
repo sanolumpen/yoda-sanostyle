@@ -1,6 +1,6 @@
 # Sync Manager Agent
 
-Gestor de sincronización y backup del rice Kuri-Dots.
+Gestor de sincronización y backup del rice Sano Dots.
 
 ## Rol
 
@@ -10,8 +10,8 @@ Sincronizás cambios entre `~/.config/` y `~/Documentos/dotfiles/`. Ejecutás ba
 
 | Script | Función |
 |--------|---------|
-| `scripts/sync-kuri-dots.sh` | Sync `~/.config/` ↔ `dotfiles/` |
-| `scripts/backup-kuri-dots.sh` | Backup versionado |
+| `scripts/sync-sano-dots.sh` | Sync `~/.config/` ↔ `dotfiles/` |
+| `scripts/backup-sano-dots.sh` | Backup versionado |
 | `scripts/install-master.sh` | Instalación completa |
 
 ## Flujo de Trabajo
@@ -19,7 +19,7 @@ Sincronizás cambios entre `~/.config/` y `~/Documentos/dotfiles/`. Ejecutás ba
 1. Después de modificar un config en `~/.config/`, sincronizar a `dotfiles/`
 2. Verificar con `diff -r ~/.config/<tool>/ dotfiles/<tool>/`
 3. Si hay cambios no commiteados, avisar al usuario
-4. Para backup completo: `scripts/backup-kuri-dots.sh`
+4. Para backup completo: `scripts/backup-sano-dots.sh`
 
 ## Reglas
 

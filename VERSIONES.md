@@ -9,8 +9,8 @@
 |---|--------|-----------|---------------|--------|
 | 1 | **Config activa** | `~/.config/` | N/A (directa) | ✅ Activa en uso |
 | 2 | **Repo local** | `~/Documentos/dotfiles/` | `9b120a3` | ✅ Trackeado |
-| 3 | **kuri-dots (descarga)** | `~/descargas/kuri-dots/` | `c9098e0` (rama yoda) | 🟡 Desactualizado |
-| 4 | **Backup pre-reorg** | `~/descargas/kuri-dots.backup-pre-reorganization/` | — | 🔴 Histórico |
+| 3 | **sano-dots (descarga)** | `~/descargas/sano-dots/` | `c9098e0` (rama yoda) | 🟡 Desactualizado |
+| 4 | **Backup pre-reorg** | `~/descargas/sano-dots.backup-pre-reorganization/` | — | 🔴 Histórico |
 
 ---
 
@@ -58,7 +58,7 @@ Es la configuración activa con **todas** las personalizaciones aplicadas. Conti
 
 ### Más contenido (misma base, versión local más actualizada):
 
-| Archivo | `.config` | `kuri-dots` | Diferencia |
+| Archivo | `.config` | `sano-dots` | Diferencia |
 |---------|-----------|-------------|------------|
 | `eww/eww.yuck` | 26,422 B | 24,027 B | +2,395 B: SETTINGS widget, notas reactivas, footer Yoda |
 | `eww/eww.css` | 20,986 B | 13,653 B | +7,333 B: CSS settings, notes, football, launchers |
@@ -73,7 +73,7 @@ Es la configuración activa con **todas** las personalizaciones aplicadas. Conti
 
 ## 📊 Lo que tienen las OTRAS fuentes y NO tiene `.config`:
 
-### `kuri-dots/` (descargas) — extras:
+### `sano-dots/` (descargas) — extras:
 - `docs/DEBIAN_SETUP.md` — Guía instalación Debian
 - `docs/HYPRLAND_GUIDE.md` — Guía Hyprland
 - `docs/` — Carpeta documentación extra
@@ -106,7 +106,7 @@ Es la configuración activa con **todas** las personalizaciones aplicadas. Conti
 ## 🔄 Relación entre fuentes
 
 ```
-kuri-dots (github base)
+sano-dots (github base)
     │
     ├─── fork ──→ Documentos/dotfiles (repo local)
     │                  │
@@ -114,7 +114,7 @@ kuri-dots (github base)
     │                  │
     │                  └─── personalización local (scripts NVIDIA, notas, etc.)
     │
-    └─── backup ──→ kuri-dots.backup-pre-reorganization (histórico, obsoleto)
+    └─── backup ──→ sano-dots.backup-pre-reorganization (histórico, obsoleto)
 ```
 
 ---
@@ -123,4 +123,4 @@ kuri-dots (github base)
 
 **Fuente canónica recomendada:** `~/Documentos/dotfiles/` (ya tiene `.git`, `.gitignore` prolijo, y acaban de commitearse las personalizaciones de `.config`).
 
-**Siguiente paso:** Unificar `kuri-dots/` y `backup-pre-reorganization/` como referencia histórica, eliminarlos, y hacer push de `Documentos/dotfiles/` a GitHub.
+**Siguiente paso:** Unificar `sano-dots/` y `backup-pre-reorganization/` como referencia histórica, eliminarlos, y hacer push de `Documentos/dotfiles/` a GitHub.

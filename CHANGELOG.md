@@ -1,4 +1,4 @@
-# Changelog - kuri-dots
+# Changelog - sano-dots
 
 > Yoda Sanostyle - Hyprland Rice para Debian
 
@@ -10,10 +10,13 @@
 - **Fase 1 — Skills OpenCode**: 8 nuevos skills en `~/.config/opencode/skills/`: waybar, hyprland, neovim, terminal, styling, utils, dev, zsh
 - **Fase 2 — Config de proyecto**: `opencode.json` con permisos, instructions, y 4 agentes subagente
 - **Agentes opencode**: `@rice-reviewer`, `@visual-designer`, `@sync-manager`, `@test-runner`
+- **Fase 3 — Sitio interactivo**: `~/Documentos/sano-agents/` — tour animado de la agentización (Next.js 16 + Framer Motion)
 - **Botón OBS**: Nuevo módulo en waybar con icono  (video-camera)
 - **Scroll de volumen**: `on-scroll-up/down` con wpctl en wireplumber
+- **Investigación de mejores prácticas**: Papers de Anthropic, survey de multi-agentes, guías de AGENTS.md/SKILL.md
 
 ### Changed
+- **kuri → sano**: Renombrado global del proyecto (skills, scripts, configs, docs)
 - **Waybar icons**: Reemplazados todos los iconos rotos (custom NF range) por FontAwesome 4.x
 - **WirePlumber**: Migrado de pulseaudio a wireplumber (volumen nativo PipeWire)
 - **Waybar CSS**: Overhaul visual completo — border-radius, glow neón, gradientes, pills, color-coding
@@ -23,6 +26,7 @@
 - **AGENTS.md**: Tabla unificada skills dotfiles ↔ skills OpenCode
 - **Fcitx5 icon**: `󰟓` → `` (keyboard, FA4)
 - **Power icon**: `⏻` (unicode) → `` (power-off)
+- **Scripts renombrados**: `sync-kuri-dots.sh` → `sync-sano-dots.sh`, `backup-kuri-dots.sh` → `backup-sano-dots.sh`
 
 ### Fixed
 - Iconos de Nerd Font custom range (U+30000+) que no existían en Iosevka NF
@@ -74,10 +78,10 @@
 
 ```bash
 # Ver diferencias entre local y repo
-./scripts/sync-kuri-dots.sh status
+./scripts/sync-sano-dots.sh status
 
 # Backup completo
-./scripts/backup-kuri-dots.sh backup
+./scripts/backup-sano-dots.sh backup
 
 # Instalar configs
 ./install.sh

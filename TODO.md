@@ -1,4 +1,4 @@
-# TODO - kuri-dots
+# TODO - sano-dots
 > Última actualización: 2026-05-11
 
 ---
@@ -16,7 +16,7 @@
 - [x] cava → ya en repo (tema Yoda: #00ff99)
 - [x] waybar → ya en repo (tema Yoda: #00ff99, #b9f6ca)
 - [x] Crear scripts de instalación/agentización (install.sh)
-- [x] Limpiar ~/descargas/kuri-dots (ya estaba vacío)
+- [x] Limpiar ~/descargas/sano-dots (ya estaba vacío)
 
 ### Documentación
 - [x] Crear CONTRIBUTING.md
@@ -66,7 +66,7 @@
 - [x] Scripts: install-bats.sh, setup-testing.sh, test-runner.sh
 
 ### Sincronización
-- [x] sync-kuri-dots.sh → ~/Documentos/dotfiles (antes ~/descargas/kuri-dots)
+- [x] sync-sano-dots.sh → ~/Documentos/dotfiles (antes ~/descargas/sano-dots)
 - [x] README.md actualizado
 
 ### Docs
@@ -100,7 +100,7 @@
 grep -r "TODO" --include="*.md" .
 
 # Sincronizar
-./scripts/sync-kuri-dots.sh status
+./scripts/sync-sano-dots.sh status
 
 # Tests
 ./scripts/test-runner.sh all

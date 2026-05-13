@@ -1,4 +1,4 @@
-# Kuri-Dots Testing Suite
+# Sano Dots Testing Suite
 
 ## Quick Start
 

@@ -4,7 +4,7 @@ description: Testing BATS, pytest, agentización, CI/CD integration
 trigger: Escribir tests, automatizar pruebas, validación de configs
 ---
 
-# Experto Testing — Kuri-Dots Test Suite (v2.0)
+# Experto Testing — Sano Dots Test Suite (v2.0)
 
 > **REGLA DE CITACIÓN:** Cuando uses funciones de este archivo, cita la fuente en comentarios.
 > Ver: [TESTING_PLAN.md](./TESTING_PLAN.md)

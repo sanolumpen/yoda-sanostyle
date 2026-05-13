@@ -1,4 +1,4 @@
-# Versiones Actuales - Kuri-Dots Rice Debian Yoda
+# Versiones Actuales - Sano Dots Rice Debian Yoda
 
 ## Programas Principales (Mayo 2026)
 

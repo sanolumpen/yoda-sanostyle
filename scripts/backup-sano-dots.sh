@@ -1,7 +1,7 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════
 # KURI-DOTS BACKUP & RESTORE SCRIPT
-# Backup completo del proyecto kuri-dots con versionado
+# Backup completo del proyecto sano-dots con versionado
 # ═══════════════════════════════════════════════════════════════════
 
 set -e
@@ -9,9 +9,9 @@ set -e
 # ─── Configuración ────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 KURI_DOTS_DIR="$SCRIPT_DIR"
-BACKUP_BASE_DIR="${BACKUP_DIR:-$HOME/.kuri-dots-backups}"
+BACKUP_BASE_DIR="${BACKUP_DIR:-$HOME/.sano-dots-backups}"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-BACKUP_NAME="kuri-dots_backup_$TIMESTAMP"
+BACKUP_NAME="sano-dots_backup_$TIMESTAMP"
 BACKUP_PATH="$BACKUP_BASE_DIR/$BACKUP_NAME"
 CURRENT_LINK="$BACKUP_BASE_DIR/latest"
 
@@ -51,7 +51,7 @@ OPCIONES:
 EJEMPLOS:
   $0 backup                    # Backup completo
   $0 restore                   # Restaurar último backup
-  $0 restore kuri-dots_backup_20250510_120000  # Restaurar específico
+  $0 restore sano-dots_backup_20250510_120000  # Restaurar específico
   $0 list                      # Ver todos los backups
   $0 clean 5                   # Mantener solo 5 backups
 
@@ -61,7 +61,7 @@ EOF
 }
 
 create_backup() {
-    log_info "Iniciando backup de kuri-dots..."
+    log_info "Iniciando backup de sano-dots..."
 
     # Crear directorio de backup si no existe
     mkdir -p "$BACKUP_PATH"
@@ -86,7 +86,7 @@ EOF
         --exclude='.git/index' \
         --exclude='*.log' \
         --exclude='*.tmp' \
-        "$KURI_DOTS_DIR/" "$BACKUP_PATH/kuri-dots/"
+        "$KURI_DOTS_DIR/" "$BACKUP_PATH/sano-dots/"
 
     # Crear checksum para verificación
     log_info "Generando checksums..."
@@ -133,7 +133,7 @@ restore_backup() {
         exit 1
     fi
 
-    log_warn "Esto reemplazará TODOS los archivos actuales de kuri-dots!"
+    log_warn "Esto reemplazará TODOS los archivos actuales de sano-dots!"
     read -p "¿Continuar con la restauración? (escribe 'yes': " confirm
     if [[ "$confirm" != "yes" ]]; then
         log_info "Restauración cancelada"
@@ -167,7 +167,7 @@ restore_backup() {
 
     # Restaurar archivos
     log_info "Restaurando archivos..."
-    rsync -aAX "$extract_dir/kuri-dots/" "$KURI_DOTS_DIR/"
+    rsync -aAX "$extract_dir/sano-dots/" "$KURI_DOTS_DIR/"
 
     # Limpiar directorio extraído
     rm -rf "$extract_dir"

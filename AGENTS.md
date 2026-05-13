@@ -1,6 +1,6 @@
-# Kuri-Dots — Agent Skills Index
+# Sano Dots — Agent Skills Index
 
-> **Versión:** 2.0 (2026-05-11)
+> **Versión:** 2.1 (2026-05-13)
 > **Proyecto:** Yoda Sanostyle - Hyprland Rice para Debian
 
 ---
@@ -17,20 +17,20 @@
 
 | Skill (dotfiles) | Skill (OpenCode) | Categoría | Trigger |
 |---|---|---|---|
-| [bash_rice_expert](./skills/bash_rice_expert.md) | `kuri-dots-bash` | Shell/Scripts | Scripts de Bash, wrappers, entorno Wayland |
-| [eww_yuck_expert](./skills/eww_yuck_expert.md) | `kuri-dots-eww` | Widgets/EWW | Crear/modificar widgets EWW |
-| [lisp_eww_expert](./skills/lisp_eww_expert.md) | → `kuri-dots-eww` | Sintaxis/Yuck | Sintaxis Yuck, expresiones |
-| [eww_backend_expert](./skills/eww_backend_expert.md) | → `kuri-dots-eww` | Backend/Python | Scripts Python para widgets |
-| [python_expert](./skills/python_expert.md) | → `kuri-dots-eww` | Python | Scripts Python generales |
-| [waybar_expert](./skills/waybar_expert.md) | `kuri-dots-waybar` | Bar/Status | Configuración de Waybar |
-| [alacritty_expert](./skills/alacritty_expert.md) | `kuri-dots-terminal` | Terminal | Alacritty, Kitty, Tmux |
-| [css_rice_expert](./skills/css_rice_expert.md) | `kuri-dots-styling` | Styling | Temas GTK3, paleta Yoda, CSS |
-| [testing_expert](./skills/testing_expert.md) | `kuri-dots-testing` | Testing | Tests BATS, pytest, agentización |
-| | `kuri-dots-hyprland` | WM | Hyprland, hyprlock, NVIDIA |
-| | `kuri-dots-neovim` | Editor | Neovim LazyVim |
-| | `kuri-dots-utils` | Utilidades | wofi, wlogout, mako, btop, cava, etc |
-| | `kuri-dots-dev` | Dev Tools | lazygit, lazydocker |
-| | `kuri-dots-zsh` | Shell | .zshrc, oh-my-zsh |
+| [bash_rice_expert](./skills/bash_rice_expert.md) | `sano-dots-bash` | Shell/Scripts | Scripts de Bash, wrappers, entorno Wayland |
+| [eww_yuck_expert](./skills/eww_yuck_expert.md) | `sano-dots-eww` | Widgets/EWW | Crear/modificar widgets EWW |
+| [lisp_eww_expert](./skills/lisp_eww_expert.md) | → `sano-dots-eww` | Sintaxis/Yuck | Sintaxis Yuck, expresiones |
+| [eww_backend_expert](./skills/eww_backend_expert.md) | → `sano-dots-eww` | Backend/Python | Scripts Python para widgets |
+| [python_expert](./skills/python_expert.md) | → `sano-dots-eww` | Python | Scripts Python generales |
+| [waybar_expert](./skills/waybar_expert.md) | `sano-dots-waybar` | Bar/Status | Configuración de Waybar |
+| [alacritty_expert](./skills/alacritty_expert.md) | `sano-dots-terminal` | Terminal | Alacritty, Kitty, Tmux |
+| [css_rice_expert](./skills/css_rice_expert.md) | `sano-dots-styling` | Styling | Temas GTK3, paleta Yoda, CSS |
+| [testing_expert](./skills/testing_expert.md) | `sano-dots-testing` | Testing | Tests BATS, pytest, agentización |
+| | `sano-dots-hyprland` | WM | Hyprland, hyprlock, NVIDIA |
+| | `sano-dots-neovim` | Editor | Neovim LazyVim |
+| | `sano-dots-utils` | Utilidades | wofi, wlogout, mako, btop, cava, etc |
+| | `sano-dots-dev` | Dev Tools | lazygit, lazydocker |
+| | `sano-dots-zsh` | Shell | .zshrc, oh-my-zsh |
 
 ---
 
@@ -63,11 +63,19 @@ trigger: Cuándo usar este skill
 
 ## Actualización de Mayo 2026
 
+### v2.0 (2026-05-11)
 - ✅ Agregado skill de **testing_expert** con BATS + pytest
 - ✅ Agregada agentización de pruebas con LLM-as-judge
+- ✅ Agregados skills de EWW, Alacritty, Bash, Python, CSS, Waybar
+
+### v2.1 (2026-05-13)
 - ✅ Creados 8 nuevos skills OpenCode: waybar, hyprland, neovim, terminal, styling, utils, dev, zsh
 - ✅ AGENTS.md ahora mapea skills dotfiles ↔ skills OpenCode
-- ✅ Actualizadas referencias a versiones 2026
+- ✅ Migración global **kuri → sano** (skills, scripts, configs, docs)
+- ✅ Config de proyecto: `opencode.json` con permisos y 4 agentes subagente
+- ✅ Agentes: `@rice-reviewer`, `@visual-designer`, `@sync-manager`, `@test-runner`
+- ✅ Sitio interactivo: `~/Documentos/sano-agents/` (Next.js 16 + Framer Motion)
+- ✅ Investigación de mejores prácticas y papers académicos sobre agentes
 
 ---
 

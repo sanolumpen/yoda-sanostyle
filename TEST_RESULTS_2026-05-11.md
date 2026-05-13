@@ -1,4 +1,4 @@
-# Kuri-Dots - Resultados de Testing
+# Sano Dots - Resultados de Testing
 # Fecha: 2026-05-11
 # Proyecto: Yoda Sanostyle (Hyprland Rice)
 

@@ -50,7 +50,7 @@ deb http://deb.debian.org/debian testing main contrib non-free
 deb-src http://deb.debian.org/debian testing main contrib non-free
 ```
 
-Preferir stable por defecto con `/etc/apt/preferences.d/kuri-dots.pref` (ver INSTALLATION.md).
+Preferir stable por defecto con `/etc/apt/preferences.d/sano-dots.pref` (ver INSTALLATION.md).
 
 ## 4) Instalar paquetes puntuales desde testing
 

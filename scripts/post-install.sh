@@ -37,7 +37,7 @@ if [ -f "$HOME/.config/nvim/lua/yoda.nvim/extras/oh-my-zsh/yoda.zsh-theme" ]; th
     echo "✓ Yoda theme installed"
 elif [ -d "$HOME/.config/nvim/lua/yoda.nvim" ]; then
     echo "⚠ Yoda theme not found in nvim config (no yoda.nvim plugin installed)"
-    echo "  Create your theme or install from your kuri-dots repo"
+    echo "  Create your theme or install from your sano-dots repo"
 else
     echo "⚠ Warning: yoda.nvim plugin directory not found - theme not copied"
     echo "  Install your custom theme manually to ~/.oh-my-zsh/custom/themes/"

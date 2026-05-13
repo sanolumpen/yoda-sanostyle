@@ -1,6 +1,6 @@
-# Contributing to kuri-dots
+# Contributing to sano-dots
 
-¡Gracias por tu interés en contribuir a kuri-dots!
+¡Gracias por tu interés en contribuir a sano-dots!
 
 ---
 
@@ -16,7 +16,7 @@ cd ~/Documentos/dotfiles
 - Edita las configuraciones en `~/Documentos/dotfiles/`
 - O edita directamente en `~/.config/` y luego sincroniza:
   ```bash
-  ./scripts/sync-kuri-dots.sh push-repo
+  ./scripts/sync-sano-dots.sh push-repo
   ```
 
 ### 3. Testing

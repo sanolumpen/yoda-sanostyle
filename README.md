@@ -1,6 +1,25 @@
-# kuri-dots
+# sano-dots
 
 ![desktop preview](assets/yoda-desktop.png)
+
+## 🧠 Integración con OpenCode
+
+Este proyecto está completamente agentizado con [OpenCode](https://opencode.ai). El agente AI entiende la estructura del rice a través de:
+
+| Mecanismo | Archivo | Propósito |
+|---|---|---|
+| **AGENTS.md** | `./AGENTS.md` | Índice de skills, reglas de citación, testing |
+| **Skills** | `~/.config/opencode/skills/sano-dots-*/SKILL.md` | 11 skills que definen cómo interactuar con cada componente |
+| **Config** | `./opencode.json` | Permisos, agentes subagente, instrucciones |
+| **Agentes** | `.opencode/agents/*.md` | 4 subagentes: rice-reviewer, visual-designer, sync-manager, test-runner |
+
+### Tour interactivo
+```bash
+cd ~/Documentos/sano-agents && npm run dev
+```
+Abre un sitio web interactivo (Next.js 16) que visualiza el ciclo agéntico, los skills, los agentes, y compara contra mejores prácticas de la comunidad.
+
+---
 
 ## ⚡ Stack Tecnológico
 
@@ -40,24 +59,24 @@ bash ~/.config/scripts/update-package-lists.sh
 
 | Script | Descripción | Fuente |
 |--------|-------------|--------|
-| `backup-kuri-dots.sh` | Backup versionado del proyecto | [kuri-sun/kuri-dots](https://github.com/kuri-sun/dotfiles) |
-| `sync-kuri-dots.sh` | Sincronizar ~/.config/ ↔ repo | [kuri-sun/kuri-dots](https://github.com/kuri-sun/dotfiles) |
-| `install-master.sh` | Instalación completa (con auto-backup) | [kuri-sun/kuri-dots](https://github.com/kuri-sun/dotfiles) |
+| `backup-sano-dots.sh` | Backup versionado del proyecto | [kuri-sun/sano-dots](https://github.com/kuri-sun/dotfiles) |
+| `sync-sano-dots.sh` | Sincronizar ~/.config/ ↔ repo | [kuri-sun/sano-dots](https://github.com/kuri-sun/dotfiles) |
+| `install-master.sh` | Instalación completa (con auto-backup) | [kuri-sun/sano-dots](https://github.com/kuri-sun/dotfiles) |
 
 ### Comandos de Backup
 ```bash
 cd ~/Documentos/dotfiles
-./scripts/backup-kuri-dots.sh backup    # Crear backup
-./scripts/backup-kuri-dots.sh list       # Ver backups
-./scripts/backup-kuri-dots.sh restore    # Restaurar latest
+./scripts/backup-sano-dots.sh backup    # Crear backup
+./scripts/backup-sano-dots.sh list       # Ver backups
+./scripts/backup-sano-dots.sh restore    # Restaurar latest
 ```
 
 ### Comandos de Sync
 ```bash
-./scripts/sync-kuri-dots.sh status       # Ver diferencias
-./scripts/sync-kuri-dots.sh pull-local   # Traer del repo
-./scripts/sync-kuri-dots.sh push-repo    # Subir al repo
-./scripts/sync-kuri-dots.sh diff eww     # Comparar directorio
+./scripts/sync-sano-dots.sh status       # Ver diferencias
+./scripts/sync-sano-dots.sh pull-local   # Traer del repo
+./scripts/sync-sano-dots.sh push-repo    # Subir al repo
+./scripts/sync-sano-dots.sh diff eww     # Comparar directorio
 ```
 
 ---

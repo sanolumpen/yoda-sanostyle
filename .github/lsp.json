@@ -1,0 +1,43 @@
+{
+  "lspServers": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "fileExtensions": {
+        ".sh": "bash",
+        ".bash": "bash"
+      }
+    },
+    "python": {
+      "command": "pyright",
+      "args": ["--outputjson"],
+      "fileExtensions": {
+        ".py": "python"
+      }
+    },
+    "json": {
+      "command": "vscode-json-languageserver",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".json": "json",
+        ".jsonc": "json"
+      }
+    },
+    "yaml": {
+      "command": "yaml-language-server",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".yaml": "yaml",
+        ".yml": "yaml"
+      }
+    },
+    "css": {
+      "command": "css-languageserver",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".css": "css",
+        ".scss": "scss"
+      }
+    }
+  }
+}

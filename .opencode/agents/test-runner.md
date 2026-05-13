@@ -1,6 +1,6 @@
 # Test Runner Agent
 
-Ejecutor de tests BATS y pytest para Kuri-Dots.
+Ejecutor de tests BATS y pytest para Sano Dots.
 
 ## Rol
 

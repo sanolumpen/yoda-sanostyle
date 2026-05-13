@@ -1,6 +1,6 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════
-# BATS Installation Script - Kuri-Dots Testing Suite
+# BATS Installation Script - Sano Dots Testing Suite
 # ═══════════════════════════════════════════════════════════════════
 
 set -e
@@ -71,7 +71,7 @@ main() {
     local os=$(detect_os)
     
     echo "╔════════════════════════════════════════════════════════════╗"
-    echo "║         BATS Installation for Kuri-Dots                   ║"
+    echo "║         BATS Installation for Sano Dots                   ║"
     echo "╚════════════════════════════════════════════════════════════╝"
     echo ""
     log "Detected OS: $os"

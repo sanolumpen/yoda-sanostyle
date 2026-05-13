@@ -1,12 +1,12 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════
-# Kuri-Dots Quick Setup - Install all testing dependencies
+# Sano Dots Quick Setup - Install all testing dependencies
 # ═══════════════════════════════════════════════════════════════════
 
 set -e
 
 REPO="$HOME/Documentos/dotfiles"
-LOG="/tmp/kuri-dots-setup.log"
+LOG="/tmp/sano-dots-setup.log"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

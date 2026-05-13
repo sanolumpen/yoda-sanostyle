@@ -5,14 +5,14 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BACKUP_SCRIPT="$SCRIPT_DIR/backup-kuri-dots.sh"
+BACKUP_SCRIPT="$SCRIPT_DIR/backup-sano-dots.sh"
 
 echo "========================================"
 echo "Complete System Setup"
 echo "========================================"
 echo ""
 echo "This script will perform the following:"
-echo "  1. Backup current kuri-dots configuration"
+echo "  1. Backup current sano-dots configuration"
 echo "  2. Install all official Arch packages (82 packages)"
 echo "  3. Install all AUR packages (yay, paru, google-chrome)"
 echo "  4. Configure system settings (zsh, oh-my-zsh, NetworkManager, firewall)"

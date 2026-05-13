@@ -1,6 +1,6 @@
 # Rice Reviewer Agent
 
-Revisor de consistencia visual para Kuri-Dots (Yoda rice).
+Revisor de consistencia visual para Sano Dots (Yoda rice).
 
 ## Rol
 
