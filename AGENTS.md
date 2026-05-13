@@ -15,19 +15,22 @@
 
 ## Skills Disponibles
 
-| Skill | Categoría | Trigger |
-|-------|-----------|---------|
-| [bash_rice_expert](./skills/bash_rice_expert.md) | Shell/Scripts | Scripts de Bash, wrappers, entorno Wayland |
-| [eww_yuck_expert](./skills/eww_yuck_expert.md) | Widgets/EWW | Crear/modificar widgets EWW |
-| [lisp_eww_expert](./skills/lisp_eww_expert.md) | Sintaxis/Yuck | Sintaxis Yuck, expresiones |
-| [eww_backend_expert](./skills/eww_backend_expert.md) | Backend/Python | Scripts Python para widgets |
-| [python_expert](./skills/python_expert.md) | Python | Scripts Python generales |
-| [waybar_expert](./skills/waybar_expert.md) | Bar/Status | Configuración de Waybar |
-| [alacritty_expert](./skills/alacritty_expert.md) | Terminal | Configuración de Alacritty |
-| [btop_expert](./skills/btop_expert.md) | Monitor | Configuración de btop |
-| [nemo_expert](./skills/nemo_expert.md) | File Manager | Configuración de Nemo |
-| [css_rice_expert](./skills/css_rice_expert.md) | Styling | Temas GTK3, CSS para EWW |
-| [testing_expert](./skills/testing_expert.md) | Testing | Tests BATS, pytest, agentización |
+| Skill (dotfiles) | Skill (OpenCode) | Categoría | Trigger |
+|---|---|---|---|
+| [bash_rice_expert](./skills/bash_rice_expert.md) | `kuri-dots-bash` | Shell/Scripts | Scripts de Bash, wrappers, entorno Wayland |
+| [eww_yuck_expert](./skills/eww_yuck_expert.md) | `kuri-dots-eww` | Widgets/EWW | Crear/modificar widgets EWW |
+| [lisp_eww_expert](./skills/lisp_eww_expert.md) | → `kuri-dots-eww` | Sintaxis/Yuck | Sintaxis Yuck, expresiones |
+| [eww_backend_expert](./skills/eww_backend_expert.md) | → `kuri-dots-eww` | Backend/Python | Scripts Python para widgets |
+| [python_expert](./skills/python_expert.md) | → `kuri-dots-eww` | Python | Scripts Python generales |
+| [waybar_expert](./skills/waybar_expert.md) | `kuri-dots-waybar` | Bar/Status | Configuración de Waybar |
+| [alacritty_expert](./skills/alacritty_expert.md) | `kuri-dots-terminal` | Terminal | Alacritty, Kitty, Tmux |
+| [css_rice_expert](./skills/css_rice_expert.md) | `kuri-dots-styling` | Styling | Temas GTK3, paleta Yoda, CSS |
+| [testing_expert](./skills/testing_expert.md) | `kuri-dots-testing` | Testing | Tests BATS, pytest, agentización |
+| | `kuri-dots-hyprland` | WM | Hyprland, hyprlock, NVIDIA |
+| | `kuri-dots-neovim` | Editor | Neovim LazyVim |
+| | `kuri-dots-utils` | Utilidades | wofi, wlogout, mako, btop, cava, etc |
+| | `kuri-dots-dev` | Dev Tools | lazygit, lazydocker |
+| | `kuri-dots-zsh` | Shell | .zshrc, oh-my-zsh |
 
 ---
 
@@ -62,6 +65,8 @@ trigger: Cuándo usar este skill
 
 - ✅ Agregado skill de **testing_expert** con BATS + pytest
 - ✅ Agregada agentización de pruebas con LLM-as-judge
+- ✅ Creados 8 nuevos skills OpenCode: waybar, hyprland, neovim, terminal, styling, utils, dev, zsh
+- ✅ AGENTS.md ahora mapea skills dotfiles ↔ skills OpenCode
 - ✅ Actualizadas referencias a versiones 2026
 
 ---

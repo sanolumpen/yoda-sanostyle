@@ -1,13 +1,13 @@
 // -*- mode: jsonc -*-
 {
-  "height": 40,
+  "height": 41,
   "spacing": 4,
   "margin-top": 8,
   "margin-left": 16,
   "margin-right": 20,
-  "modules-left": ["clock", "custom/gcal_next", "custom/brave", "custom/discord", "custom/steam", "custom/gdevelop", "custom/launchers"],
+  "modules-left": ["clock", "custom/gcal_next", "custom/brave", "custom/discord", "custom/steam", "custom/gdevelop", "custom/obs", "custom/launchers"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["custom/settings", "pulseaudio", "network", "battery", "custom/language_toggle", "custom/language", "custom/power"],
+  "modules-right": ["custom/settings", "wireplumber", "network", "battery", "custom/language_toggle", "custom/language", "custom/power"],
 
   "hyprland/workspaces": {
     "format": "",
@@ -19,7 +19,7 @@
   },
 
   "clock": {
-    "format": "{:%B %d  %I:%M %p}",
+    "format": "<span size='larger'></span>  <span size='smaller'>{:%B %d  %I:%M %p}</span>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%I:%M %p}"
   },
@@ -28,26 +28,29 @@
     "states": { "good": 80, "warning": 30, "critical": 15 },
     "format": "{icon}",
     "format-full": "{icon}",
-    "format-charging": "󱐋",
+    "format-charging": "",
     "format-icons": ["", "", "", "", ""],
     "tooltip-format": "{capacity}% - {timeTo}"
   },
 
   "network": {
-    "format-wifi": "󰤢",
-    "format-ethernet": "󰈀",
+    "format-ethernet": "",
+    "format-wifi": "",
     "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}",
-    "format-disconnected": "󰤭",
+    "format-disconnected": "",
     "on-click": "nm-connection-editor"
   },
 
-  "pulseaudio": {
-    "backend": "pipewire",
-    "format": "󰾭",
-    "format-muted": "󰝟",
+  "wireplumber": {
+    "format": "{icon} <span size='smaller'>{volume}%</span>",
+    "format-icons": ["", "", ""],
+    "format-muted": " <span size='smaller'>0%</span>",
     "tooltip-format": "{volume}%",
     "tooltip": true,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5
   },
 
   "custom/language": {
@@ -58,19 +61,19 @@
   },
 
   "custom/language_toggle": {
-    "format": "󰗊",
+    "format": "",
     "tooltip-format": "Change Language / Cambiar Idioma",
     "on-click": "~/.config/eww/scripts/toggle_lang.sh"
   },
 
   "custom/settings": {
-    "format": "󰒘",
+    "format": "",
     "tooltip-format": "Desktop Settings / Configuración",
     "on-click": "eww open --toggle settings_window"
   },
 
   "custom/power": {
-    "format": "⏻",
+    "format": "",
     "tooltip": false,
     "on-click": "~/.config/wlogout/wlogout.sh"
   },
@@ -78,20 +81,20 @@
   "custom/gcal_next": {
     "exec": "~/.config/eww/scripts/gcal_wrapper.sh next",
     "interval": 300,
-    "format": "{}",
-    "max-length": 30,
+    "format": "<span size='larger'></span>  <span size='smaller'>{}</span>",
+    "max-length": 35,
     "tooltip": false,
     "on-click": "eww open date_window"
   },
 
   "custom/launchers": {
-    "format": "{}",
-    "tooltip": false,
+    "format": "",
+    "tooltip": "Search Apps / Buscar Aplicaciones",
     "on-click": "wofi --show drun"
   },
 
   "custom/brave": {
-    "format": "󰈟",
+    "format": "",
     "tooltip": "Brave Browser",
     "on-click": "~/.config/waybar/scripts/launch-app.sh brave"
   },
@@ -103,14 +106,20 @@
   },
 
   "custom/steam": {
-    "format": "󰓛",
+    "format": "",
     "tooltip": "Steam",
     "on-click": "~/.config/waybar/scripts/launch-app.sh steam"
   },
 
   "custom/gdevelop": {
-    "format": "󰈙",
+    "format": "",
     "tooltip": "GDevelop 5",
     "on-click": "~/.config/waybar/scripts/launch-app.sh gdevelop5"
+  },
+
+  "custom/obs": {
+    "format": "",
+    "tooltip": "OBS Studio",
+    "on-click": "~/.config/waybar/scripts/launch-app.sh obs"
   }
 }

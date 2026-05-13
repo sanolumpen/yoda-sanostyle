@@ -4,6 +4,33 @@
 
 ---
 
+## [2026-05-13] v2.1 — OpenCode Agents & Waybar Visual Overhaul
+
+### Added
+- **Fase 1 — Skills OpenCode**: 8 nuevos skills en `~/.config/opencode/skills/`: waybar, hyprland, neovim, terminal, styling, utils, dev, zsh
+- **Fase 2 — Config de proyecto**: `opencode.json` con permisos, instructions, y 4 agentes subagente
+- **Agentes opencode**: `@rice-reviewer`, `@visual-designer`, `@sync-manager`, `@test-runner`
+- **Botón OBS**: Nuevo módulo en waybar con icono  (video-camera)
+- **Scroll de volumen**: `on-scroll-up/down` con wpctl en wireplumber
+
+### Changed
+- **Waybar icons**: Reemplazados todos los iconos rotos (custom NF range) por FontAwesome 4.x
+- **WirePlumber**: Migrado de pulseaudio a wireplumber (volumen nativo PipeWire)
+- **Waybar CSS**: Overhaul visual completo — border-radius, glow neón, gradientes, pills, color-coding
+- **Waybar height**: 40px → 41px (+3%)
+- **Font sizes**: Base 14px → 15.2px, app icons 17.3px → 19px
+- **Pango markup**: Iconos de reloj y calendario con `<span size='larger'>`, texto con `<span size='smaller'>`
+- **AGENTS.md**: Tabla unificada skills dotfiles ↔ skills OpenCode
+- **Fcitx5 icon**: `󰟓` → `` (keyboard, FA4)
+- **Power icon**: `⏻` (unicode) → `` (power-off)
+
+### Fixed
+- Iconos de Nerd Font custom range (U+30000+) que no existían en Iosevka NF
+- Network icons (ethernet →, disconnected 睊→)
+- Pulseaudio muted icon (→)
+
+---
+
 ## [2026-05-11] v2.0 - Yoda Theme Complete
 
 ### Added

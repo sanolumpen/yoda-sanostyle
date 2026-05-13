@@ -18,22 +18,23 @@ trigger: Configurar o modificar Waybar, módulos, estilos CSS
 ```
 ~/.config/waybar/
 ├── config.jsonc    # Configuración principal
-├── style.css       # Estilos
-├── scripts/       # Scripts auxiliares
-└── asd/           # Módulos adicionales
+├── style.css       # Estilos visuales (Yoda neon theme)
+└── scripts/        # Scripts auxiliares
 ```
 
 ### Módulos Activos
-- **Left:** clock, custom/gcal_next
+- **Left:** clock, custom/gcal_next, custom/brave (), custom/discord (), custom/steam (), custom/gdevelop (), custom/launchers ()
 - **Center:** hyprland/workspaces
-- **Right:** custom/settings, pulseaudio, network, battery, custom/language_toggle, custom/language, custom/power
+- **Right:** custom/settings (), wireplumber, network, battery, custom/language_toggle (), custom/language (), custom/power ()
 
 ### Módulos Configurados
-- Clock (fecha/hora con tooltip calendario)
-- Battery (estados: good 80%, warning 30%, critical 15%)
-- Network (wifi/ethernet, editor de conexiones)
-- PulseAudio (backend pipewire, control de volumen)
-- Custom scripts: fcitx5-status, toggle_lang, gcal_wrapper
+- Clock (fecha/hora con tooltip calendario, icono )
+- Battery (estados: good/warning/critical, iconos -, charging )
+- Network (wifi , ethernet , disconnected , editor de conexiones)
+- WirePlumber (volumen nativo WP, formato `{icon} {volume}%`, scroll con wpctl)
+- Language: fcitx5-status (icono ), toggle_lang (icono )
+- App launchers: brave, discord, steam, gdevelop, wofi search ()
+- Power (), Settings (), gcal_next ()
 
 ## Reglas de Oro para Waybar
 
@@ -46,7 +47,7 @@ trigger: Configurar o modificar Waybar, módulos, estilos CSS
 1. **clock** - Fecha/hora con formato Pango
 2. **battery** - Estado de batería con iconos
 3. **network** - Conexiones wifi/ethernet
-4. **pulseaudio** - Audio (backend pipewire/wireplumber)
+4. **wireplumber** - Audio nativo (lee sinks reales de PipeWire, reemplaza pulseaudio)
 5. **hyprland/workspaces** - Workspaces de Hyprland
 6. **tray** - Bandeja del sistema
 
@@ -62,10 +63,27 @@ trigger: Configurar o modificar Waybar, módulos, estilos CSS
 - `on-click-right`, `on-click-middle`
 - `on-scroll-up`, `on-scroll-down`
 
-### Estilos CSS
+### Estilos CSS (Yoda Neon Theme)
 - Selectores: `window#waybar`, `#mods`, `.module`
 - Estados: `*.urgent`, `*.warning`, `*.critical`
 - Transiciones CSS funcionan
+- **Barra:** border-radius 16px, gradient background, neon green border sutil
+- **Workspaces:** pills redondeadas, active con fondo verde sólido + glow
+- **Módulos:** backgrounds semitransparentes con border-radius 8px
+- **Color-coding por función:** verde neón (sistema), azul (settings), rojo (power)
+- **Hover:** glow + text-shadow + box-shadow en todos los módulos interactivos
+- **Tooltips:** glassmorphism con border-radius 10px
+
+### Paleta Visual
+| Elemento | Color | Uso |
+|----------|-------|-----|
+| Fondo barra | `#050705` con gradiente | Fondo principal |
+| Verde neón | `#00ff99` | Active, hover, glow |
+| Texto | `#b9f6ca` | Texto secundario |
+| Azul UNAHUR | `#4fc3f7` | Settings/accesos |
+| Rojo power | `#ff4444` | Power/botón peligro |
+| Amarillo | `#ffee58` | Battery warning |
+| Rojo crítico | `#ff4d4d` | Battery critical + blink |
 
 ## Solución de Problemas
 

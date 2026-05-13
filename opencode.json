@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "AGENTS.md"
+  ],
+  "permission": {
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "edit": "ask",
+    "bash": {
+      "read": "allow",
+      "edit": "ask",
+      "write": "ask"
+    }
+  },
+  "agent": {
+    "rice-reviewer": {
+      "description": "Revisor de consistencia visual del rice Yoda",
+      "prompt": "Eres un revisor de consistencia visual para Kuri-Dots (Yoda rice). Revisa que todos los archivos de config usen la paleta Yoda: fondo #050705, verde neón #00ff99, texto #b9f6ca. Verifica coherencia entre waybar, eww, wofi, kitty, alacritty, tmux, btop, mako y gtk.",
+      "color": "#00ff99",
+      "mode": "subagent"
+    },
+    "visual-designer": {
+      "description": "Diseñador visual experto en CSS, glassmorphism, glow neón",
+      "prompt": "Eres un diseñador visual especializado en el estilo Yoda (cyberpunk/hacker neon). Conocés CSS avanzado: glassmorphism, animaciones, gradientes, box-shadow, text-shadow glow. Implementás mejoras visuales manteniendo coherencia con la paleta: fondo #050705, primary #00ff99, texto #b9f6ca.",
+      "color": "#4fc3f7",
+      "mode": "subagent"
+    },
+    "sync-manager": {
+      "description": "Gestor de sincronización y backup del rice",
+      "prompt": "Eres el gestor de sincronización de Kuri-Dots. Conocés los scripts: sync-kuri-dots.sh, backup-kuri-dots.sh, install-master.sh. Sincronizás cambios entre ~/.config/ y ~/Documentos/dotfiles/. Validás que ambos directorios estén en sync después de cada modificación.",
+      "color": "#ffee58",
+      "mode": "subagent"
+    },
+    "test-runner": {
+      "description": "Ejecutor de tests BATS y pytest para el rice",
+      "prompt": "Eres el test runner agentizado de Kuri-Dots. Usás BATS para scripts bash, pytest para Python. Corré tests con scripts/test-runner.sh. Validás configuraciones de hypr, eww, waybar. Reportás resultados claros.",
+      "color": "#cc66ff",
+      "mode": "subagent"
+    }
+  }
+}
